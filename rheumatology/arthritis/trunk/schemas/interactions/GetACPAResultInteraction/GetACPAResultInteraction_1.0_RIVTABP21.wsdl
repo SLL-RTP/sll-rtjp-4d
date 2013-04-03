@@ -18,11 +18,10 @@
  under the License.
  -->		
 <wsdl:definitions name='GetACPAResultInteraction' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:tjsr='urn:riv:rheumatology:arthritis:GetACPAResultResponder:1' xmlns:tjsi='urn:riv:rheumatology:arthritis:GetACPAResultInitiator:1' xmlns:tns='urn:riv:rheumatology:arthritis:GetACPAResult:1:rivtabp21' targetNamespace='urn:riv:rheumatology:arthritis:GetACPAResult:1:rivtabp21' xmlns:itr='urn:riv:itintegration:registry:1'>
-  <xs:annotation>
+  <!-- <xs:annotation>
     <xs:documentation>
 			 Tjänsteinteraktionens namn: GetACPAResultInteraction
 			 Beskrivning: 
-			   Submission of medical health reports to the Swedish social insurance institutions
 			 Revisioner: 
 			 Tjänstedomän: rheumatology:arthritis
 			 Tjänsteinteraktionstyp: Fråga-Svar
@@ -30,6 +29,7 @@
 			 Förvaltas av: Stockholms Läns Landsting
 			 </xs:documentation>
   </xs:annotation>
+  -->
   <wsdl:types>
     <xs:schema targetNamespace='urn:riv:rheumatology:arthritis:GetACPAResult:1:rivtabp21'>
       <xs:import schemaLocation='GetACPAResultResponder_1.0.xsd' namespace='urn:riv:rheumatology:arthritis:GetACPAResultResponder:1' />

@@ -8,14 +8,14 @@
 	
 	<xs:annotation>
 		<xs:documentation>
-			Beskrivning: 	Grundl��ggande informationsobjekt f��r dom��nen itintegration:registry (adressering av tj��nster)
+			Beskrivning: 	Grundläggande informationsobjekt för domänen itintegration:registry (adressering av tjänster)
 			
 			Revisionshistorik: 2011-06-27 Mats Ekhammar, Callista Enterprise AB
 				Added ServiceContractType
 			
 			Datum:			2011-05-04
 			Beskrivning:	Initial version
-			F��rfattare:		marcus.krantz@callistaenterprise.se
+			Författare:		marcus.krantz@callistaenterprise.se
 		</xs:documentation>
 	</xs:annotation>
 	

@@ -4,12 +4,13 @@
   <groupId>se.rivta.tools</groupId>
   <artifactId>rheumatology-arthritis-schemas</artifactId>
   <packaging>jar</packaging>
-  <version>1</version>
+  <version>1.0-SNAPSHOT</version>
   <name>rheumatology-arthritis-schemas</name>
   <url>http://maven.apache.org</url>
   <properties>
     <schema.path>${basedir}/../schemas</schema.path>
-    <cxf.version>2.2.2</cxf.version>
+    <cxf.version>2.6.1</cxf.version>
+	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies/>
   <repositories>
@@ -42,7 +43,10 @@
             <id>generate-sources</id>
             <phase>generate-sources</phase>
             <configuration>
+			<fork>once</fork>
+			<additionalJvmArgs>-Dfile.encoding=UTF-8</additionalJvmArgs>
               <sourceRoot>${basedir}/target/generated/src/main/java</sourceRoot>
+            <validate>true</validate>
               <wsdlOptions>
                 <wsdloption>
                   <wsdl>${schema.path}/./interactions/GetACPAResultInteraction/GetACPAResultInteraction_1.0_RIVTABP21.wsdl</wsdl>
@@ -71,6 +75,7 @@
       </plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
+		<version>2.5.1</version>
         <configuration>
           <source>1.6</source>
           <target>1.6</target>

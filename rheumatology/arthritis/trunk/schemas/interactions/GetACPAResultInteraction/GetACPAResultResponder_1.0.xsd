@@ -19,18 +19,20 @@
  -->		
 <xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:tns='urn:riv:rheumatology:arthritis:GetACPAResultResponder:1' xmlns:core='urn:riv:rheumatology:arthritis:1' targetNamespace='urn:riv:rheumatology:arthritis:GetACPAResultResponder:1' elementFormDefault='qualified' attributeFormDefault='unqualified' version='1.0'>
   <xs:import schemaLocation='../../core_components/rheumatology_arthritis_1.0.xsd' namespace='urn:riv:rheumatology:arthritis:1' />
+  
   <xs:element name='GetACPAResult' type='tns:GetACPAResultType' />
   <xs:element name='GetACPAResultResponse' type='tns:GetACPAResultResponseType' />
+ 
   <xs:complexType name='GetACPAResultType'>
     <xs:sequence>
-      <xs:element name='personNumber' type='xs:string' />
+      <xs:element name="patientId" type="core:PatientIdType"/>
       <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
     </xs:sequence>
   </xs:complexType>
   
   <xs:complexType name='GetACPAResultResponseType'>
     <xs:sequence>
-      <xs:element name='ResultCode' type='tns:ResultCodeEnum' />
+      <xs:element name='resultCode' type='tns:ResultCodeEnum' />
       <xs:element name='comment' type='xs:string' minOccurs='0' />
       <xs:element name='ACPAResult' type="tns:ACPAResultType" />
       <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
