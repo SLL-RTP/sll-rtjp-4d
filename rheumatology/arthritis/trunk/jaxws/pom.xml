@@ -82,5 +82,10 @@
         </configuration>
       </plugin>
     </plugins>
+     <resources>
+    <resource>
+        <directory>${schema.path}</directory>
+      </resource>
+    </resources>
   </build>
 </project>
