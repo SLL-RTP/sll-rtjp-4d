@@ -26,8 +26,8 @@
   <xs:complexType name='GetLabResultsType'>
     <xs:sequence>
       <xs:element name='patientId' type='core:PatientIdType' />
-      <xs:element name="startTime" type="xs:dateTime" minOccurs="0"/>
-      <xs:element name="endTime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="startDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="endDate" type="xs:date" minOccurs="0"/>
       <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
     </xs:sequence>
   </xs:complexType>
