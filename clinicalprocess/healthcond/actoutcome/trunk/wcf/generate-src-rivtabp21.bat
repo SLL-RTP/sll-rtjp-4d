@@ -23,19 +23,19 @@
 	
 	SET SCHEMADIR=schemas
 	
-	SET W0=%SCHEMADIR%\interactions\GetLabResultsInteraction\GetLabResultsInteraction_1.0_RIVTABP21.wsdl
-SET X0=%SCHEMADIR%\interactions\GetLabResultsInteraction\*.xsd
+	SET W0=%SCHEMADIR%\interactions\GetClinicalChemistryLabOrderOutcomeInteraction\GetClinicalChemistryLabOrderOutcomeInteraction_1.0_RIVTABP21.wsdl
+SET X0=%SCHEMADIR%\interactions\GetClinicalChemistryLabOrderOutcomeInteraction\*.xsd
 
 SET XCORE=%SCHEMADIR%\core_components\*.xsd
 
 SET SCHEMAS=%XCORE% %W0% %X0% 
 
-SET OUTFILE=/out:wcf\generated-src\ClinicalprocessHealthreportingInteractions.cs
+SET OUTFILE=/out:wcf\generated-src\ClinicalprocessHealthcondActoutcomeInteractions.cs
 SET APPCONFIG=/config:wcf\generated-src\app.config
-SET NAMESPACE=/namespace:*,Riv.Clinicalprocess.Healthreporting.Schemas.v1
+SET NAMESPACE=/namespace:*,Riv.Clinicalprocess.Healthcond.Actoutcome.Schemas.v1
 SET SVCUTIL="svcutil.exe"
 %SVCUTIL% /language:cs %OUTFILE% %APPCONFIG% %NAMESPACE% %SCHEMAS%
 
 CD wcf
-ECHO Generating Service contract .Net Binding interfaces and classes for clinicalprocess:healthreporting Release 1
+ECHO Generating Service contract .Net Binding interfaces and classes for clinicalprocess:healthcond:actoutcome Release 1
 ECHO I DotNetprojektet ska du ta lagga till referens till System.ServiceModel

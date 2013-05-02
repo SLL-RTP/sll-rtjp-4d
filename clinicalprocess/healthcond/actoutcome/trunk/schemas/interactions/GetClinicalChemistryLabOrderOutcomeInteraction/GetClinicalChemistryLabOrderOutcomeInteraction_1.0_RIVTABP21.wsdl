@@ -16,19 +16,19 @@
  KIND, either express or implied. See the License for the
  specific language governing permissions and limitations
  under the License.
- -->		
+ -->    
 <wsdl:definitions name='GetLabResultsInteraction' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:tjsr='urn:riv:clinicalprocess:healthreporting:GetLabResultsResponder:1' xmlns:tjsi='urn:riv:clinicalprocess:healthreporting:GetLabResultsInitiator:1' xmlns:tns='urn:riv:clinicalprocess:healthreporting:GetLabResults:1:rivtabp21' targetNamespace='urn:riv:clinicalprocess:healthreporting:GetLabResults:1:rivtabp21' xmlns:itr='urn:riv:itintegration:registry:1'>
 <!--  <xs:annotation>
     <xs:documentation>
-			 Tjänsteinteraktionens namn: GetLabResultsInteraction
-			 Beskrivning: 
-			   Begäran om labbsvar från journal
-			 Revisioner: 
-			 Tjänstedomän: clinicalprocess:healthreporting
-			 Tjänsteinteraktionstyp: Fråga-Svar
-			 WS-profil: RIVTABP21
-			 Förvaltas av: Stockholms Läns Landsting
-			 </xs:documentation>
+       Tjänsteinteraktionens namn: GetLabResultsInteraction
+       Beskrivning: 
+         Begäran om labbsvar från journal
+       Revisioner: 
+       Tjänstedomän: clinicalprocess:healthreporting
+       Tjänsteinteraktionstyp: Fråga-Svar
+       WS-profil: RIVTABP21
+       Förvaltas av: Stockholms Läns Landsting
+       </xs:documentation>
   </xs:annotation>-->
   <wsdl:types>
     <xs:schema targetNamespace='urn:riv:clinicalprocess:healthreporting:GetLabResults:1:rivtabp21'>

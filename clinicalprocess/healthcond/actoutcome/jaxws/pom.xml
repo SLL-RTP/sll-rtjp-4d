@@ -54,15 +54,15 @@
                     <extraarg>-p</extraarg>
                     <extraarg>http://www.w3.org/2005/08/addressing=org.w3c.addressing.v1</extraarg>
                     <extraarg>-p</extraarg>
-                    <extraarg>urn:riv:clinicalprocess:healthreporting:GetLabResultsResponder:1=se.riv.clinicalprocess.healthreporting.getlabresultsresponder.v1</extraarg>
+                    <extraarg>urn:riv:clinicalprocess:healthcond:actoutcome:GetLabResultsResponder:1=se.riv.clinicalprocess.healthreporting.getlabresultsresponder.v1</extraarg>
                     <extraarg>-p</extraarg>
-                    <extraarg>urn:riv:clinicalprocess:healthreporting:GetLabResultsInitiator:1=se.riv.clinicalprocess.healthreporting.getlabresultsinitiator.v1</extraarg>
+                    <extraarg>urn:riv:clinicalprocess:healthcond:actoutcome:GetLabResultsInitiator:1=se.riv.clinicalprocess.healthreporting.getlabresultsinitiator.v1</extraarg>
                     <extraarg>-p</extraarg>
-                    <extraarg>urn:riv:clinicalprocess:healthreporting:GetLabResults:1:rivtabp21=se.riv.clinicalprocess.healthreporting.getlabresults.v1.rivtabp21</extraarg>
+                    <extraarg>urn:riv:clinicalprocess:healthcond:actoutcome:GetLabResults:1:rivtabp21=se.riv.clinicalprocess.healthreporting.getlabresults.v1.rivtabp21</extraarg>
                     <extraarg>-p</extraarg>
                     <extraarg>urn:riv:itintegration:registry:1=se.riv.itintegration.registry.v1</extraarg>
                     <extraarg>-p</extraarg>
-                    <extraarg>urn:riv:clinicalprocess:healthreporting:1=se.riv.clinicalprocess.healthreporting.v1</extraarg>
+                    <extraarg>urn:riv:clinicalprocess:healthcond:actoutcome:1=se.riv.clinicalprocess.healthreporting.v1</extraarg>
                   </extraargs>
                 </wsdloption>
               </wsdlOptions>

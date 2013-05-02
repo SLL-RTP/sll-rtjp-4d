@@ -17,13 +17,13 @@
  specific language governing permissions and limitations
  under the License.
  -->		
-<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:tns='urn:riv:clinicalprocess:healthreporting:GetLabResultsResponder:1' xmlns:core='urn:riv:clinicalprocess:healthreporting:1' targetNamespace='urn:riv:clinicalprocess:healthreporting:GetLabResultsResponder:1' elementFormDefault='qualified' attributeFormDefault='unqualified' version='1.0'>
-  <xs:import schemaLocation='../../core_components/clinicalprocess_healthreporting_1.0.xsd' namespace='urn:riv:clinicalprocess:healthreporting:1' />
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:tns='urn:riv:clinicalprocess:healthcond:actoutcome:GetClinicalChemistryLabOrderOutcomeResponder:1' xmlns:core='urn:riv:clinicalprocess:healthcond:actoutcome:1' targetNamespace='urn:riv:clinicalprocess:healthcond:actoutcome:GetClinicalChemistryLabOrderOutcomeResponder:1' elementFormDefault='qualified' attributeFormDefault='unqualified' version='1.0'>
+  <xs:import schemaLocation='../../core_components/clinicalprocess_healthcond_actoutcome_1.0.xsd' namespace='urn:riv:clinicalprocess:healthcond:actoutcome:1' />
   
-  <xs:element name='GetLabResults' type='tns:GetLabResultsType' />
-  <xs:element name='GetLabResultsResponse' type='tns:GetLabResultsResponseType' />
+  <xs:element name='GetClinicalChemistryLabOrderOutcome' type='tns:GetClinicalChemistryLabOrderOutcomeType' />
+  <xs:element name='GetClinicalChemistryLabOrderOutcomeResponse' type='tns:GetClinicalChemistryLabOrderOutcomeResponseType' />
   
-  <xs:complexType name='GetLabResultsType'>
+  <xs:complexType name='GetClinicalChemistryLabOrderOutcomeType'>
     <xs:sequence>
       <xs:element name='patientId' type='core:PatientIdType' />
       <xs:element name="startDate" type="xs:date" minOccurs="0"/>
@@ -33,7 +33,7 @@
   </xs:complexType>
   
   
-  <xs:complexType name='GetLabResultsResponseType'>
+  <xs:complexType name='GetClinicalChemistryLabOrderOutcomeResponseType'>
     <xs:sequence>
       <xs:element name='resultCode' type='tns:ResultCodeEnum' />
       <xs:element name='comment' type='xs:string' minOccurs='0' />
