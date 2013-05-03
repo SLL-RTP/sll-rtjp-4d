@@ -2,10 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>se.rivta.tools</groupId>
-  <artifactId>clinicalprocess-healthreporting-schemas</artifactId>
+  <artifactId>clinicalprocess-healthcond-actoutcome-schemas</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>clinicalprocess-healthreporting-schemas</name>
+  <name>clinicalprocess-healthcond-actoutcome-schemas</name>
   <url>http://maven.apache.org</url>
   <properties>
     <schema.path>${basedir}/../schemas</schema.path>
@@ -49,16 +49,16 @@
             <validate>true</validate>
               <wsdlOptions>
                 <wsdloption>
-                  <wsdl>${schema.path}/interactions/GetLabResultsInteraction/GetLabResultsInteraction_1.0_RIVTABP21.wsdl</wsdl>
+                  <wsdl>${schema.path}/interactions/GetClinicalChemistryLabOrderOutcomeInteraction/GetClinicalChemistryLabOrderOutcomeInteraction_1.0_RIVTABP21.wsdl</wsdl>
                   <extraargs>
                     <extraarg>-p</extraarg>
                     <extraarg>http://www.w3.org/2005/08/addressing=org.w3c.addressing.v1</extraarg>
                     <extraarg>-p</extraarg>
-                    <extraarg>urn:riv:clinicalprocess:healthcond:actoutcome:GetLabResultsResponder:1=se.riv.clinicalprocess.healthreporting.getlabresultsresponder.v1</extraarg>
+                    <extraarg>urn:riv:clinicalprocess:healthcond:actoutcome:GetClinicalChemistryLabOrderOutcomeResponder:1=se.riv.clinicalprocess.healthreporting.GetClinicalChemistryLabOrderOutcomeresponder.v1</extraarg>
                     <extraarg>-p</extraarg>
-                    <extraarg>urn:riv:clinicalprocess:healthcond:actoutcome:GetLabResultsInitiator:1=se.riv.clinicalprocess.healthreporting.getlabresultsinitiator.v1</extraarg>
+                    <extraarg>urn:riv:clinicalprocess:healthcond:actoutcome:GetClinicalChemistryLabOrderOutcomeInitiator:1=se.riv.clinicalprocess.healthreporting.GetClinicalChemistryLabOrderOutcomeinitiator.v1</extraarg>
                     <extraarg>-p</extraarg>
-                    <extraarg>urn:riv:clinicalprocess:healthcond:actoutcome:GetLabResults:1:rivtabp21=se.riv.clinicalprocess.healthreporting.getlabresults.v1.rivtabp21</extraarg>
+                    <extraarg>urn:riv:clinicalprocess:healthcond:actoutcome:GetClinicalChemistryLabOrderOutcome:1:rivtabp21=se.riv.clinicalprocess.healthreporting.GetClinicalChemistryLabOrderOutcome.v1.rivtabp21</extraarg>
                     <extraarg>-p</extraarg>
                     <extraarg>urn:riv:itintegration:registry:1=se.riv.itintegration.registry.v1</extraarg>
                     <extraarg>-p</extraarg>
