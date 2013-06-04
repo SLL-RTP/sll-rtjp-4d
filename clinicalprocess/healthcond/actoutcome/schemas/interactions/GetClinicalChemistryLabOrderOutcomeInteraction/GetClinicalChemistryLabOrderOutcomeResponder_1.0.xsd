@@ -37,15 +37,21 @@
     <xs:sequence>
       <xs:element name='resultCode' type='tns:ResultCodeEnum' />
       <xs:element name='comment' type='xs:string' minOccurs='0' />
-      <xs:element name='labResults' type='tns:LabResultType' maxOccurs="unbounded"/>
+      <xs:element name='labResults' type='tns:LabResultsType' maxOccurs="unbounded"/>
+      <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name='LabResultsType'>
+    <xs:sequence>
+      <xs:element name='labResult' type='tns:LabResultType' minOccurs='0' maxOccurs="unbounded"/>
       <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
     </xs:sequence>
   </xs:complexType>
 
-
     <xs:complexType name="LabResultType">
       <xs:sequence>
-        <xs:element name="Analysis" maxOccurs="unbounded">
+        <xs:element name="analysis" maxOccurs="unbounded">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="instanceId" type="xs:string"/>
