@@ -60,26 +60,16 @@
     <xs:restriction base="xs:string"/>
   </xs:simpleType>
   
-  <xs:complexType name="PatientIdType">
+  <xs:simpleType name="PatientIdType">
     <xs:annotation>
       <xs:documentation>
-        id
-          Patientens id.
-          personnummer: yyyymmddnnnn
-          samordningsnummer: yyyymmddnnnn
-          reservnummer: ?
-        type
-          Typ av id. Bland tillåtna typer för finns: 
-          personnummer = '1.2.752.129.2.1.3.1', se http://sv.wikipedia.org/wiki/Personnummer#Sverige
-          samordningsnummer = '1.2.752.129.2.1.3.3', se http://sv.wikipedia.org/wiki/Samordningsnummer
-          reservnummer SLL = '1.2.752.97.3.1.3', se http://sv.wikipedia.org/wiki/Reservnummer
+        personnummer: yyyymmddnnnn
       </xs:documentation>
     </xs:annotation>
-    <xs:sequence>
-      <xs:element name="id" type="xs:string"/>
-      <xs:element name="type" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="^[0-9]{8}[0-9pPtTfF][0-9]{3}$"/>
+    </xs:restriction>
+  </xs:simpleType>
   
   <xs:complexType name="TimePeriodType">
     <xs:annotation>
