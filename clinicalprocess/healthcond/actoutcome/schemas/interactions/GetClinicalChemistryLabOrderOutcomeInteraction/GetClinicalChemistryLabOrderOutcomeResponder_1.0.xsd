@@ -25,6 +25,7 @@
   
   <xs:complexType name='GetClinicalChemistryLabOrderOutcomeType'>
     <xs:sequence>
+      <xs:element name='healthcareFacilityId' type='core:HealthcareFacilityIdType' />
       <xs:element name='patientId' type='core:PatientIdType' />
       <xs:element name="startDate" type="xs:date" minOccurs="0"/>
       <xs:element name="endDate" type="xs:date" minOccurs="0"/>
@@ -37,46 +38,41 @@
     <xs:sequence>
       <xs:element name='resultCode' type='tns:ResultCodeEnum' />
       <xs:element name='comment' type='xs:string' minOccurs='0' />
-      <xs:element name='labResults' type='tns:LabResultsType' maxOccurs="unbounded"/>
+      <xs:element name='labResults' type='tns:LabResultType' minOccurs='0' maxOccurs="unbounded"/>
       <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
     </xs:sequence>
   </xs:complexType>
   
-  <xs:complexType name='LabResultsType'>
+
+  <xs:complexType name="LabResultType">
     <xs:sequence>
-      <xs:element name='labResult' type='tns:LabResultType' minOccurs='0' maxOccurs="unbounded"/>
+      <xs:element name="analysis" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="instanceId" type="xs:string"/>
+            <xs:element name="code" type="tns:CodeType"/>
+            <xs:element name="takenDateTime" type="xs:dateTime"/>
+            <xs:element name="comment" type="xs:string" minOccurs="0"/>
+            <xs:element name="sampleType" type="xs:string" minOccurs="0"/>
+            <xs:element name="resultSummary" type="xs:string"/>
+            <xs:element name="unitOfMeasure" type="xs:string" minOccurs="0"/>
+            <xs:element name="pathological" type="xs:boolean"/>
+            <xs:element name="reference" type="xs:string" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="instanceId" type="xs:string"/>
+      <xs:element name="registeredDateTime" type="xs:dateTime"/>
+      <xs:element name="comment" type="xs:string" minOccurs="0"/>
       <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
     </xs:sequence>
   </xs:complexType>
-
-    <xs:complexType name="LabResultType">
-      <xs:sequence>
-        <xs:element name="analysis" maxOccurs="unbounded">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="instanceId" type="xs:string"/>
-              <xs:element name="code" type="tns:CodeType"/>
-              <xs:element name="takenDateTime" type="xs:dateTime"/>
-              <xs:element name="comment" type="xs:string" minOccurs="0"/>
-              <xs:element name="sampleType" type="xs:string" minOccurs="0"/>
-              <xs:element name="resultSummary" type="xs:string"/>
-              <xs:element name="unitOfMeasure" type="xs:string" minOccurs="0"/>
-              <xs:element name="pathological" type="xs:boolean"/>
-              <xs:element name="reference" type="xs:string" minOccurs="0"/>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="instanceId" type="xs:string"/>
-        <xs:element name="registeredDateTime" type="xs:dateTime"/>
-        <xs:element name="comment" type="xs:string" minOccurs="0"/>
-        <!-- xs:element name="HCProfessional" type="HCProfessionalType"/ -->
-      </xs:sequence>
-    </xs:complexType>
   
   <xs:complexType name="CodeType">
     <xs:sequence>
       <xs:element name="code" type="xs:string" minOccurs="0"/>
       <xs:element name="displayName" type="xs:string" minOccurs="0"/>
+      <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
     </xs:sequence>
   </xs:complexType>
   
