@@ -38,7 +38,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:pattern value="^[0-9]{8}[0-9pPtTfF][0-9]{3}$"/>
+      <xs:pattern value="[0-9]{8}[0-9pPtTfF][0-9]{3}"/>
     </xs:restriction>
   </xs:simpleType>
 
