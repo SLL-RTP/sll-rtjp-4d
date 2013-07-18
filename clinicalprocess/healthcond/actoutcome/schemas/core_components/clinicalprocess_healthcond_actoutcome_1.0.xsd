@@ -42,37 +42,4 @@
     </xs:restriction>
   </xs:simpleType>
 
-  <xs:complexType name="TimePeriodType">
-    <xs:annotation>
-      <xs:documentation>
-        Används för att specificera ett datumintervall
-        med hjälp av start- och slutdatum.
-        
-        start: 
-        Startdatum på formatet YYYYMMDDhhmmss
-        end: 
-        Slutdatum på formatet YYYYMMDDhhmmss
-      </xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="start" type="tns:TimeStampType"/>
-      <xs:element name="end" type="tns:TimeStampType"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:simpleType name="TimeStampType">
-    <xs:annotation>
-      <xs:documentation>
-        A quantity specifying a point on the axis of natural time.
-        A point in time is most often represented as a calendar
-        expression.
-        
-        The time has the format YYYYMMDDhhmmss
-      </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:pattern value="(19|20)\d\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])\d{4,6}"/>
-    </xs:restriction>
-  </xs:simpleType>
-
 </xs:schema>
