@@ -17,44 +17,49 @@
  specific language governing permissions and limitations
  under the License.
  -->		
-<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:tns='urn:riv:rheumatology:arthritis:GetACPAResultResponder:1' xmlns:core='urn:riv:rheumatology:arthritis:1' targetNamespace='urn:riv:rheumatology:arthritis:GetACPAResultResponder:1' elementFormDefault='qualified' attributeFormDefault='unqualified' version='1.0'>
-  <xs:import schemaLocation='../../core_components/rheumatology_arthritis_1.0.xsd' namespace='urn:riv:rheumatology:arthritis:1' />
-  
-  <xs:element name='GetACPAResult' type='tns:GetACPAResultType' />
-  <xs:element name='GetACPAResultResponse' type='tns:GetACPAResultResponseType' />
- 
-  <xs:complexType name='GetACPAResultType'>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:tns="urn:riv:rheumatology:arthritis:GetACPAResultResponder:1"
+  xmlns:core="urn:riv:rheumatology:arthritis:1"
+  targetNamespace="urn:riv:rheumatology:arthritis:GetACPAResultResponder:1"
+  elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+  <xs:import schemaLocation="../../core_components/rheumatology_arthritis_1.0.xsd"
+    namespace="urn:riv:rheumatology:arthritis:1"/>
+
+  <xs:element name="GetACPAResult" type="tns:GetACPAResultType"/>
+  <xs:element name="GetACPAResultResponse" type="tns:GetACPAResultResponseType"/>
+
+  <xs:complexType name="GetACPAResultType">
     <xs:sequence>
       <xs:element name="patientId" type="core:PatientIdType"/>
-      <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-  
-  <xs:complexType name='GetACPAResultResponseType'>
+
+  <xs:complexType name="GetACPAResultResponseType">
     <xs:sequence>
-      <xs:element name='resultCode' type='tns:ResultCodeEnum' />
-      <xs:element name='comment' type='xs:string' minOccurs='0' />
-      <xs:element name='ACPAResult' type="tns:ACPAResultType" />
-      <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+      <xs:element name="resultCode" type="tns:ResultCodeEnum"/>
+      <xs:element name="comment" type="xs:string" minOccurs="0"/>
+      <xs:element name="ACPAResult" type="tns:ACPAResultType" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-  
-  <xs:complexType name='ACPAResultType'>
+
+  <xs:complexType name="ACPAResultType">
     <xs:sequence>
-      <xs:element name='dateOfSample' type='xs:date' />
-      <xs:element name='ACPA' type='xs:boolean' />
-      <xs:element name='ccp' type='xs:float' />
-      <xs:element name='cit_c1_igg' type='xs:float' />
-      <xs:element name='cit_eno_igg' type='xs:float' />
-      <xs:element name='cit_fib_igg' type='xs:float' />
-      <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+      <xs:element name="dateOfSample" type="xs:date"/>
+      <xs:element name="ACPA" type="xs:boolean"/>
+      <xs:element name="ccp" type="xs:float"/>
+      <xs:element name="cit_c1_igg" type="xs:float"/>
+      <xs:element name="cit_eno_igg" type="xs:float"/>
+      <xs:element name="cit_fib_igg" type="xs:float"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
-  </xs:complexType> 
-  <xs:simpleType name='ResultCodeEnum'>
-    <xs:restriction base='xs:string'>
-      <xs:enumeration value='OK' />
-      <xs:enumeration value='ERROR' />
-      <xs:enumeration value='INFO' />
+  </xs:complexType>
+  <xs:simpleType name="ResultCodeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK"/>
+      <xs:enumeration value="ERROR"/>
+      <xs:enumeration value="INFO"/>
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>
