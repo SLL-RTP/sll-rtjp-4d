@@ -24,4 +24,33 @@
       <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
     </xs:sequence>
   </xs:complexType>
+ 
+  <!-- @TODO Should we have maxlength 64? -->
+  <xs:simpleType name="HSAIdType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+ 
+  <xs:simpleType name="PatientIdType">
+    <xs:annotation>
+      <xs:documentation>
+        Patient identification is represented by the swedish personal identity number (se: personnummer). 
+        yyyymmddnnnn
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{8}[0-9pPtTfF][0-9]{3}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="PersonalIdentityNumberType">
+    <xs:annotation>
+      <xs:documentation>
+        Swedish Personal Identity Number (se: personnummer). 
+        yyyymmddnnnn
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{8}[0-9pPtTfF][0-9]{3}"/>
+    </xs:restriction>
+  </xs:simpleType> 
 </xs:schema>
