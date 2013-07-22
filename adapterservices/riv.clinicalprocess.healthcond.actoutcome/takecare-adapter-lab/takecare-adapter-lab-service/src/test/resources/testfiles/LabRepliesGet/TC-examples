@@ -1,0 +1,104 @@
+--------------------------
+Error message
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:LabRepliesGet>
+         <tem:tcusername></tem:tcusername>
+         <tem:tcpassword></tem:tcpassword>
+         <tem:externaluser>ExtUsrMVK</tem:externaluser>
+         <tem:careunitidtype>hsaid</tem:careunitidtype>
+         <tem:careunitid>SE2321000016-1HZ3</tem:careunitid>
+         <tem:xml>&lt;X2Message InvokingSystem=&quot;InvSysMVK&quot; MsgType=&quot;Request&quot; Time=&quot;20120429152030&quot;&gt;&lt;PatientId&gt;191212121212&lt;/PatientId&gt;&lt;/X2Message&gt;</tem:xml>
+      </tem:LabRepliesGet>
+   </soapenv:Body>
+</soapenv:Envelope>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <soap:Body>
+      <LabRepliesGetResponse xmlns="http://tempuri.org/">
+         <LabRepliesGetResult><![CDATA[<X2Message MsgType="Error" System="ProfdocHIS" SystemInstance="1" Time="20130520092904" User="MVKRTP" CareUnitType=" (NULL) " CareUnit=" (NULL) " Method="Lab.LabRepliesGet"><Error Type="System"><Code>3000</Code><Msg>Unknown error</Msg></Error></X2Message>]]></LabRepliesGetResult>
+      </LabRepliesGetResponse>
+   </soap:Body>
+</soap:Envelope>
+
+--------------------------
+Request without date
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:LabRepliesGet>
+         <tem:tcusername></tem:tcusername>
+         <tem:tcpassword></tem:tcpassword>
+         <tem:externaluser>ExtUsrMVK</tem:externaluser>
+         <tem:careunitidtype>hsaid</tem:careunitidtype>
+         <tem:careunitid>SE2321000016-1HZ3</tem:careunitid>
+         <tem:xml><![CDATA[<X2Message InvokingSystem="InvSysMVK" MsgType="Request" Time="20120429152030"><PatientId>191212121212</PatientId></X2Message>]]></tem:xml>
+      </tem:LabRepliesGet>
+   </soapenv:Body>
+</soapenv:Envelope>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <soap:Body>
+      <LabRepliesGetResponse xmlns="http://tempuri.org/">
+         <LabRepliesGetResult><![CDATA[<X2Message MsgType="Response" System="ProfdocHIS" SystemInstance="1" Time="20130520100159" User="MVKRTP" CareUnitType="hsaid" CareUnit="SE2321000016-1HZ3" Method="Lab.LabRepliesGet"><PatientOverView><HealthCareSystemId>SE2321000016-6RK5</HealthCareSystemId><PatientId>191212121212</PatientId><Units></Units></PatientOverView></X2Message>]]></LabRepliesGetResult>
+      </LabRepliesGetResponse>
+   </soap:Body>
+</soap:Envelope>
+
+--------------------------
+Request with date
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:LabRepliesGet>
+         <tem:tcusername></tem:tcusername>
+         <tem:tcpassword></tem:tcpassword>
+         <tem:externaluser>ExtUsrMVK</tem:externaluser>
+         <tem:careunitidtype>hsaid</tem:careunitidtype>
+         <tem:careunitid>SE2321000016-1HZ3</tem:careunitid>
+         <tem:xml><![CDATA[<X2Message InvokingSystem="InvSysMVK" MsgType="Request" Time="20120429152030"><PatientId>191212121212</PatientId><StartDate>2013-01-01</StartDate><EndDate>2013-05-30</EndDate></X2Message>]]></tem:xml>
+      </tem:LabRepliesGet>
+   </soapenv:Body>
+</soapenv:Envelope>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <soap:Body>
+      <LabRepliesGetResponse xmlns="http://tempuri.org/">
+         <LabRepliesGetResult><![CDATA[<X2Message MsgType="Response" System="ProfdocHIS" SystemInstance="1" Time="20130520095657" User="MVKRTP" CareUnitType="hsaid" CareUnit="SE2321000016-1HZ3" Method="Lab.LabRepliesGet"><PatientOverView><HealthCareSystemId>SE2321000016-6RK5</HealthCareSystemId><PatientId>191212121212</PatientId><Units></Units></PatientOverView></X2Message>]]></LabRepliesGetResult>
+      </LabRepliesGetResponse>
+   </soap:Body>
+</soap:Envelope>
+
+
+---------- XMLSlurper
+
+class XmlExamples {
+  static def LabRepliesGetResponse = '''
+      <LabRepliesGetResponse xmlns="http://tempuri.org/">
+         <LabRepliesGetResult><![CDATA[<X2Message MsgType="Response" System="ProfdocHIS" SystemInstance="1" Time="20130520134356" User="MVKRTP" CareUnitType="hsaid" CareUnit="SE2321000016-1HZ3" Method="Lab.LabRepliesGet"><PatientOverView><HealthCareSystemId>SE2321000016-6RK5</HealthCareSystemId><PatientId>194004057032</PatientId><Units></Units></PatientOverView></X2Message>]]></LabRepliesGetResult>
+      </LabRepliesGetResponse>
+  '''
+  
+  static def x2m = '''
+      <X2Message MsgType="Response" System="ProfdocHIS" SystemInstance="1" Time="20130520134356" User="MVKRTP" CareUnitType="hsaid" CareUnit="SE2321000016-1HZ3" Method="Lab.LabRepliesGet">
+          <PatientOverView>
+              <HealthCareSystemId>SE2321000016-6RK5</HealthCareSystemId>
+              <PatientId>194004057032</PatientId>
+              <Units></Units>
+          </PatientOverView>
+      </X2Message>
+  '''
+
+}
+
+
+def x2m = new XmlSlurper().parseText(XmlExamples.x2m)
+String pov = x2m.PatientOverView.HealthCareSystemId
+println 'x2m: \n' + pov
+
+
+
+def response = new XmlSlurper().parseText(XmlExamples.LabRepliesGetResponse)
+String result = response.LabRepliesGetResult
+println 'Result: \n' + result
+
+def x2message = new XmlSlurper().parseText(result)
+println 'x2message: \n' + x2message.PatientOverView.HealthCareSystemId + '\n' + x2message.PatientOverView.PatientId

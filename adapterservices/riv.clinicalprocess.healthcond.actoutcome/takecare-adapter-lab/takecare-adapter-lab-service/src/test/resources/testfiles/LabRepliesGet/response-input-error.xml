@@ -1,0 +1,3 @@
+<LabRepliesGetResponse xmlns="http://tempuri.org/">
+	<LabRepliesGetResult><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="yes"?><X2Message MsgType="Error" System="ProfdocHIS" SystemInstance="1" Time="20130520092904" User="MVKRTP" CareUnitType=" (NULL) " CareUnit=" (NULL) " Method="Lab.LabRepliesGet"><Error Type="System"><Code>3000</Code><Msg>Unknown error</Msg></Error></X2Message>]]></LabRepliesGetResult>
+</LabRepliesGetResponse>

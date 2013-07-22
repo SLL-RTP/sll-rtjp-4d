@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:GetClinicalChemistryLabOrderOutcomeResponse xmlns:core="urn:riv:clinicalprocess:healthcond:actoutcome:1"
+ xmlns:tns="urn:riv:clinicalprocess:healthcond:actoutcome:GetClinicalChemistryLabOrderOutcomeResponder:1"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="urn:riv:clinicalprocess:healthcond:actoutcome:GetClinicalChemistryLabOrderOutcomeResponder:1 file:/Users/peter/Projects/customers/4d/src/sll-rtjp-4d/clinicalprocess/healthcond/actoutcome/schemas/interactions/GetClinicalChemistryLabOrderOutcomeInteraction/GetClinicalChemistryLabOrderOutcomeResponder_1.0.xsd">
+    <tns:resultCode>OK</tns:resultCode>
+    <tns:labResults></tns:labResults>
+</tns:GetClinicalChemistryLabOrderOutcomeResponse>

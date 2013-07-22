@@ -1,0 +1,14 @@
+<xs:schema  targetNamespace="urn:X2Message:LabRepliesGet:Request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+ <xs:element name="X2Message">
+   <xs:complexType>
+     <xs:sequence>
+       <xs:element name="PatientId" type="xs:string" />
+       <xs:element name="StartDate" type="xs:date" minOccurs="0"/>
+       <xs:element name="EndDate" type="xs:date" minOccurs="0" />
+     </xs:sequence>
+     <xs:attribute name="MsgType" fixed="Request" type="xs:string" />
+     <xs:attribute name="Time" type="xs:unsignedLong" use="required" />
+     <xs:attribute name="InvokingSystem" type="xs:string" use="required" />
+   </xs:complexType>
+ </xs:element>
+</xs:schema>

@@ -1,0 +1,83 @@
+<xs:schema targetNamespace="urn:X2Message:LabRepliesGet:Response" xmlns:tns="urn:X2Message:LabRepliesGet:Response" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+   <xs:element name="X2Message">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="PatientOverView" type="tns:PatientOverViewType"/>
+         </xs:sequence>
+         <xs:attribute name="MsgType" type="xs:string" fixed="Response"/>
+         <xs:attribute name="System" type="xs:string" use="required"/>
+         <xs:attribute name="SystemInstance" type="xs:unsignedShort" use="optional"/>
+         <xs:attribute name="Time" type="xs:unsignedLong" use="required"/>
+         <xs:attribute name="User" type="xs:string" use="required"/>
+         <xs:attribute name="CareUnitType" type="xs:string" use="required"/>
+         <xs:attribute name="CareUnit" type="xs:string" use="required"/>
+         <xs:attribute name="Method" type="xs:string" use="required"/>
+      </xs:complexType>
+   </xs:element>
+   <xs:complexType name="PatientOverViewType">
+      <xs:sequence>
+         <xs:element name="HealthCareSystemId" type="xs:string" />
+         <xs:element name="PatientId" type="xs:string"/>
+         <xs:element name="Units">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="Unit" minOccurs="0" maxOccurs="unbounded">
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="HSAID" type="xs:string"/>
+                           <xs:element name="HealthCareFacilityHSAID" type="xs:string"/>
+                           <xs:element name="UnitName" type="xs:string"/>
+                           <xs:element name="Labs2">
+                              <xs:complexType>
+                                 <xs:sequence>
+                                    <xs:element name="Answer" maxOccurs="unbounded">
+                                       <xs:complexType>
+                                          <xs:sequence>
+                                             <xs:element name="Analysis" maxOccurs="unbounded">
+                                                <xs:complexType>
+                                                   <xs:sequence>
+                                                      <xs:element name="InstanceId" type="xs:string"/>
+                                                      <xs:element name="Code" type="tns:CD"/>
+                                                      <xs:element name="TakenDateTime" type="xs:dateTime"/>
+                                                      <xs:element name="Comment" type="xs:string" minOccurs="0"/>
+                                                      <xs:element name="SampleType" type="xs:string" minOccurs="0"/>
+                                                      <xs:element name="ResultSummary" type="xs:string"/>
+                                                      <xs:element name="UnitOfMeasure" type="xs:string" minOccurs="0"/>
+                                                      <xs:element name="Pathological" type="xs:boolean"/>
+                                                      <xs:element name="Reference" type="xs:string" minOccurs="0"/>
+                                                   </xs:sequence>
+                                                </xs:complexType>
+                                             </xs:element>
+                                             <xs:element name="InstanceId" type="xs:string"/>
+                                             <xs:element name="RegisteredDateTime" type="xs:dateTime"/>
+                                             <xs:element name="Comment" type="xs:string" minOccurs="0"/>
+                                             <xs:element name="HCProfessional" type="tns:HCProfessionalType"/>
+                                             <xs:element name="OrderId" type="xs:string" minOccurs="0"/>
+                                          </xs:sequence>
+                                       </xs:complexType>
+                                    </xs:element>
+                                 </xs:sequence>
+                              </xs:complexType>
+                           </xs:element>
+                        </xs:sequence>
+                     </xs:complexType>
+                  </xs:element>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="HCProfessionalType">
+      <xs:sequence>
+         <xs:element name="Name" type="xs:string"/>
+         <xs:element name="Id" type="xs:string" minOccurs="0"/>
+         <xs:element name="IdType" type="xs:string" minOccurs="0"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="CD">
+      <xs:sequence>
+         <xs:element name="Code" type="xs:string" minOccurs="0"/>
+         <xs:element name="DisplayName" type="xs:string" minOccurs="0"/>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema>

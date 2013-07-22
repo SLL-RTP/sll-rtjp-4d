@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetLabIndex">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tcusername" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tcpassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="externaluser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="careunitidtype" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="careunitid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLabIndexResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLabIndexResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LabRepliesGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tcusername" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tcpassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="externaluser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="careunitidtype" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="careunitid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LabRepliesGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LabRepliesGetResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetLabIndexSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLabIndex" />
+  </wsdl:message>
+  <wsdl:message name="GetLabIndexSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLabIndexResponse" />
+  </wsdl:message>
+  <wsdl:message name="LabRepliesGetSoapIn">
+    <wsdl:part name="parameters" element="tns:LabRepliesGet" />
+  </wsdl:message>
+  <wsdl:message name="LabRepliesGetSoapOut">
+    <wsdl:part name="parameters" element="tns:LabRepliesGetResponse" />
+  </wsdl:message>
+  <wsdl:portType name="LabSoap">
+    <wsdl:operation name="GetLabIndex">
+      <wsdl:input message="tns:GetLabIndexSoapIn" />
+      <wsdl:output message="tns:GetLabIndexSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LabRepliesGet">
+      <wsdl:input message="tns:LabRepliesGetSoapIn" />
+      <wsdl:output message="tns:LabRepliesGetSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LabSoap" type="tns:LabSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLabIndex">
+      <soap:operation soapAction="http://tempuri.org/GetLabIndex" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LabRepliesGet">
+      <soap:operation soapAction="http://tempuri.org/LabRepliesGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LabSoap12" type="tns:LabSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLabIndex">
+      <soap12:operation soapAction="http://tempuri.org/GetLabIndex" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LabRepliesGet">
+      <soap12:operation soapAction="http://tempuri.org/LabRepliesGet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Lab">
+    <wsdl:port name="LabSoap" binding="tns:LabSoap">
+      <soap:address location="https://localhost/x2nod.net/lab/lab-v2.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LabSoap12" binding="tns:LabSoap12">
+      <soap12:address location="https://localhost/x2nod.net/lab/lab-v2.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

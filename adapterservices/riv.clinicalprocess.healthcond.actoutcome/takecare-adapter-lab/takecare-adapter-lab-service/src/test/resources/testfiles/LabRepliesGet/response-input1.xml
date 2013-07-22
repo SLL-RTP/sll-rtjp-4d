@@ -1,0 +1,73 @@
+<LabRepliesGetResponse xmlns="http://tempuri.org/">
+	<LabRepliesGetResult><![CDATA[<X2Message MsgType="Response" System="ProfdocHIS" SystemInstance="999" Time="20120518115613" User="" CareUnitType="asdasd" CareUnit="asdasd" Method="Lab.LabGet" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+				  <PatientOverView>
+				    <HealthCareSystemId>SE123456789</HealthCareSystemId>
+				    <PatientId>191212121212</PatientId>
+				    <Units>
+				        <Unit>
+				          <HSAID>SEabc123</HSAID>
+				          <HealthCareFacilityHSAID>SE987654321</HealthCareFacilityHSAID>
+				          <UnitName>TestEnheten1</UnitName>
+				          <Labs2>
+				              <Answer>
+				                <Analysis>
+				                    <InstanceId>SE123456789.193812217044.3</InstanceId>
+				                    <Code>
+				                      <Code>MKV234</Code>
+				                      <DisplayName>B-ASAT</DisplayName>
+				                    </Code>
+				                    <TakenDateTime>2012-01-01T10:14:28</TakenDateTime>
+				                    <Comment>Här är en analyskommentar</Comment>
+				                    <ResultSummary>152</ResultSummary>
+				                    <UnitOfMeasure>ug/ml</UnitOfMeasure>
+				                    <Pathological>false</Pathological>
+				                    <Reference>124-165</Reference>
+				                </Analysis>
+				                <Analysis>
+				                    <InstanceId>SE123456789.193812217044.4</InstanceId>
+				                    <Code>
+				                      <Code>AF34TR</Code>
+				                      <DisplayName>B-HB</DisplayName>
+				                    </Code>
+				                    <TakenDateTime>2012-02-02T10:13:28</TakenDateTime>
+				                    <Comment/>
+				                    <ResultSummary>234</ResultSummary>
+				                    <UnitOfMeasure>mmol/l</UnitOfMeasure>
+				                    <Pathological>true</Pathological>
+				                    <Reference>124-165</Reference>
+				                </Analysis>                 
+				                <InstanceId>SE123456789.193812217044.2</InstanceId>
+				                <RegisteredDateTime>2012-01-01T16:16:16</RegisteredDateTime>
+				                <Comment>Detta är en svarskommentar...</Comment>
+				                <HCProfessional>
+				                    <Name>Lars Lars</Name>
+				                    <Id>SE123456789.1931</Id>
+				                </HCProfessional>
+				                <OrderId>SE123456789.193812217044.1</OrderId>
+				              </Answer>
+				              <Answer>
+				                <Analysis>
+				                    <InstanceId>SE123456789.193812217044.10</InstanceId>
+				                      <Code>
+				                        <Code>ML345</Code>
+				                    </Code>
+				                    <TakenDateTime>2012-02-03T10:14:28</TakenDateTime>
+				                    <ResultSummary>152</ResultSummary>
+				                    <Pathological>false</Pathological>
+				                </Analysis>
+				                <InstanceId>SE123456789.193812217044.2</InstanceId>
+				                <RegisteredDateTime>2012-01-01T16:16:16</RegisteredDateTime>
+				                <HCProfessional>
+				                    <Name>Lars Lars</Name>
+				                    <Id>SE123456789.1931</Id>
+				                </HCProfessional>
+				                <OrderId>SE123456789.193812217044.12</OrderId>
+				              </Answer>
+				          </Labs2>
+				        </Unit>
+				    </Units>
+				  </PatientOverView>
+				</X2Message>
+        ]]>
+      </LabRepliesGetResult>
+</LabRepliesGetResponse>
