@@ -26,9 +26,12 @@
 	SET W0=%SCHEMADIR%\interactions\GetRaDSDataInteraction\GetRaDSDataInteraction_1.0_RIVTABP21.wsdl
 SET X0=%SCHEMADIR%\interactions\GetRaDSDataInteraction\*.xsd
 
+SET W1=%SCHEMADIR%\interactions\RegisterRaDSDataInteraction\RegisterRaDSDataInteraction_1.0_RIVTABP21.wsdl
+SET X1=%SCHEMADIR%\interactions\RegisterRaDSDataInteraction\*.xsd
+
 SET XCORE=%SCHEMADIR%\core_components\*.xsd
 
-SET SCHEMAS=%XCORE% %W0% %X0% 
+SET SCHEMAS=%XCORE% %W0% %X0% %W1% %X1% 
 
 SET OUTFILE=/out:wcf\generated-src\ClinicalprocessHealthcondDescriptionInteractions.cs
 SET APPCONFIG=/config:wcf\generated-src\app.config
