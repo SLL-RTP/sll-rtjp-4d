@@ -42,6 +42,13 @@
     </xs:restriction>
   </xs:simpleType>
   
+  <xs:complexType name="PatientType">
+    <xs:sequence>
+      <xs:element name="patientId" type="tns:PatientIdType"/>
+      <xs:element name="givenName" type="xs:string" minOccurs="0"/>
+       <xs:element name="surname" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
   <xs:simpleType name="PersonalIdentityNumberType">
     <xs:annotation>
       <xs:documentation>

@@ -30,6 +30,7 @@
 
   <xs:complexType name="RegisterRaDSDataType">
     <xs:sequence>
+      <xs:element name="patient" type="core:PatientType"/>
       <xs:element name="registryData" type="tns:RegistryDataType"/>
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
