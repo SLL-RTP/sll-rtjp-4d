@@ -9,7 +9,8 @@
   <url>http://maven.apache.org</url>
   <properties>
     <schema.path>${basedir}/../schemas</schema.path>
-    <cxf.version>2.2.2</cxf.version>
+    <cxf.version>2.6.1</cxf.version>
+  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies/>
   <repositories>
@@ -94,5 +95,10 @@
         </configuration>
       </plugin>
     </plugins>
+        <resources>
+      <resource>
+        <directory>${schema.path}</directory>
+      </resource>
+    </resources>
   </build>
 </project>
