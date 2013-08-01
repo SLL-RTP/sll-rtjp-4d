@@ -67,10 +67,16 @@
           <xs:documentation xml:lang="sv">Platsdata för läkarbesök</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="diagnosis" type="tns:DiagnosisType" minOccurs="0">
+      <xs:element name="diagnosis" minOccurs="0">
         <xs:annotation>
           <xs:documentation xml:lang="sv">Patientens diagnos(er)</xs:documentation>
         </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="diagnose" type="tns:DiagnoseType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
       </xs:element>
       <xs:element name="dominantHand" type="xs:string" minOccurs="0">
         <xs:annotation>
@@ -165,7 +171,7 @@
           <xs:documentation xml:lang="sv">Läkarbedömning</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="trombocyter" minOccurs="0" type="xs:integer">
+      <xs:element name="thrombocytes" minOccurs="0" type="xs:integer">
         <xs:annotation>
           <xs:documentation xml:lang="sv">Trombocyter</xs:documentation>
         </xs:annotation>
@@ -197,10 +203,16 @@
           <xs:documentation xml:lang="sv">Progress (röntgen) </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="drug" type="tns:DrugType" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="drugs" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="sv">Läkemedelsordination</xs:documentation>
+          <xs:documentation xml:lang="sv">Läkemedelsordination(er)</xs:documentation>
         </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="drug" type="tns:DrugType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
       </xs:element>
       <xs:element name="smoking" minOccurs="0" type="xs:boolean">
         <xs:annotation>
@@ -282,7 +294,7 @@
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="DiagnosisType">
+  <xs:complexType name="DiagnoseType">
     <xs:sequence>
       <xs:element name="name" type="xs:string" minOccurs="0"/>
       <xs:element name="onsetDate" type="xs:date" minOccurs="0">
