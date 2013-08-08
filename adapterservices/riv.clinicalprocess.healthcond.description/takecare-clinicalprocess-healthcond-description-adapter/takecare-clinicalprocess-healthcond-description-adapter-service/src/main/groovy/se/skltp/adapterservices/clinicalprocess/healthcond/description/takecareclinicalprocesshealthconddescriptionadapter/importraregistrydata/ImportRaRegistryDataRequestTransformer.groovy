@@ -14,6 +14,10 @@ import org.slf4j.LoggerFactory;
 public class ImportRaRegistryDataRequestTransformer extends AbstractMessageTransformer {
 
   private static final Logger log = LoggerFactory.getLogger(ImportRaRegistryDataRequestTransformer.class);
+  static final REGISTRY = 'registry'
+  static final LOCATION = 'location'
+  static final SENDER = 'sender'
+  static final XML = 'xml' 
 
 
 
@@ -34,9 +38,15 @@ public class ImportRaRegistryDataRequestTransformer extends AbstractMessageTrans
   protected Object pojoTransform(Object src, String encoding) throws TransformerException {
 
     log.debug("Incoming payload: {}", src);
-
+    
+    def params = src.toString().split('&').inject([:]) {map, kv->
+      def (key, value) = kv.split('=').toList()
+      map[key] = value != null ? URLDecoder.decode(value, 'UTF-8') : null
+      map
+    }  
+ 
     try    {
-      def inRegistryData = new XmlSlurper().parseText(src)
+      def inRegistryData = new XmlSlurper().parseText(params[XML])
       def builder = new StreamingMarkupBuilder()
       builder.encoding = 'UTF-8'
       def envelope = builder.bind {

@@ -75,7 +75,7 @@
 
 	<logger
 		name="se.skltp.adapterservices.clinicalprocess.healthcond.description.takecareclinicalprocesshealthconddescriptionadapter">
-		<level value="ERROR" />
+		<level value="DEBUG" />
 	</logger>
 
 	<!-- Message logging using soi-toolkit LogTransformer class -->
@@ -84,7 +84,7 @@
 	</logger>
 
 	<root>
-		<priority value="ERROR" />
+		<priority value="DEBUG" />
 
 		<appender-ref ref="CONSOLE" />
 		<!-- <appender-ref ref="ROLLINGFILE"/> -->

@@ -36,6 +36,8 @@ http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/
 			address="${IMPORTRAREGISTRYDATA_INBOUND_URL}" exchange-pattern="request-response"
 			transformer-refs="objToStr logReqIn" responseTransformer-refs="logRespOut"
 			doc:name="HTTP" />
+      
+    <logger message="Payload before transform: #[payload]" level="ERROR"/>
 
 		<custom-transformer doc:name="transform-request"
 			class="se.skltp.adapterservices.clinicalprocess.healthcond.description.takecareclinicalprocesshealthconddescriptionadapter.importraregistrydata.ImportRaRegistryDataRequestTransformer" />
@@ -46,9 +48,9 @@ http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/
 				class="se.skltp.adapterservices.clinicalprocess.healthcond.description.takecareclinicalprocesshealthconddescriptionadapter.importraregistrydata.ImportRaRegistryDataResponseTransformer" />
 		</response>
 		<set-property propertyName="SOAPAction"
-			value="urn:riv:clinicalprocess:healthcond:description:RegisterRaDSDataResponder:1:RegisterRaDSData" />
+			value="urn:riv:clinicalprocess:healthcond:description:RegisterRaDSDataResponder:1:RegisterRaDSData" doc:name="Property"/>
 		<cxf:proxy-client doc:name="SOAP Proxy Client"
-			payload="envelope" enableMuleSoapHeaders="false" />
+			payload="envelope"  />
 
 		<http:outbound-endpoint connector-ref="soitoolkit-http-connector"
 			address="${IMPORTRAREGISTRYDATA_OUTBOUND_URL}" exchange-pattern="request-response"
