@@ -1,5 +1,10 @@
 package se.skltp.adapterservices.clinicalprocess.healthcond.description.takecareclinicalprocesshealthconddescriptionadapter.importraregistrydata;
 
+import java.security.Key;
+
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
+
 import groovy.xml.StreamingMarkupBuilder
 import groovy.xml.XmlUtil
 
@@ -8,6 +13,8 @@ import org.mule.api.transformer.TransformerException;
 import org.mule.transformer.AbstractMessageTransformer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import sun.misc.BASE64Decoder;
 
 
 
@@ -18,6 +25,10 @@ public class ImportRaRegistryDataRequestTransformer extends AbstractMessageTrans
   static final LOCATION = 'location'
   static final SENDER = 'sender'
   static final XML = 'xml' 
+  
+  static final String CIPHER_TRANSFORMATION = "AES/ECB/PKCS5Padding";
+  static final String ENCRYPTION_KEY = "SecretKey"
+  
 
 
 
@@ -44,9 +55,13 @@ public class ImportRaRegistryDataRequestTransformer extends AbstractMessageTrans
       map[key] = value != null ? URLDecoder.decode(value, 'UTF-8') : null
       map
     }  
- 
+    
+
+    String xml = decrypt(params[XML]) 
+   
+    
     try    {
-      def inRegistryData = new XmlSlurper().parseText(params[XML])
+      def inRegistryData = new XmlSlurper().parseText(xml)
       def builder = new StreamingMarkupBuilder()
       builder.encoding = 'UTF-8'
       def envelope = builder.bind {
@@ -232,5 +247,17 @@ public class ImportRaRegistryDataRequestTransformer extends AbstractMessageTrans
     } catch (Exception e) {
       throw new TransformerException(this, e);
     }
+  }
+  
+  private String decrypt(String encryptedData)  {
+    Key key = new SecretKeySpec(ENCRYPTION_KEY.getBytes(), 'AES');
+    Cipher c = Cipher.getInstance(CIPHER_TRANSFORMATION);
+    c.init(Cipher.DECRYPT_MODE, key);
+    byte[] decodedValue = new BASE64Decoder().decodeBuffer(encryptedData);
+    byte[] decValue = c.doFinal(decodedValue);
+    String decryptedValue = new String(decValue);
+    
+    log.debug("Decrypted value {[]}", decryptedValue)
+    return decryptedValue;
   }
 }
