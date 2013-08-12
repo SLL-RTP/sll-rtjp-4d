@@ -36,11 +36,11 @@ http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/
 			address="${IMPORTRAREGISTRYDATA_INBOUND_URL}" exchange-pattern="request-response"
 			transformer-refs="objToStr logReqIn" responseTransformer-refs="logRespOut"
 			doc:name="HTTP" />
-      
-    <logger message="Payload before transform: #[payload]" level="ERROR"/>
 
 		<custom-transformer doc:name="transform-request"
-			class="se.skltp.adapterservices.clinicalprocess.healthcond.description.takecareclinicalprocesshealthconddescriptionadapter.importraregistrydata.ImportRaRegistryDataRequestTransformer" />
+			class="se.skltp.adapterservices.clinicalprocess.healthcond.description.takecareclinicalprocesshealthconddescriptionadapter.importraregistrydata.ImportRaRegistryDataRequestTransformer">
+	    <spring:property name="encryptionKey" value="${IMPORTRAREGISTRYDATA_ENCRYPTION_KEY}" />
+    </custom-transformer>
 
 		<response>
 			<transformer ref="objToStr" doc:name="Transform Object to String" />

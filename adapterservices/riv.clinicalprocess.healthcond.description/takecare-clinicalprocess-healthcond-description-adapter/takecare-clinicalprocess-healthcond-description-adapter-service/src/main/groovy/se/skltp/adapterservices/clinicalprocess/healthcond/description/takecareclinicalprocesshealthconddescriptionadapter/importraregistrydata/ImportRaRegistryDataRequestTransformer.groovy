@@ -15,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import sun.misc.BASE64Decoder;
+import sun.security.krb5.EncryptionKey;
 
 
 
@@ -27,10 +28,9 @@ public class ImportRaRegistryDataRequestTransformer extends AbstractMessageTrans
   static final XML = 'xml' 
   
   static final String CIPHER_TRANSFORMATION = "AES/ECB/PKCS5Padding";
-  static final String ENCRYPTION_KEY = "SecretKey"
   
-
-
+  String encryptionKey = null
+  
 
   /**
    * Transformer that transforms the payload to SOAP Envelope
@@ -55,11 +55,20 @@ public class ImportRaRegistryDataRequestTransformer extends AbstractMessageTrans
       map[key] = value != null ? URLDecoder.decode(value, 'UTF-8') : null
       map
     }  
-    
 
-    String xml = decrypt(params[XML]) 
-   
+    String xml = decrypt(params[XML])  
+    def result = transformXml(xml)
+
+    log.debug("Outgoing payload [{}]", result)
+    return result
+  }
+
+
+  String transformXml(String xml) {
+    log.debug("Incoming xml: {}", xml);
     
+    String result = null
+
     try    {
       def inRegistryData = new XmlSlurper().parseText(xml)
       def builder = new StreamingMarkupBuilder()
@@ -239,25 +248,26 @@ public class ImportRaRegistryDataRequestTransformer extends AbstractMessageTrans
           } //body
         } //envelope
       }
-      def payloadOut = XmlUtil.serialize(envelope)
-
-      log.debug("Outgoing payload [{}]", payloadOut)
-
-      return payloadOut
+      result = XmlUtil.serialize(envelope)
+      
     } catch (Exception e) {
-      throw new TransformerException(this, e);
+    throw new TransformerException(this, e);
     }
+
+    log.debug("Outgoing xml: {}", result);
+    return result
   }
+
   
-  private String decrypt(String encryptedData)  {
-    Key key = new SecretKeySpec(ENCRYPTION_KEY.getBytes(), 'AES');
+  String decrypt(String encryptedData)  {
+    Key key = new SecretKeySpec(encryptionKey.getBytes(), 'AES');
     Cipher c = Cipher.getInstance(CIPHER_TRANSFORMATION);
     c.init(Cipher.DECRYPT_MODE, key);
     byte[] decodedValue = new BASE64Decoder().decodeBuffer(encryptedData);
     byte[] decValue = c.doFinal(decodedValue);
     String decryptedValue = new String(decValue);
     
-    log.debug("Decrypted value {[]}", decryptedValue)
+    log.debug("Decrypted value [{}]", decryptedValue)
     return decryptedValue;
   }
 }

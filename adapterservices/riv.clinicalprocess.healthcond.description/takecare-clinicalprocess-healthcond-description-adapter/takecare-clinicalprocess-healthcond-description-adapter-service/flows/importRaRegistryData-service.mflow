@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <mule-configuration xmlns="http://www.mulesoft.com/tooling/messageflow" name="importRaRegistryData">
-    <flow SubFlow="false" name="importRaRegistryData-service" entity-id="483419f6-598e-46cc-a37e-bff056036612">
+    <flow SubFlow="false" name="importRaRegistryData-service" entity-id="e775a1d7-e364-4efa-8d29-d6776f48b86d">
         <properties>
             <property name="processingStrategy2"/>
             <property name="processingStrategy"/>
@@ -54,29 +54,25 @@
                     <property value="2" name="auxiliary;index"/>
                 </properties>
             </endpoint>
-            <pattern type="http://www.mulesoft.org/schema/mule/core/logger" name="Logger" entity-id="Logger#1">
-                <properties>
-                    <property value="Payload before transform: #[payload]" name="message"/>
-                    <property value="ERROR" name="level"/>
-                    <property name="category"/>
-                    <property value="3" name="auxiliary;index"/>
-                    <property value="3" name="auxiliary;index"/>
-                    <property value="3" name="auxiliary;index"/>
-                </properties>
-            </pattern>
             <pattern type="org.mule.tooling.ui.modules.core.pattern.customTransformer" name="transform-request" entity-id="Java#1">
                 <properties>
                     <property name="returnClass"/>
                     <property name="ignoreBadInput"/>
                     <property name="encoding"/>
-                    <property value="4" name="auxiliary;index"/>
+                    <property value="3" name="auxiliary;index"/>
                     <property name="mimeType"/>
-                    <property value="4" name="auxiliary;index"/>
-                    <property value="4" name="auxiliary;index"/>
+                    <property value="3" name="auxiliary;index"/>
+                    <property value="3" name="auxiliary;index"/>
                     <property value="se.skltp.adapterservices.clinicalprocess.healthcond.description.takecareclinicalprocesshealthconddescriptionadapter.importraregistrydata.ImportRaRegistryDataRequestTransformer" name="class"/>
-                    <property value="4" name="auxiliary;index"/>
-                    <property value="4" name="auxiliary;index"/>
-                    <property value="4" name="auxiliary;index"/>
+                    <property value="3" name="auxiliary;index"/>
+                    <property value="3" name="auxiliary;index"/>
+                    <property value="3" name="auxiliary;index"/>
+                    <property-collection name="@http://www.springframework.org/schema/beans/property;0">
+                        <property value="encryptionKey" name="name"/>
+                        <property value="${IMPORTRAREGISTRYDATA_ENCRYPTION_KEY}" name="value"/>
+                        <property value="4" name="auxiliary;wrapIn"/>
+                        <property value="4" name="auxiliary;index"/>
+                    </property-collection>
                 </properties>
             </pattern>
             <response index="5" entity-id="response#1">

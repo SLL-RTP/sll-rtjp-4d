@@ -3,16 +3,10 @@ package se.skltp.adapterservices.clinicalprocess.healthcond.description.takecare
  
 import javax.jws.WebService;
 
-import org.soitoolkit.commons.mule.test.StandaloneMuleServer;
-
-import org.soitoolkit.commons.mule.util.RecursiveResourceBundle;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import se.riv.clinicalprocess.healthcond.description.registerradsdata.v1.rivtabp21.RegisterRaDSDataResponderInterface;
-import se.riv.clinicalprocess.healthcond.description.registerradsdataresponder.v1.RegisterRaDSDataResponseType;
-import se.riv.clinicalprocess.healthcond.description.registerradsdataresponder.v1.RegisterRaDSDataType;
+import org.soitoolkit.commons.mule.test.StandaloneMuleServer;
+import org.soitoolkit.commons.mule.util.RecursiveResourceBundle;
 
 @WebService
 public class TakecareClinicalprocessHealthcondDescriptionAdapterMuleServer{
