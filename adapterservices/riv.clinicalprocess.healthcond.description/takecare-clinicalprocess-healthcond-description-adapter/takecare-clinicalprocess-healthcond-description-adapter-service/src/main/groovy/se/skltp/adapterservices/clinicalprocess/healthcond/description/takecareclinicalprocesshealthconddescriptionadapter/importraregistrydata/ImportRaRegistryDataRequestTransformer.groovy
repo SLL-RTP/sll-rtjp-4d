@@ -161,8 +161,14 @@ public class ImportRaRegistryDataRequestTransformer extends AbstractMessageTrans
                     'tns:menopaus'                data.Menopaus.text()
                   if (1 == data.MenopausAge.size() )
                     'tns:menopausAge'             data.MenopausAge.text()
-                  if (1 == data.StudyProject.size())
-                    'tns:studyProject'            data.StudyProject.text()
+                  if (0 < data.StudyProject.size()) {
+                    'tns:studyProjects' {
+                      data.StudyProject.each {
+                        def project = it
+                        'tns:studyProject'            project.text()
+                      }
+                    }
+                  }
                   if (1 == data.VisitDate.size())
                     'tns:visitDate'               data.VisitDate.text()
                   if (1 == data.VisitDoctor.size())

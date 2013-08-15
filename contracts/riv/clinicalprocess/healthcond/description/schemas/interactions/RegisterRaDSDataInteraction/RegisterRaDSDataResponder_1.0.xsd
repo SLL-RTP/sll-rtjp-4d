@@ -104,11 +104,16 @@
           <xs:documentation xml:lang="sv">Menopaus ålder</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="studyProject" type="xs:string" minOccurs="0">
+      <xs:element name="studyProjects" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="sv">Studie eller project som patienten ingår
-            i</xs:documentation>
+          <xs:documentation xml:lang="sv">Studier eller projekt som patienten ingår i</xs:documentation>
         </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="studyProject" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>       
       </xs:element>
       <xs:element name="visitDate" type="xs:date" minOccurs="0">
         <xs:annotation>
@@ -297,6 +302,7 @@
   <xs:complexType name="DiagnoseType">
     <xs:sequence>
       <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="ICD10" type="xs:string" minOccurs="0"/>
       <xs:element name="onsetDate" type="xs:date" minOccurs="0">
         <xs:annotation>
           <xs:documentation xml:lang="sv">Dag då symptomen först uppstod</xs:documentation>

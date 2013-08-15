@@ -46,7 +46,10 @@
         <tns:height>0</tns:height>
         <tns:menopaus>false</tns:menopaus>
         <tns:menopausAge>0</tns:menopausAge>
-        <tns:studyProject>Ny koppling</tns:studyProject>
+        <tns:studyProjects>
+          <tns:studyProject>Ny koppling</tns:studyProject>
+          <tns:studyProject>Ny studie</tns:studyProject>
+        </tns:studyProjects>
         <tns:visitDate>2011-01-14</tns:visitDate>
         <tns:visitDoctor>
           <tns:ID>191111111111</tns:ID>
