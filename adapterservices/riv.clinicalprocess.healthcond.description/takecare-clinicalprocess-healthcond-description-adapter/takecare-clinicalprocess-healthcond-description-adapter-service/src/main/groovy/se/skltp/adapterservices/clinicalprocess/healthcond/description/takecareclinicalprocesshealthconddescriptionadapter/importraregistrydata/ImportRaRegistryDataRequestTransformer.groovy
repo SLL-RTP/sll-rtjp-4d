@@ -56,7 +56,10 @@ public class ImportRaRegistryDataRequestTransformer extends AbstractMessageTrans
       map
     }  
 
-    String xml = decrypt(params[XML])  
+    String xml = params[XML]
+    if (encryptionKey) {
+     xml =  decrypt(xml)
+    }  
     def result = transformXml(xml)
 
     log.debug("Outgoing payload [{}]", result)
@@ -266,6 +269,7 @@ public class ImportRaRegistryDataRequestTransformer extends AbstractMessageTrans
 
   
   String decrypt(String encryptedData)  {
+    log.debug("Value to decrypt [{}]", encryptedData)
     Key key = new SecretKeySpec(encryptionKey.getBytes(), 'AES');
     Cipher c = Cipher.getInstance(CIPHER_TRANSFORMATION);
     c.init(Cipher.DECRYPT_MODE, key);
