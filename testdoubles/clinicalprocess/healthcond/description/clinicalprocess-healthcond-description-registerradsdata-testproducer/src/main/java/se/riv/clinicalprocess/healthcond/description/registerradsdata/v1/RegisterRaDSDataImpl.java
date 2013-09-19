@@ -22,9 +22,6 @@ package se.riv.clinicalprocess.healthcond.description.registerradsdata.v1;
 
 import javax.jws.WebService;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import se.riv.clinicalprocess.healthcond.description.registerradsdata.v1.rivtabp21.RegisterRaDSDataResponderInterface;
 import se.riv.clinicalprocess.healthcond.description.registerradsdataresponder.v1.RegisterRaDSDataResponseType;
 import se.riv.clinicalprocess.healthcond.description.registerradsdataresponder.v1.RegisterRaDSDataType;
@@ -32,11 +29,10 @@ import se.riv.clinicalprocess.healthcond.description.registerradsdataresponder.v
 //@WebService(serviceName = "RegisterRaDSDataResponderService", endpointInterface = "se.riv.clinicalprocess.healthcond.description.registerradsdataresponder.v1.rivtabp21.RegisterRaDSDataResponderInterface", portName = "RegisterRaDSDataResponderPort", targetNamespace = "urn:riv:clinicalprocess:healthcond:description:RegisterRaDSData:1:rivtabp21", wsdlLocation = "interactions/RegisterRaDSDataInteraction/RegisterRaDSDataInteraction_1.0_RIVTABP21.wsdl")
 @WebService   
 public class RegisterRaDSDataImpl implements RegisterRaDSDataResponderInterface {
-    private static final Logger log = LoggerFactory.getLogger(RegisterRaDSDataImpl.class);
+
     @Override
     public RegisterRaDSDataResponseType registerRaDSData(String arg0,
             RegisterRaDSDataType arg1) {
-        log.debug("Incoming payload  {}", arg1.toString());
         
         RegisterRaDSDataResponseType response = new RegisterRaDSDataResponseType();
         String comment = "Test result for " + arg1.getPatient().getPatientId();        
