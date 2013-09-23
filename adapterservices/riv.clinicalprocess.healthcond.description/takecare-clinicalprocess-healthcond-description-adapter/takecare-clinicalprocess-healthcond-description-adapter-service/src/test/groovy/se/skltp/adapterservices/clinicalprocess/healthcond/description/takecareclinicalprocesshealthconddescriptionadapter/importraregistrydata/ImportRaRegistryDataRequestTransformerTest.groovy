@@ -63,7 +63,7 @@ public class ImportRaRegistryDataRequestTransformerTest extends XMLTestCase{
     
     String expectedResult = new File('src/test/resources/testfiles/importRaRegistryData/request-input-expected-result.xml').text
 
-    ImportRaRegistryDataRequestTransformer uut = new ImportRaRegistryDataRequestTransformer(encryptionKey: key)
+    ImportRaRegistryDataRequestTransformer uut = new ImportRaRegistryDataRequestTransformer(encryptionEnabled: true, encryptionKey: key)
     String result = (String)uut.pojoTransform(input, null)
 
     def envelope = new XmlSlurper().parseText(result)
@@ -114,7 +114,7 @@ public class ImportRaRegistryDataRequestTransformerTest extends XMLTestCase{
     
     
 
-    ImportRaRegistryDataRequestTransformer uut = new ImportRaRegistryDataRequestTransformer(encryptionKey: key, )
+    ImportRaRegistryDataRequestTransformer uut = new ImportRaRegistryDataRequestTransformer(encryptionEnabled: true, encryptionKey: key)
     String result = (String)uut.decrypt(encrypted)
 
     XMLUnit.setIgnoreWhitespace(true)

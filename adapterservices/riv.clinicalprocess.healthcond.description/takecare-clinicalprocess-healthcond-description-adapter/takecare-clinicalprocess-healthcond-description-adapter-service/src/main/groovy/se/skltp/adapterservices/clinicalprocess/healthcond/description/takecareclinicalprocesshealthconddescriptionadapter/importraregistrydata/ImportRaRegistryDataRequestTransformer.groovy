@@ -30,7 +30,7 @@ public class ImportRaRegistryDataRequestTransformer extends AbstractMessageTrans
   static final String CIPHER_TRANSFORMATION = "AES/ECB/PKCS5Padding";
   
   String encryptionKey = null
-  
+  boolean encryptionEnabled = false
 
   /**
    * Transformer that transforms the payload to SOAP Envelope
@@ -57,7 +57,7 @@ public class ImportRaRegistryDataRequestTransformer extends AbstractMessageTrans
     }  
 
     String xml = params[XML]
-    if (encryptionKey) {
+    if (encryptionEnabled) {
      xml =  decrypt(xml)
     }  
     def result = transformXml(xml)

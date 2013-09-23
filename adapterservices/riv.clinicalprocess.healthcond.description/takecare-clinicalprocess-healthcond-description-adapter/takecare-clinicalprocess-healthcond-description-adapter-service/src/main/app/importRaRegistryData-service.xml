@@ -40,6 +40,7 @@ http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/
 
 		<custom-transformer doc:name="transform-request"
 			class="se.skltp.adapterservices.clinicalprocess.healthcond.description.takecareclinicalprocesshealthconddescriptionadapter.importraregistrydata.ImportRaRegistryDataRequestTransformer">
+	    <spring:property name="encryptionEnabled" value="${IMPORTRAREGISTRYDATA_ENCRYPTION_ENABLED}" />
 	    <spring:property name="encryptionKey" value="${IMPORTRAREGISTRYDATA_ENCRYPTION_KEY}" />
     </custom-transformer>
 
