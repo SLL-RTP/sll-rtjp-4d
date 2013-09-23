@@ -4,6 +4,8 @@ import static se.skltp.adapterservices.clinicalprocess.healthcond.description.ta
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -56,18 +58,24 @@ public class ImportRaRegistryDataTestConsumer {
   /**
    * Call the ImportRegistrydata Service with a http post
    * 
-   * @param data
-   *          xml structure to import
+   * @param data data to post
+   * @param header a map with headers
+   * 
    * @return string http response as a string
    */
-  public String callService(String data) {
-
+  public String callService(String data, Map<String, String> header) {
+    
     log.debug("Calling soap service with data " + data.toString());
     String result = null;
 
     try {
       HttpPost httpPost = new HttpPost(serviceAddress);
       httpPost.setHeader("Content-Type", "application/x-www-form-urlencoded");
+      for (Map.Entry<String, String> entry : header.entrySet()) {
+        String key = entry.getKey();
+        String value = entry.getValue();
+        httpPost.setHeader(key, value);
+    }
       StringEntity entity = new StringEntity(data);
       httpPost.setEntity(entity);
       HttpResponse response = httpclient.execute(httpPost);
@@ -88,5 +96,16 @@ public class ImportRaRegistryDataTestConsumer {
       throw new RuntimeException("Oooops", e);
     }
     return result;
+
+  }
+    /**
+     * Call the ImportRegistrydata Service with a http post
+     * 
+     * @param data
+     *          xml structure to import
+     * @return string http response as a string
+     */
+    public String callService(String data) {
+      return callService(data, new HashMap<String, String>());
   }
 }

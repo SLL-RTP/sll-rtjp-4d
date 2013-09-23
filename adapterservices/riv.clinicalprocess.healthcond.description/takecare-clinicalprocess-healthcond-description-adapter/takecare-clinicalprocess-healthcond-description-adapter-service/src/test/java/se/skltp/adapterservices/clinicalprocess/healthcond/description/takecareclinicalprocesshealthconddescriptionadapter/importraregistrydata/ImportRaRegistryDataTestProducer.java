@@ -1,6 +1,12 @@
 package se.skltp.adapterservices.clinicalprocess.healthcond.description.takecareclinicalprocesshealthconddescriptionadapter.importraregistrydata;
 
+import java.util.Map;
+
+import javax.annotation.Resource;
+import javax.jws.WebMethod;
 import javax.jws.WebService;
+import javax.xml.ws.WebServiceContext;
+import javax.xml.ws.handler.MessageContext;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +20,7 @@ import se.riv.clinicalprocess.healthcond.description.registerradsdataresponder.v
 @WebService
 public class ImportRaRegistryDataTestProducer implements RegisterRaDSDataResponderInterface {
 
+  
   public static final String TESTID_OK = "191212121212";
   public static final String TESTID_INVALID = "-1";
   public static final String TESTID_FAULT = "-2";
@@ -24,12 +31,27 @@ public class ImportRaRegistryDataTestProducer implements RegisterRaDSDataRespond
       "takecare-clinicalprocess-healthcond-description-adapter-config");
   private static final long SERVICE_TIMOUT_MS = Long.parseLong(rb.getString("SERVICE_TIMEOUT_MS"));
 
-  @Override
+  @Resource
+  private WebServiceContext wctx;
+  
+  @WebMethod
   public RegisterRaDSDataResponseType registerRaDSData(String logicalAddress, RegisterRaDSDataType raDSData) {
     log.debug("Received message:" + raDSData.toString());
 
     RegisterRaDSDataResponseType result = new RegisterRaDSDataResponseType();
 
+    
+
+    if (wctx == null) {
+      log.error("WebServiceContext is null");
+    } else {
+      MessageContext mctx = wctx.getMessageContext();
+      @SuppressWarnings("unchecked")
+      Map<String, Object> headers = (Map<String, Object>) mctx.get(MessageContext.HTTP_REQUEST_HEADERS);    
+      String certText = (String)headers.get("x-vp-auth-cert");
+      log.debug("Header 'x-vp-auth-cert'=" + certText);
+    }
+    
     String id = raDSData.getPatient().getPatientId();
 
     // Return an error-message if invalid id
