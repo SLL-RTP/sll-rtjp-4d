@@ -36,7 +36,6 @@ http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/
 			address="${IMPORTRAREGISTRYDATA_INBOUND_URL}" exchange-pattern="request-response"
 			transformer-refs="objToStr logReqIn" responseTransformer-refs="logRespOut"
 			doc:name="HTTP" />
-			<set-variable variableName="inbound-x-vp-auth-cert" value="#[header:INBOUND:x-vp-auth-cert?]" doc:name="save x-vp-auth-cert property" />
 
 		<custom-transformer doc:name="transform-request"
 			class="se.skltp.adapterservices.clinicalprocess.healthcond.description.takecareclinicalprocesshealthconddescriptionadapter.importraregistrydata.ImportRaRegistryDataRequestTransformer">
@@ -51,8 +50,7 @@ http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/
 		</response>
 
 		<set-property propertyName="SOAPAction" value="urn:riv:clinicalprocess:healthcond:description:RegisterRaDSDataResponder:1:RegisterRaDSData" doc:name="set SoapAction property"/>
-    <set-property propertyName="x-vp-auth-cert" value="#[flowVars['inbound-x-vp-auth-cert']]" doc:name="set x-vp-auth-cert"/>
-		
+		<copy-properties propertyName="x-vp-auth-cert"  doc:name="Copy property x-vp-auth-cert to outbound" />
 		
 		<cxf:proxy-client doc:name="SOAP Proxy Client" payload="envelope"  />
 
