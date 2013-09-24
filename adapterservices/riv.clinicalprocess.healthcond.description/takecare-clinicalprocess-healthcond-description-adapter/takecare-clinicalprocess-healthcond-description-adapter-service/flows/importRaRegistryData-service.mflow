@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <mule-configuration xmlns="http://www.mulesoft.com/tooling/messageflow" name="importRaRegistryData">
-    <flow SubFlow="false" name="importRaRegistryData-service" entity-id="bbaaed3d-95b0-493a-a8d0-6c2c78b7ec91">
+    <flow SubFlow="false" name="importRaRegistryData-service" entity-id="6339f9ca-a888-4da2-85e6-bd03b088b60c">
         <properties>
             <property name="processingStrategy2"/>
             <property name="processingStrategy"/>
@@ -79,17 +79,23 @@
                         <property value="5" name="auxiliary;wrapIn"/>
                         <property value="5" name="auxiliary;index"/>
                     </property-collection>
+                    <property-collection name="@http://www.springframework.org/schema/beans/property;2">
+                        <property value="defaultLogicalAddress" name="name"/>
+                        <property value="${IMPORTRAREGISTRYDATA_LOGICAL_ADDRESS}" name="value"/>
+                        <property value="6" name="auxiliary;wrapIn"/>
+                        <property value="6" name="auxiliary;index"/>
+                    </property-collection>
                 </properties>
             </pattern>
-            <response index="6" entity-id="response#1">
+            <response index="7" entity-id="response#1">
                 <compartment entity-id="compartment#1">
                     <lane isChoiceOtherwiseLane="false" index="0" hadOnlyOneElement="false" entity-id="compartment-lane#2">
                         <pattern type="org.mule.tooling.ui.modules.core.pattern.globalXformRef" name="Transform Object to String" entity-id="Transformer Reference#1">
                             <properties>
 <property value="objToStr" name="ref"/>
-<property value="7" name="auxiliary;index"/>
-<property value="7" name="auxiliary;index"/>
-<property value="7" name="auxiliary;index"/>
+<property value="8" name="auxiliary;index"/>
+<property value="8" name="auxiliary;index"/>
+<property value="8" name="auxiliary;index"/>
                             </properties>
                         </pattern>
                         <pattern type="org.mule.tooling.ui.modules.core.pattern.customTransformer" name="transform-response" entity-id="Java#2">
@@ -97,14 +103,14 @@
 <property name="returnClass"/>
 <property name="ignoreBadInput"/>
 <property name="encoding"/>
-<property value="8" name="auxiliary;index"/>
+<property value="9" name="auxiliary;index"/>
 <property name="mimeType"/>
-<property value="8" name="auxiliary;index"/>
-<property value="8" name="auxiliary;index"/>
+<property value="9" name="auxiliary;index"/>
+<property value="9" name="auxiliary;index"/>
 <property value="se.skltp.adapterservices.clinicalprocess.healthcond.description.takecareclinicalprocesshealthconddescriptionadapter.importraregistrydata.ImportRaRegistryDataResponseTransformer" name="class"/>
-<property value="8" name="auxiliary;index"/>
-<property value="8" name="auxiliary;index"/>
-<property value="8" name="auxiliary;index"/>
+<property value="9" name="auxiliary;index"/>
+<property value="9" name="auxiliary;index"/>
+<property value="9" name="auxiliary;index"/>
                             </properties>
                         </pattern>
                     </lane>
@@ -115,26 +121,26 @@
                     <property value="http://www.mulesoft.org/schema/mule/core/set-property" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
                     <property value="SOAPAction" name="propertyName"/>
                     <property value="urn:riv:clinicalprocess:healthcond:description:RegisterRaDSDataResponder:1:RegisterRaDSData" name="value"/>
-                    <property value="9" name="auxiliary;index"/>
-                    <property value="9" name="auxiliary;index"/>
-                    <property value="9" name="auxiliary;index"/>
-                    <property value="9" name="auxiliary;index"/>
-                    <property value="9" name="auxiliary;index"/>
-                    <property value="9" name="auxiliary;index"/>
-                    <property value="9" name="auxiliary;index"/>
+                    <property value="10" name="auxiliary;index"/>
+                    <property value="10" name="auxiliary;index"/>
+                    <property value="10" name="auxiliary;index"/>
+                    <property value="10" name="auxiliary;index"/>
+                    <property value="10" name="auxiliary;index"/>
+                    <property value="10" name="auxiliary;index"/>
+                    <property value="10" name="auxiliary;index"/>
                 </properties>
             </pattern>
             <pattern type="http://www.mulesoft.org/schema/mule/core/properties-transformer" name="Copy property x-vp-auth-cert to outbound" entity-id="Property#2">
                 <properties>
                     <property value="http://www.mulesoft.org/schema/mule/core/copy-properties" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
                     <property value="x-vp-auth-cert" name="propertyName"/>
-                    <property value="10" name="auxiliary;index"/>
-                    <property value="10" name="auxiliary;index"/>
-                    <property value="10" name="auxiliary;index"/>
-                    <property value="10" name="auxiliary;index"/>
-                    <property value="10" name="auxiliary;index"/>
-                    <property value="10" name="auxiliary;index"/>
-                    <property value="10" name="auxiliary;index"/>
+                    <property value="11" name="auxiliary;index"/>
+                    <property value="11" name="auxiliary;index"/>
+                    <property value="11" name="auxiliary;index"/>
+                    <property value="11" name="auxiliary;index"/>
+                    <property value="11" name="auxiliary;index"/>
+                    <property value="11" name="auxiliary;index"/>
+                    <property value="11" name="auxiliary;index"/>
                 </properties>
             </pattern>
             <pattern type="http://www.mulesoft.org/schema/mule/cxf/soapComponent" name="SOAP Proxy Client" entity-id="SOAP#1">
@@ -142,79 +148,79 @@
                     <property name="configuration-ref"/>
                     <property value="http://www.mulesoft.org/schema/mule/cxf/proxy-client" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
                     <property name="configuration-ref"/>
-                    <property value="11" name="auxiliary;index"/>
+                    <property value="12" name="auxiliary;index"/>
                     <property name="operation"/>
                     <property name="serviceClass"/>
                     <property name="decoupledEndpoint"/>
-                    <property value="11" name="auxiliary;index"/>
+                    <property value="12" name="auxiliary;index"/>
                     <property value="envelope" name="payload"/>
                     <property name="port"/>
-                    <property value="11" name="auxiliary;index"/>
-                    <property value="11" name="auxiliary;index"/>
-                    <property value="11" name="auxiliary;index"/>
-                    <property value="11" name="auxiliary;index"/>
-                    <property value="11" name="auxiliary;index"/>
-                    <property value="11" name="auxiliary;index"/>
+                    <property value="12" name="auxiliary;index"/>
+                    <property value="12" name="auxiliary;index"/>
+                    <property value="12" name="auxiliary;index"/>
+                    <property value="12" name="auxiliary;index"/>
+                    <property value="12" name="auxiliary;index"/>
+                    <property value="12" name="auxiliary;index"/>
                     <property name="mtomEnabled"/>
                     <property name="wsdlLocation"/>
                     <property name="enableMuleSoapHeaders"/>
-                    <property value="11" name="auxiliary;index"/>
-                    <property value="11" name="auxiliary;index"/>
-                    <property value="11" name="auxiliary;index"/>
-                    <property value="11" name="auxiliary;index"/>
-                    <property value="11" name="auxiliary;index"/>
-                    <property value="11" name="auxiliary;index"/>
-                    <property value="11" name="auxiliary;index"/>
-                    <property value="11" name="auxiliary;index"/>
-                    <property value="11" name="auxiliary;index"/>
-                    <property value="11" name="auxiliary;index"/>
-                    <property value="11" name="auxiliary;index"/>
-                    <property value="11" name="auxiliary;index"/>
+                    <property value="12" name="auxiliary;index"/>
+                    <property value="12" name="auxiliary;index"/>
+                    <property value="12" name="auxiliary;index"/>
+                    <property value="12" name="auxiliary;index"/>
+                    <property value="12" name="auxiliary;index"/>
+                    <property value="12" name="auxiliary;index"/>
+                    <property value="12" name="auxiliary;index"/>
+                    <property value="12" name="auxiliary;index"/>
+                    <property value="12" name="auxiliary;index"/>
+                    <property value="12" name="auxiliary;index"/>
+                    <property value="12" name="auxiliary;index"/>
+                    <property value="12" name="auxiliary;index"/>
                 </properties>
             </pattern>
             <endpoint message-exchange-pattern="OneWay" direction="Outbound" type="http://www.mulesoft.org/schema/mule/http/endpoint" name="HTTP" entity-id="HTTP#2">
                 <properties>
                     <property value="one-way" name="exchange-pattern"/>
                     <property value="request-response" name="exchange-pattern"/>
-                    <property value="12" name="auxiliary;index"/>
+                    <property value="13" name="auxiliary;index"/>
                     <property value="http://www.mulesoft.org/schema/mule/http/endpoint" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
-                    <property value="12" name="auxiliary;index"/>
+                    <property value="13" name="auxiliary;index"/>
                     <property name="httpLabel"/>
                     <property name="host"/>
                     <property name="port"/>
                     <property name="path"/>
                     <property name="method"/>
-                    <property value="12" name="auxiliary;index"/>
-                    <property value="12" name="auxiliary;index"/>
+                    <property value="13" name="auxiliary;index"/>
+                    <property value="13" name="auxiliary;index"/>
                     <property name="businessEventsLabel"/>
                     <property name="tracking:enable-default-events"/>
-                    <property value="12" name="auxiliary;index"/>
+                    <property value="13" name="auxiliary;index"/>
                     <property value="${IMPORTRAREGISTRYDATA_OUTBOUND_URL}" name="address"/>
                     <property name="encoding"/>
                     <property name="disableTransportTransformer"/>
                     <property name="mimeType"/>
                     <property value="${SERVICE_TIMEOUT_MS}" name="responseTimeout"/>
                     <property name="followRedirects"/>
-                    <property value="12" name="auxiliary;index"/>
-                    <property value="12" name="auxiliary;index"/>
-                    <property value="12" name="auxiliary;index"/>
+                    <property value="13" name="auxiliary;index"/>
+                    <property value="13" name="auxiliary;index"/>
+                    <property value="13" name="auxiliary;index"/>
                     <property value="soitoolkit-http-connector" name="connector-ref"/>
                     <property name="ref"/>
                     <property value="logReqOut" name="transformer-refs"/>
                     <property value="logRespIn" name="responseTransformer-refs"/>
-                    <property value="12" name="auxiliary;index"/>
-                    <property value="12" name="auxiliary;index"/>
+                    <property value="13" name="auxiliary;index"/>
+                    <property value="13" name="auxiliary;index"/>
                     <property name="user"/>
                     <property name="password"/>
-                    <property value="12" name="auxiliary;index"/>
+                    <property value="13" name="auxiliary;index"/>
                     <property name="contentType"/>
                     <property name="keep-alive"/>
-                    <property value="12" name="auxiliary;index"/>
-                    <property value="12" name="auxiliary;index"/>
-                    <property value="12" name="auxiliary;index"/>
+                    <property value="13" name="auxiliary;index"/>
+                    <property value="13" name="auxiliary;index"/>
+                    <property value="13" name="auxiliary;index"/>
                 </properties>
             </endpoint>
-            <unknown index="13" description="false" entity-id="unknown#1">
+            <unknown index="14" description="false" entity-id="unknown#1">
                 <content>&lt;custom-exception-strategy xmlns=&quot;http://www.mulesoft.org/schema/mule/core&quot; class=&quot;org.soitoolkit.commons.mule.error.ServiceExceptionStrategy&quot;/&gt;</content>
             </unknown>
         </lane>

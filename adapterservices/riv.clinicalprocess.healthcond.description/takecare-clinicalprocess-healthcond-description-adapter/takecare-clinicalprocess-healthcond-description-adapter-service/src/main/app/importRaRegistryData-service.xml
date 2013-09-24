@@ -41,6 +41,7 @@ http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/
 			class="se.skltp.adapterservices.clinicalprocess.healthcond.description.takecareclinicalprocesshealthconddescriptionadapter.importraregistrydata.ImportRaRegistryDataRequestTransformer">
 	    <spring:property name="encryptionEnabled" value="${IMPORTRAREGISTRYDATA_ENCRYPTION_ENABLED}" />
 	    <spring:property name="encryptionKey" value="${IMPORTRAREGISTRYDATA_ENCRYPTION_KEY}" />
+	    <spring:property name="defaultLogicalAddress" value="${IMPORTRAREGISTRYDATA_LOGICAL_ADDRESS}" />
     </custom-transformer>
 
 		<response>
