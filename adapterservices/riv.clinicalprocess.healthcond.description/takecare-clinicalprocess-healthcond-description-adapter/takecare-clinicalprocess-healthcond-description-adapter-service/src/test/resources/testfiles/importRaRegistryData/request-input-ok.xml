@@ -67,7 +67,8 @@
             <Profession>profession0</Profession>
         </ResponsiblePhysician>
         <Smoking>No</Smoking> 
-        <StudyProject>Ny koppling</StudyProject> 
+        <StudyProject>Ny koppling</StudyProject>
+        <StudyProject>Ny studie</StudyProject>  
         <SwollenJoints>10</SwollenJoints> 
         <HAQ>2.5</HAQ>
         <SR>2</SR>    

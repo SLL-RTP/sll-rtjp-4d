@@ -16,7 +16,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>se.skltp.clinicalprocess.healthcond.description</groupId>
 	<artifactId>${parent.artifactId}-testproducer</artifactId>
-	<name>${artifactId}</name>
+	<name>${project.artifactId}</name>
 	<url>http://maven.apache.org</url>
 
 	<parent>

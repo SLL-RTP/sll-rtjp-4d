@@ -20,8 +20,10 @@
  */
 package se.riv.rheumatology.arthritis.getacparesult.v1;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Random;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -53,20 +55,52 @@ public class GetACPAResultImpl implements GetACPAResultResponderInterface {
 			comment.append("[" + arg1.getPatientId() + "]");
 
 			ACPAResultType acpa = new ACPAResultType();
-			acpa.setACPA(false);
 			
-			acpa.setDateOfSample(convertToXmlDate(new Date()));
-			acpa.setCcp(12.1f);
-			acpa.setCitC1Igg(13.2f);
-			acpa.setCitEnoIgg(14.3f);
-			acpa.setCitFibIgg(15.4f);
+			if (randInt(1, 2) == 1) {
+			  acpa.setACPA(false);
+			} else {
+			  acpa.setACPA(true); 
+			}
+			
+			acpa.setDateOfSample(convertToXmlDate(randomDate()));
+			acpa.setCcp(randInt(12, 199)/10);
+			acpa.setCitC1Igg(randInt(12, 190)/10);
+			acpa.setCitEnoIgg(randInt(12, 190)/10);
+			acpa.setCitFibIgg(randInt(12, 190)/10);
 			result.setACPAResult(acpa);
 		}
 		
 		result.setComment(comment.toString());
 		return result;
 	}
+	
+	
+	private Date randomDate() {
+	  
+	  final GregorianCalendar gc = new GregorianCalendar();
 
+    final int year = randInt(1990, 2010);
+
+    gc.set(Calendar.YEAR, year);
+
+    final int dayOfYear = randInt(1, gc.getActualMaximum(Calendar.DAY_OF_YEAR));
+
+    gc.set(Calendar.DAY_OF_YEAR, dayOfYear);
+    
+    return gc.getTime();
+	}
+	
+	private int randInt(int min, int max) {
+
+    // Usually this can be a field rather than a method variable
+    Random rand = new Random();
+
+    // nextInt is normally exclusive of the top value,
+    // so add 1 to make it inclusive
+    int randomNum = rand.nextInt((max - min) + 1) + min;
+
+    return randomNum;
+}
 	private XMLGregorianCalendar convertToXmlDate(Date myDate) {
 		GregorianCalendar c = new GregorianCalendar();
 		c.setTime(myDate);

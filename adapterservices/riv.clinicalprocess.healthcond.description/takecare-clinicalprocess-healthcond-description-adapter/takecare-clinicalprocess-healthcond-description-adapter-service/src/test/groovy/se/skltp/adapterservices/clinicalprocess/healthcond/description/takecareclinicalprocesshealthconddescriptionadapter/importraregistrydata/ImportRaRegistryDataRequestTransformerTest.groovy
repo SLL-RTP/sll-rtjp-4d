@@ -2,6 +2,8 @@ package se.skltp.adapterservices.clinicalprocess.healthcond.description.takecare
 
 
 
+import java.awt.im.InputContext;
+
 import groovy.xml.XmlUtil;
 
 import org.custommonkey.xmlunit.Diff;
@@ -15,8 +17,93 @@ import se.skltp.adapterservices.clinicalprocess.healthcond.description.takecarec
 
 public class ImportRaRegistryDataRequestTransformerTest extends XMLTestCase{
 
+  @Test
+  public void testPojoTransform() throws Exception {
+
+    // Specify input and expected result
+    StringBuffer input = new StringBuffer();
+    input.append 'registry=rareg'
+    input.append '&sender=Take%20Care'
+    input.append '&location=Karolinska%20Universitetssjukhuset'
+    String xml = new File('src/test/resources/testfiles/importRaRegistryData/request-input.xml').text
+    input.append '&xml=' + URLEncoder.encode(xml, 'UTF-8') 
+    
+    String expectedResult = new File('src/test/resources/testfiles/importRaRegistryData/request-input-expected-result.xml').text
+
+    ImportRaRegistryDataRequestTransformer uut = new ImportRaRegistryDataRequestTransformer()
+    uut.encryptionKey = null
+    String result = (String)uut.pojoTransform(input, null)
+
+    def envelope = new XmlSlurper().parseText(result)
+
+    assertTrue('Element Header is present', 1 == envelope.Header.size())
+    assertTrue('Element Body is present', 1 == envelope.Body.size())
+    assertTrue('PatientId is 191212121212', '191212121212' == envelope.Body.RegisterRaDSData.patient.patientId.text())
+    assertTrue('We have three drug elements', 3 == envelope.Body.RegisterRaDSData.registryData.drugs.drug.size())
+
+    XMLUnit.setIgnoreWhitespace(true)
+    // is result as expected?
+    assertXMLEqual("Compare expected result with actual result", expectedResult, result)
+
+  }
+
+  @Test
+  public void testLogicalAddress() throws Exception {
+
+    // Specify input and expected result
+    StringBuffer input = new StringBuffer();
+    input.append 'registry=rareg'
+    input.append '&sender=Take%20Care'
+    input.append '&location=Karolinska%20Universitetssjukhuset'
+    String xml = new File('src/test/resources/testfiles/importRaRegistryData/request-input.xml').text
+    input.append '&xml=' + URLEncoder.encode(xml, 'UTF-8') 
+    input.append '&logicalAddress=abc123'
+    
+    String expectedResult = new File('src/test/resources/testfiles/importRaRegistryData/request-input-expected-result.xml').text
+
+    ImportRaRegistryDataRequestTransformer uut = new ImportRaRegistryDataRequestTransformer()
+    String result = (String)uut.pojoTransform(input, null)
+
+    def envelope = new XmlSlurper().parseText(result)
+
+    assertTrue('Logical address is correct', 'abc123' == envelope.Header.LogicalAddress.text())
 
 
+  }
+
+  @Test
+  public void testPojoTransformWithEncryption() throws Exception {
+
+    String key = 'TheBestSecretKey'
+    // Specify input and expected result
+    StringBuffer input = new StringBuffer();
+    input.append 'registry=rareg'
+    input.append '&sender=Take%20Care'
+    input.append '&location=Karolinska%20Universitetssjukhuset'
+    String xml = new File('src/test/resources/testfiles/importRaRegistryData/request-input.xml').text
+    AesUtil util =  new AesUtil(secretKey: key)
+    String encryptedXml = util.encrypt(xml)
+    input.append '&xml=' + URLEncoder.encode(encryptedXml, 'UTF-8')
+    
+    String expectedResult = new File('src/test/resources/testfiles/importRaRegistryData/request-input-expected-result.xml').text
+
+    ImportRaRegistryDataRequestTransformer uut = new ImportRaRegistryDataRequestTransformer(encryptionEnabled: true, encryptionKey: key)
+    String result = (String)uut.pojoTransform(input, null)
+
+    def envelope = new XmlSlurper().parseText(result)
+
+    assertTrue('Element Header is present', 1 == envelope.Header.size())
+    assertTrue('Element Body is present', 1 == envelope.Body.size())
+    assertTrue('PatientId is 191212121212', '191212121212' == envelope.Body.RegisterRaDSData.patient.patientId.text())
+    assertTrue('We have three drug elements', 3 == envelope.Body.RegisterRaDSData.registryData.drugs.drug.size())
+
+    XMLUnit.setIgnoreWhitespace(true)
+    // is result as expected?
+    assertXMLEqual("Compare expected result with actual result", expectedResult, result)
+
+  }
+
+  
   @Test
   public void testTransformerXml() throws Exception {
 
@@ -25,7 +112,7 @@ public class ImportRaRegistryDataRequestTransformerTest extends XMLTestCase{
     String expectedResult = MiscUtil.readFileAsString("src/test/resources/testfiles/importRaRegistryData/request-input-expected-result.xml")
 
     ImportRaRegistryDataRequestTransformer uut = new ImportRaRegistryDataRequestTransformer()
-    String result = (String)uut.transformXml(input)
+    String result = (String)uut.transformXml(input, '1234567890')
 
     def envelope = new XmlSlurper().parseText(result)
 
@@ -51,7 +138,7 @@ public class ImportRaRegistryDataRequestTransformerTest extends XMLTestCase{
     
     
 
-    ImportRaRegistryDataRequestTransformer uut = new ImportRaRegistryDataRequestTransformer(encryptionKey: key, )
+    ImportRaRegistryDataRequestTransformer uut = new ImportRaRegistryDataRequestTransformer(encryptionEnabled: true, encryptionKey: key)
     String result = (String)uut.decrypt(encrypted)
 
     XMLUnit.setIgnoreWhitespace(true)

@@ -80,10 +80,13 @@ public class ImportRaRegistryDataIntegrationTest extends AbstractTestCase {
     AesUtil aesUtil = new AesUtil();
     aesUtil.setSecretKey(encryptionKey);
     params.put("xml", aesUtil.encrypt(xml));
+    Map<String, String> headers = new HashMap<String, String>();
+    headers.put("x-vp-auth-cert", "HSAID1");
+    
     
     String request = generateQueryString(params);
     
-    String result = consumer.callService(request);
+    String result = consumer.callService(request, headers);
 
     Map<String, String> map = extractResponseVariables(result);
 
@@ -108,8 +111,10 @@ public class ImportRaRegistryDataIntegrationTest extends AbstractTestCase {
     aesUtil.setSecretKey(encryptionKey);
     params.put("xml", aesUtil.encrypt(xml));    
     String request = generateQueryString(params);
+    Map<String, String> headers = new HashMap<String, String>();
+    headers.put("x-vp-auth-cert", "HSAID1");
     
-    String result = consumer.callService(request);
+    String result = consumer.callService(request, headers);
 
     Map<String, String> map = extractResponseVariables(result);
 
@@ -133,7 +138,8 @@ public class ImportRaRegistryDataIntegrationTest extends AbstractTestCase {
     aesUtil.setSecretKey(encryptionKey);
     params.put("xml", aesUtil.encrypt(xml));    
     String request = generateQueryString(params);
-    
+    Map<String, String> headers = new HashMap<String, String>();
+    headers.put("x-vp-auth-cert", "HSAID1");
     
     String result = consumer.callService(request);
 
@@ -148,7 +154,9 @@ public class ImportRaRegistryDataIntegrationTest extends AbstractTestCase {
     String[] entries = result.split("\n");
     for (String entry : entries) {
       String[] keyValue = entry.split("=");
-      map.put(keyValue[0], keyValue[1]);
+      if (keyValue.length == 2) {
+        map.put(keyValue[0], keyValue[1]);
+      }
     }
     return map;
   }

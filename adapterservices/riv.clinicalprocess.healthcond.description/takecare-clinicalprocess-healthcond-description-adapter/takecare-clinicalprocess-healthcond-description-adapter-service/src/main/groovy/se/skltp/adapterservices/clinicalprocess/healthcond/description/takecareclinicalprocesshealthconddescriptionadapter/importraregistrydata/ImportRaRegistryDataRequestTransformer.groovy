@@ -26,11 +26,13 @@ public class ImportRaRegistryDataRequestTransformer extends AbstractMessageTrans
   static final LOCATION = 'location'
   static final SENDER = 'sender'
   static final XML = 'xml' 
+  static final LOGICAL_ADDRESS = 'logicalAddress'
   
   static final String CIPHER_TRANSFORMATION = "AES/ECB/PKCS5Padding";
   
   String encryptionKey = null
-  
+  boolean encryptionEnabled = false
+  String defaultLogicalAddress = '1234567890'
 
   /**
    * Transformer that transforms the payload to SOAP Envelope
@@ -56,15 +58,20 @@ public class ImportRaRegistryDataRequestTransformer extends AbstractMessageTrans
       map
     }  
 
-    String xml = decrypt(params[XML])  
-    def result = transformXml(xml)
+    String logicalAdress  = params[LOGICAL_ADDRESS] ?: defaultLogicalAddress
+    
+    String xml = params[XML]
+    if (encryptionEnabled) {
+     xml =  decrypt(xml)
+    }  
+    def result = transformXml(xml, logicalAdress)
 
     log.debug("Outgoing payload [{}]", result)
     return result
   }
 
 
-  String transformXml(String xml) {
+  String transformXml(String xml, String logicalAddress) {
     log.debug("Incoming xml: {}", xml);
     
     String result = null
@@ -81,7 +88,7 @@ public class ImportRaRegistryDataRequestTransformer extends AbstractMessageTrans
         mkp.declareNamespace(tns:'urn:riv:clinicalprocess:healthcond:description:RegisterRaDSDataResponder:1')
         mkp.declareNamespace(xsi:'http://www.w3.org/2001/XMLSchema-instance')
         'soapenv:Envelope' {
-          'soapenv:Header' { 'itr:LogicalAddress' 'Logisk adress' }
+          'soapenv:Header' { 'itr:LogicalAddress' "${logicalAddress}" }
           'soapenv:Body' {
             'tns:RegisterRaDSData' {
               if (1 == inRegistryData.Patient.size())
@@ -161,8 +168,14 @@ public class ImportRaRegistryDataRequestTransformer extends AbstractMessageTrans
                     'tns:menopaus'                data.Menopaus.text()
                   if (1 == data.MenopausAge.size() )
                     'tns:menopausAge'             data.MenopausAge.text()
-                  if (1 == data.StudyProject.size())
-                    'tns:studyProject'            data.StudyProject.text()
+                  if (0 < data.StudyProject.size()) {
+                    'tns:studyProjects' {
+                      data.StudyProject.each {
+                        def project = it
+                        'tns:studyProject'            project.text()
+                      }
+                    }
+                  }
                   if (1 == data.VisitDate.size())
                     'tns:visitDate'               data.VisitDate.text()
                   if (1 == data.VisitDoctor.size())
@@ -260,6 +273,7 @@ public class ImportRaRegistryDataRequestTransformer extends AbstractMessageTrans
 
   
   String decrypt(String encryptedData)  {
+    log.debug("Value to decrypt [{}]", encryptedData)
     Key key = new SecretKeySpec(encryptionKey.getBytes(), 'AES');
     Cipher c = Cipher.getInstance(CIPHER_TRANSFORMATION);
     c.init(Cipher.DECRYPT_MODE, key);
