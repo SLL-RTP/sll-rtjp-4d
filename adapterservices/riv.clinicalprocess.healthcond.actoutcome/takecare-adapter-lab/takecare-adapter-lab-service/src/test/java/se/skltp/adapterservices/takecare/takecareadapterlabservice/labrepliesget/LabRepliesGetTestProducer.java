@@ -59,12 +59,12 @@ public class LabRepliesGetTestProducer implements LabSoap {
             String xml) {
         String result = null;
         
-        log.debug("Incoming username to TakeCare {}", tcusername);
-        log.debug("Incoming password to TakeCare {}", tcpassword);
-        log.debug("Incoming externaluser to TakeCare {}", externaluser);
-        log.debug("Incoming careunitidtype to TakeCare {}", careunitidtype);
-        log.debug("Incoming careunitid to TakeCare {}", careunitid);
-        log.debug("Incoming xml to TakeCare {}", xml);
+        log.debug("Incoming username to TakeCare '{}'", tcusername);
+        log.debug("Incoming password to TakeCare '{}'", tcpassword);
+        log.debug("Incoming externaluser to TakeCare '{}'", externaluser);
+        log.debug("Incoming careunitidtype to TakeCare '{}'", careunitidtype);
+        log.debug("Incoming careunitid to TakeCare '{}'", careunitid);
+        log.debug("Incoming xml to TakeCare '{}'", xml);
 
         String patientId = null;
         if (xml != null && !xml.isEmpty()) {

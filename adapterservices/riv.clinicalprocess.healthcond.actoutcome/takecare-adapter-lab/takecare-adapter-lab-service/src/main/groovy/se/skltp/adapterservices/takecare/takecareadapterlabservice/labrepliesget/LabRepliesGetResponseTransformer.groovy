@@ -51,8 +51,8 @@ public class LabRepliesGetResponseTransformer extends AbstractMessageTransformer
             builder.encoding = 'UTF-8'
             def response = builder.bind {
                 //mkp.xmlDeclaration()
-                mkp.declareNamespace(core:'urn:riv:clinicalprocess:healthcond:actoutcome:1')
-                mkp.declareNamespace(tns:'urn:riv:clinicalprocess:healthcond:actoutcome:GetClinicalChemistryLabOrderOutcomeResponder:1')
+                mkp.declareNamespace(core:'urn:sll:clinicalprocess:healthcond:actoutcome:1')
+                mkp.declareNamespace(tns:'urn:sll:clinicalprocess:healthcond:actoutcome:GetClinicalChemistryLabOrderOutcomeResponder:1')
                 mkp.declareNamespace(xsi:'http://www.w3.org/2001/XMLSchema-instance')
                 'tns:GetClinicalChemistryLabOrderOutcomeResponse' {
                     'tns:resultCode' 'OK'

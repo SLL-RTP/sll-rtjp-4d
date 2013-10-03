@@ -1,6 +1,6 @@
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <soap:Body>
-    <ns2:RegisterRaDSDataResponse xmlns:ns2="urn:riv:clinicalprocess:healthcond:description:RegisterRaDSDataResponder:1">
+    <ns2:RegisterRaDSDataResponse xmlns:ns2="urn:sll:clinicalprocess:healthcond:description:RegisterRaDSDataResponder:1">
       <ns2:ResultCode>OK</ns2:ResultCode>
       <ns2:comment>Test result for 191212121212</ns2:comment>
     </ns2:RegisterRaDSDataResponse>

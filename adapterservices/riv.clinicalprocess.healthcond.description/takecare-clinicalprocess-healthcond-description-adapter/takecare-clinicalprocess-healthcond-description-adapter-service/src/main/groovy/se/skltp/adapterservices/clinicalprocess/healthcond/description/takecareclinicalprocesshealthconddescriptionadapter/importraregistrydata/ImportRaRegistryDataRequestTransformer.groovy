@@ -83,9 +83,9 @@ public class ImportRaRegistryDataRequestTransformer extends AbstractMessageTrans
       def envelope = builder.bind {
         mkp.xmlDeclaration()
         mkp.declareNamespace(soapenv:'http://schemas.xmlsoap.org/soap/envelope/')
-        mkp.declareNamespace(core:'urn:riv:clinicalprocess:healthcond:description:1')
+        mkp.declareNamespace(core:'urn:sll:clinicalprocess:healthcond:description:1')
         mkp.declareNamespace(itr:'urn:riv:itintegration:registry:1')
-        mkp.declareNamespace(tns:'urn:riv:clinicalprocess:healthcond:description:RegisterRaDSDataResponder:1')
+        mkp.declareNamespace(tns:'urn:sll:clinicalprocess:healthcond:description:RegisterRaDSDataResponder:1')
         mkp.declareNamespace(xsi:'http://www.w3.org/2001/XMLSchema-instance')
         'soapenv:Envelope' {
           'soapenv:Header' { 'itr:LogicalAddress' "${logicalAddress}" }

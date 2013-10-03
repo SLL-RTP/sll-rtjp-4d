@@ -17,7 +17,7 @@ import org.soitoolkit.commons.mule.test.ActiveMqJmsTestUtil;
 import org.soitoolkit.commons.mule.test.junit4.AbstractTestCase;
 import org.soitoolkit.commons.mule.util.MiscUtil;
 
-import se.riv.clinicalprocess.healthcond.description.registerradsdataresponder.v1.ResultCodeEnum;
+import se.sll.clinicalprocess.healthcond.description.registerradsdataresponder.v1.ResultCodeEnum;
 import se.skltp.adapterservices.clinicalprocess.healthcond.description.takecareclinicalprocesshealthconddescriptionadapter.AesUtil;
 
 public class ImportRaRegistryDataIntegrationTest extends AbstractTestCase {
@@ -77,9 +77,10 @@ public class ImportRaRegistryDataIntegrationTest extends AbstractTestCase {
     params.put("sender", "Take Care");
     String xml = MiscUtil
         .readFileAsString("src/test/resources/testfiles/importRaRegistryData/request-input-ok.xml");
-    AesUtil aesUtil = new AesUtil();
-    aesUtil.setSecretKey(encryptionKey);
-    params.put("xml", aesUtil.encrypt(xml));
+    //AesUtil aesUtil = new AesUtil();
+    //aesUtil.setSecretKey(encryptionKey);
+    //params.put("xml", aesUtil.encrypt(xml));
+    params.put("xml", xml);
     Map<String, String> headers = new HashMap<String, String>();
     headers.put("x-vp-auth-cert", "HSAID1");
     
@@ -107,9 +108,10 @@ public class ImportRaRegistryDataIntegrationTest extends AbstractTestCase {
     params.put("sender", "Take Care");
     String xml = MiscUtil
     .readFileAsString("src/test/resources/testfiles/importRaRegistryData/request-input-invalidinput.xml");
-    AesUtil aesUtil = new AesUtil();
-    aesUtil.setSecretKey(encryptionKey);
-    params.put("xml", aesUtil.encrypt(xml));    
+    //AesUtil aesUtil = new AesUtil();
+    //aesUtil.setSecretKey(encryptionKey);
+    //params.put("xml", aesUtil.encrypt(xml));
+    params.put("xml", xml);
     String request = generateQueryString(params);
     Map<String, String> headers = new HashMap<String, String>();
     headers.put("x-vp-auth-cert", "HSAID1");
@@ -134,9 +136,10 @@ public class ImportRaRegistryDataIntegrationTest extends AbstractTestCase {
     params.put("sender", "Take Care");
     String xml = MiscUtil
     .readFileAsString("src/test/resources/testfiles/importRaRegistryData/request-input-invalidinput.xml");
-    AesUtil aesUtil = new AesUtil();
-    aesUtil.setSecretKey(encryptionKey);
-    params.put("xml", aesUtil.encrypt(xml));    
+    //AesUtil aesUtil = new AesUtil();
+    //aesUtil.setSecretKey(encryptionKey);
+    //params.put("xml", aesUtil.encrypt(xml));
+    params.put("xml", xml);
     String request = generateQueryString(params);
     Map<String, String> headers = new HashMap<String, String>();
     headers.put("x-vp-auth-cert", "HSAID1");

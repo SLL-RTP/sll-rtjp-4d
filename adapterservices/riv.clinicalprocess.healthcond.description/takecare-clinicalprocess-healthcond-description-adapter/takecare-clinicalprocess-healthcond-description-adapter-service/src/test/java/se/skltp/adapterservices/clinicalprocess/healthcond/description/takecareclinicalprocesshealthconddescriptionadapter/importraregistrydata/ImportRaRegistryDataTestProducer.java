@@ -12,10 +12,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.soitoolkit.commons.mule.util.RecursiveResourceBundle;
 
-import se.riv.clinicalprocess.healthcond.description.registerradsdata.v1.rivtabp21.RegisterRaDSDataResponderInterface;
-import se.riv.clinicalprocess.healthcond.description.registerradsdataresponder.v1.RegisterRaDSDataResponseType;
-import se.riv.clinicalprocess.healthcond.description.registerradsdataresponder.v1.RegisterRaDSDataType;
-import se.riv.clinicalprocess.healthcond.description.registerradsdataresponder.v1.ResultCodeEnum;
+import se.sll.clinicalprocess.healthcond.description.registerradsdata.v1.rivtabp21.RegisterRaDSDataResponderInterface;
+import se.sll.clinicalprocess.healthcond.description.registerradsdataresponder.v1.RegisterRaDSDataResponseType;
+import se.sll.clinicalprocess.healthcond.description.registerradsdataresponder.v1.RegisterRaDSDataType;
+import se.sll.clinicalprocess.healthcond.description.registerradsdataresponder.v1.ResultCodeEnum;
 
 @WebService
 public class ImportRaRegistryDataTestProducer implements RegisterRaDSDataResponderInterface {

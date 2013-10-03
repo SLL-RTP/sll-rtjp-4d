@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <mule-configuration xmlns="http://www.mulesoft.com/tooling/messageflow" name="importRaRegistryData">
-    <flow SubFlow="false" name="importRaRegistryData-service" entity-id="6339f9ca-a888-4da2-85e6-bd03b088b60c">
+    <flow SubFlow="false" name="importRaRegistryData-service" entity-id="8f3e1206-04a5-48d3-8397-4d28674f85cf">
         <properties>
             <property name="processingStrategy2"/>
             <property name="processingStrategy"/>
@@ -120,7 +120,7 @@
                 <properties>
                     <property value="http://www.mulesoft.org/schema/mule/core/set-property" name="org.mule.tooling.ui.modules.core.widgets.meta.ModeAttribute"/>
                     <property value="SOAPAction" name="propertyName"/>
-                    <property value="urn:riv:clinicalprocess:healthcond:description:RegisterRaDSDataResponder:1:RegisterRaDSData" name="value"/>
+                    <property value="urn:sll:clinicalprocess:healthcond:description:RegisterRaDSDataResponder:1:RegisterRaDSData" name="value"/>
                     <property value="10" name="auxiliary;index"/>
                     <property value="10" name="auxiliary;index"/>
                     <property value="10" name="auxiliary;index"/>

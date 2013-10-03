@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:itr="urn:riv:itintegration:registry:1" xmlns:tns="urn:riv:clinicalprocess:healthcond:description:RegisterRaDSDataResponder:1" xmlns:core="urn:riv:clinicalprocess:healthcond:description:1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:itr="urn:riv:itintegration:registry:1" xmlns:tns="urn:sll:clinicalprocess:healthcond:description:RegisterRaDSDataResponder:1" xmlns:core="urn:sll:clinicalprocess:healthcond:description:1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <soapenv:Header>
     <itr:LogicalAddress>1234567890</itr:LogicalAddress>
   </soapenv:Header>

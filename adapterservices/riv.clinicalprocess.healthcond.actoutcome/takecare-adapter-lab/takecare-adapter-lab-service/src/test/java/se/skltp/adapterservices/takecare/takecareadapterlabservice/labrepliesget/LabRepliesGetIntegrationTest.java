@@ -22,8 +22,8 @@ import org.soitoolkit.commons.mule.test.ActiveMqJmsTestUtil;
 import org.soitoolkit.commons.mule.test.junit4.AbstractTestCase;
 import org.soitoolkit.refapps.sd.sample.wsdl.v1.Fault;
 
-import se.riv.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylaborderoutcomeresponder.v1.GetClinicalChemistryLabOrderOutcomeResponseType;
-import se.riv.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylaborderoutcomeresponder.v1.LabResultType;
+import se.sll.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylaborderoutcomeresponder.v1.GetClinicalChemistryLabOrderOutcomeResponseType;
+import se.sll.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylaborderoutcomeresponder.v1.LabResultType;
 import se.skltp.adapterservices.takecare.lab.LabRepliesGet;
 import se.skltp.adapterservices.takecare.lab.labrepliesget.response.X2Message;
 import se.skltp.adapterservices.takecare.takecareadapterlabservice.TakeCareDateHelper;

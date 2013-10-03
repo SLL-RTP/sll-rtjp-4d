@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <mule-configuration xmlns="http://www.mulesoft.com/tooling/messageflow" name="LabRepliesGet">
-    <flow SubFlow="false" name="LabRepliesGet-service" entity-id="aa50955b-9f3a-4575-9bb8-8e8fcdb9c89f">
+    <flow SubFlow="false" name="LabRepliesGet-service" entity-id="41f09ec6-3b7c-47e4-94c7-72121793bcb8">
         <properties>
             <property name="processingStrategy2"/>
             <property name="processingStrategy"/>
@@ -62,7 +62,7 @@
                     <property value="3" name="auxiliary;index"/>
                     <property name="bindingId"/>
                     <property name="port"/>
-                    <property value="urn:riv:clinicalprocess:healthcond:actoutcome:GetClinicalChemistryLabOrderOutcome:1:rivtabp21" name="namespace"/>
+                    <property value="urn:sll:clinicalprocess:healthcond:actoutcome:GetClinicalChemistryLabOrderOutcome:1:rivtabp21" name="namespace"/>
                     <property value="GetClinicalChemistryLabOrderOutcomeResponderService" name="service"/>
                     <property name="onException"/>
                     <property name="serviceClass"/>

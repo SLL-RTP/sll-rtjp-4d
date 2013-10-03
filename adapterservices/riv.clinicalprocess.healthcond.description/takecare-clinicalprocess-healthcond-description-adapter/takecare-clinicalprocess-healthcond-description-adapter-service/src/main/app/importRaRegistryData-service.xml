@@ -50,7 +50,7 @@ http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/
 				class="se.skltp.adapterservices.clinicalprocess.healthcond.description.takecareclinicalprocesshealthconddescriptionadapter.importraregistrydata.ImportRaRegistryDataResponseTransformer" />
 		</response>
 
-		<set-property propertyName="SOAPAction" value="urn:riv:clinicalprocess:healthcond:description:RegisterRaDSDataResponder:1:RegisterRaDSData" doc:name="set SoapAction property"/>
+		<set-property propertyName="SOAPAction" value="urn:sll:clinicalprocess:healthcond:description:RegisterRaDSDataResponder:1:RegisterRaDSData" doc:name="set SoapAction property"/>
 		<copy-properties propertyName="x-vp-auth-cert"  doc:name="Copy property x-vp-auth-cert to outbound" />
 		
 		<cxf:proxy-client doc:name="SOAP Proxy Client" payload="envelope"  />

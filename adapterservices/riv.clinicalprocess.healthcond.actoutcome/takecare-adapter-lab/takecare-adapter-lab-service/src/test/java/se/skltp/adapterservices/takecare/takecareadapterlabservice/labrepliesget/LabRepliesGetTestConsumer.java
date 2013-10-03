@@ -12,9 +12,9 @@ import org.slf4j.LoggerFactory;
 import org.soitoolkit.commons.mule.util.RecursiveResourceBundle;
 import org.soitoolkit.refapps.sd.sample.wsdl.v1.Fault;
 
-import se.riv.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylaborderoutcomeresponder.v1.GetClinicalChemistryLabOrderOutcomeResponseType;
-import se.riv.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylaborderoutcomeresponder.v1.GetClinicalChemistryLabOrderOutcomeType;
-import se.riv.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylaborderoutcomeresponder.v1.rivtabp21.GetClinicalChemistryLabOrderOutcomeResponderInterface;
+import se.sll.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylaborderoutcomeresponder.v1.GetClinicalChemistryLabOrderOutcomeResponseType;
+import se.sll.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylaborderoutcomeresponder.v1.GetClinicalChemistryLabOrderOutcomeType;
+import se.sll.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylaborderoutcomeresponder.v1.rivtabp21.GetClinicalChemistryLabOrderOutcomeResponderInterface;
 import se.skltp.adapterservices.takecare.takecareadapterlabservice.TakeCareDateHelper;
 
 public class LabRepliesGetTestConsumer {
