@@ -36,7 +36,7 @@
             http://www.springframework.org/schema/beans   			   http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
 	
 	<http:destination
-		name="{urn:sll:clinicalprocess:healthcond:actoutcome:GetClinicalChemistryLabOrderOutcome:1:rivtabp21}GetClinicalChemistryLabOrderOutcomeResponderPort.http-destination">
+		name="{urn:sll:clinicalprocess:healthcond:description:RegisterRaDSData:1:rivtabp21}RegisterRaDSDataResponderPort.http-destination">
 	</http:destination>
 
 	<httpj:engine-factory>

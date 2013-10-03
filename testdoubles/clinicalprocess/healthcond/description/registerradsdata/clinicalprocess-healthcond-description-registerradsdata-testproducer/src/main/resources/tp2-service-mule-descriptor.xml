@@ -20,9 +20,9 @@
 	">
 
 	<simple-service
-		name="GetClinicalChemistryLabOrderOutcome-teststub-service"
-		address="${GetClinicalChemistryLabOrderOutcome_TESTSTUB_INBOUND_URL}"
-		component-class="se.sll.skltp.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylaborderoutcome.v1.GetClinicalChemistryLabOrderOutcomeImpl"
+		name="RegisterRaDSData-teststub-service"
+		address="${RegisterRaDSData_TESTSTUB_INBOUND_URL}"
+		component-class="se.sll.skltp.clinicalprocess.healthcond.description.registerradsdata.v1.RegisterRaDSDataImpl"
 		type="jax-ws" />
 
 </mule>

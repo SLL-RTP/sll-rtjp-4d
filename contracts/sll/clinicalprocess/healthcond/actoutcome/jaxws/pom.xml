@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>se.rivta.tools</groupId>
+  <groupId>se.sll.rivta.tools</groupId>
   <artifactId>clinicalprocess-healthcond-actoutcome-schemas</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
@@ -71,11 +71,11 @@
                     <extraarg>-p</extraarg>
                     <extraarg>http://www.w3.org/2005/08/addressing=org.w3c.addressing.v1</extraarg>
                     <extraarg>-p</extraarg>
-                    <extraarg>urn:sll:clinicalprocess:healthcond:actoutcome:GetMicroBiologiLabOrderOutcomeResponder:1=se.sll.clinicalprocess.healthcond.actoutcome.GetMicroBiologiLabOrderOutcomeresponder.v1</extraarg>
+                    <extraarg>urn:sll:clinicalprocess:healthcond:actoutcome:GetMicroBiologiLabOrderOutcomeResponder:1=se.sll.clinicalprocess.healthcond.actoutcome.getmicrobiologilaborderoutcomeresponder.v1</extraarg>
                     <extraarg>-p</extraarg>
-                    <extraarg>urn:sll:clinicalprocess:healthcond:actoutcome:GetMicroBiologiLabOrderOutcomeInitiator:1=se.sll.clinicalprocess.healthcond.actoutcome.GetMicroBiologiLabOrderOutcomeinitiator.v1</extraarg>
+                    <extraarg>urn:sll:clinicalprocess:healthcond:actoutcome:GetMicroBiologiLabOrderOutcomeInitiator:1=se.sll.clinicalprocess.healthcond.actoutcome.getmicrobiologilaborderoutcomeinitiator.v1</extraarg>
                     <extraarg>-p</extraarg>
-                    <extraarg>urn:sll:clinicalprocess:healthcond:actoutcome:GetMicroBiologiLabOrderOutcome:1:rivtabp21=se.sll.clinicalprocess.healthcond.actoutcome.GetMicroBiologiLabOrderOutcome.v1.rivtabp21</extraarg>
+                    <extraarg>urn:sll:clinicalprocess:healthcond:actoutcome:GetMicroBiologiLabOrderOutcome:1:rivtabp21=se.sll.clinicalprocess.healthcond.actoutcome.getmicrobiologilaborderoutcome.v1.rivtabp21</extraarg>
                     <extraarg>-p</extraarg>
                     <extraarg>urn:riv:itintegration:registry:1=se.riv.itintegration.registry.v1</extraarg>
                     <extraarg>-p</extraarg>

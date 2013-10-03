@@ -1,4 +1,4 @@
-	<?xml version="1.0"?>
+<?xml version="1.0"?>
 <!-- * Copyright 2009 Sjukvardsradgivningen * * This library is free software; 
 	you can redistribute it and/or modify * it under the terms of version 2.1 
 	of the GNU Lesser General Public * License as published by the Free Software 
@@ -14,13 +14,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>se.skltp.clinicalprocess.healthcond.actoutcome</groupId>
+	<groupId>se.sll.skltp.clinicalprocess.healthcond.actoutcome</groupId>
 	<artifactId>${parent.artifactId}-testproducer</artifactId>
 	<name>${artifactId}</name>
 	<url>http://maven.apache.org</url>
 
 	<parent>
-		<groupId>se.skltp.clinicalprocess.healthcond.actoutcome</groupId>
+		<groupId>se.sll.skltp.clinicalprocess.healthcond.actoutcome</groupId>
 		<version>1.0-SNAPSHOT</version>
 		<artifactId>clinicalprocess-healthcond-actoutcome-getclinicallaborderaoutcome</artifactId>
 	</parent>

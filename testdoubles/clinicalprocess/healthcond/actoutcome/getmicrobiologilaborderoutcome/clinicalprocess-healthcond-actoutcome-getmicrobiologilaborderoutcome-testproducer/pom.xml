@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+	<?xml version="1.0"?>
 <!-- * Copyright 2009 Sjukvardsradgivningen * * This library is free software; 
 	you can redistribute it and/or modify * it under the terms of version 2.1 
 	of the GNU Lesser General Public * License as published by the Free Software 
@@ -11,14 +11,19 @@
 	MA 02111-1307 USA -->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>se.sll.skltp.clinicalprocess.healthcond.actoutcome</groupId>
-	<version>1.0-SNAPSHOT</version>
-	<artifactId>clinicalprocess-healthcond-actoutcome-getclinicallaborderaoutcome</artifactId>
-	<packaging>pom</packaging>
+	<groupId>se.skltp.teststubs.clinicalprocess.healthcond.actoutcome</groupId>
+	<artifactId>${parent.artifactId}-testproducer</artifactId>
 	<name>${artifactId}</name>
+	<url>http://maven.apache.org</url>
+
+	<parent>
+		<groupId>se.skltp.teststubs.clinicalprocess.healthcond.actoutcome</groupId>
+		<version>1.0-SNAPSHOT</version>
+		<artifactId>clinicalprocess-healthcond-actoutcome-getmicrobiologilaborderoutcome</artifactId>
+	</parent>
 
 	<properties>
 		<cxf.version>2.5.6</cxf.version>
@@ -27,23 +32,24 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 
-	<modules>
-		<module>${artifactId}-testproducer</module>
-	</modules>
-
 	<dependencies>
-		<dependency>
-			<groupId>se.sll.rivta.tools</groupId>
-			<artifactId>clinicalprocess-healthcond-actoutcome-schemas</artifactId>
-			<version>1.0-SNAPSHOT</version>
-		</dependency>
 
+		<!-- CXF -->
 		<dependency>
-			<groupId>joda-time</groupId>
-			<artifactId>joda-time</artifactId>
-			<version>2.2</version>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>${cxf.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http-jetty</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
 	</dependencies>
-	
+
 </project>
