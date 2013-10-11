@@ -60,4 +60,12 @@
       <xs:pattern value="[0-9]{8}[0-9pPtTfF][0-9]{3}"/>
     </xs:restriction>
   </xs:simpleType> 
+  
+  <xs:complexType name='DatePeriodType'>
+    <xs:sequence>
+      <xs:element name='start' type='tns:DateType' minOccurs='0' maxOccurs='1' />
+      <xs:element name='end' type='tns:DateType' minOccurs='0' maxOccurs='1' />
+      <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+    </xs:sequence>
+  </xs:complexType>
 </xs:schema>
