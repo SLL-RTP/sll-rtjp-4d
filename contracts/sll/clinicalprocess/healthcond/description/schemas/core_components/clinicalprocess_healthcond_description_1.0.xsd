@@ -67,5 +67,16 @@
       <xs:element name='end' type='tns:DateType' minOccurs='0' maxOccurs='1' />
       <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
     </xs:sequence>
+  
   </xs:complexType>
+  <!-- YYYYMMDD -->
+  <xs:simpleType name="DateType">
+    <xs:annotation>
+      <xs:documentation/>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(19|20)\d\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
 </xs:schema>

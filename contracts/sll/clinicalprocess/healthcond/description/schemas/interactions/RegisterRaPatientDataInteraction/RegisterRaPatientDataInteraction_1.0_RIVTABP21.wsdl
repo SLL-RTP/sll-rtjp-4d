@@ -17,22 +17,24 @@
  specific language governing permissions and limitations
  under the License.
  -->		
-<wsdl:definitions name='RegisterRaPatientDataInteraction' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:tjsr='urn:sll:clinicalprocess:healthcond:RegisterRaPatientDataResponder:1' xmlns:tjsi='urn:sll:clinicalprocess:healthcond:RegisterRaPatientDataInitiator:1' xmlns:tns='urn:sll:clinicalprocess:healthcond:RegisterRaPatientData:1:rivtabp21' targetNamespace='urn:sll:clinicalprocess:healthcond:RegisterRaPatientData:1:rivtabp21' xmlns:itr='urn:riv:itintegration:registry:1'>
+<wsdl:definitions name='RegisterRaPatientDataInteraction' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:tjsr='urn:sll:clinicalprocess:healthcond:description:RegisterRaPatientDataResponder:1' xmlns:tjsi='urn:sll:clinicalprocess:healthcond:description:RegisterRaPatientDataInitiator:1' xmlns:tns='urn:sll:clinicalprocess:healthcond:description:RegisterRaPatientData:1:rivtabp21' targetNamespace='urn:sll:clinicalprocess:healthcond:description:RegisterRaPatientData:1:rivtabp21' xmlns:itr='urn:riv:itintegration:registry:1'>
+  <!-- 
   <xs:annotation>
     <xs:documentation>
 			 Tjänsteinteraktionens namn: RegisterRaPatientDataInteraction
 			 Beskrivning: 
 			   
 			 Revisioner: 
-			 Tjänstedomän: clinicalprocess:healthcond
+			 Tjänstedomän: clinicalprocess:healthcond:description
 			 Tjänsteinteraktionstyp: Fråga-Svar
 			 WS-profil: RIVTABP21
 			 Förvaltas av: Sveriges Kommuner och Landsting
 			 </xs:documentation>
   </xs:annotation>
+   -->
   <wsdl:types>
-    <xs:schema targetNamespace='urn:sll:clinicalprocess:healthcond:RegisterRaPatientData:1:rivtabp21'>
-      <xs:import schemaLocation='RegisterRaPatientDataResponder_1.0.xsd' namespace='urn:sll:clinicalprocess:healthcond:RegisterRaPatientDataResponder:1' />
+    <xs:schema targetNamespace='urn:sll:clinicalprocess:healthcond:description:RegisterRaPatientData:1:rivtabp21'>
+      <xs:import schemaLocation='RegisterRaPatientDataResponder_1.0.xsd' namespace='urn:sll:clinicalprocess:healthcond:description:RegisterRaPatientDataResponder:1' />
       <xs:import schemaLocation='../../core_components/itintegration_registry_1.0.xsd' namespace='urn:riv:itintegration:registry:1' />
     </xs:schema>
   </wsdl:types>
@@ -54,7 +56,7 @@
   <wsdl:binding name='RegisterRaPatientDataResponderBinding' type='tns:RegisterRaPatientDataResponderInterface'>
     <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http' />
     <wsdl:operation name='RegisterRaPatientData'>
-      <soap:operation soapAction='urn:sll:clinicalprocess:healthcond:RegisterRaPatientDataResponder:1:RegisterRaPatientData' style='document' />
+      <soap:operation soapAction='urn:sll:clinicalprocess:healthcond:description.RegisterRaPatientDataResponder:1:RegisterRaPatientData' style='document' />
       <wsdl:input>
         <soap:header use='literal' message='tns:RegisterRaPatientDataRequest' part='LogicalAddress' />
         <soap:body use='literal' parts='parameters' />

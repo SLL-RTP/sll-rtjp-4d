@@ -79,6 +79,40 @@
                     <extraarg>urn:sll:clinicalprocess:healthcond:description:1=se.sll.clinicalprocess.healthcond.description.v1</extraarg>
                   </extraargs>
                 </wsdloption>
+                <wsdloption>
+                  <wsdl>${schema.path}/interactions/GetRaPatientDataInteraction/GetRaPatientDataInteraction_1.0_RIVTABP21.wsdl</wsdl>
+                  <extraargs>
+                    <extraarg>-p</extraarg>
+                    <extraarg>http://www.w3.org/2005/08/addressing=org.w3c.addressing.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:sll:clinicalprocess:healthcond:description:GetRaPatientDataResponder:1=se.sll.clinicalprocess.healthcond.description.getrapatientdataresponder.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:sll:clinicalprocess:healthcond:description:GetRaPatientDataInitiator:1=se.sll.clinicalprocess.healthcond.description.getrapatientdatainitiator.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:sll:clinicalprocess:healthcond:description:GetRaPatientData:1:rivtabp21=se.sll.clinicalprocess.healthcond.description.getrapatientdata.v1.rivtabp21</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:itintegration:registry:1=se.riv.itintegration.registry.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:sll:clinicalprocess:healthcond:description:1=se.sll.clinicalprocess.healthcond.description.v1</extraarg>
+                  </extraargs>
+                </wsdloption>
+                <wsdloption>
+                  <wsdl>${schema.path}/interactions/RegisterRaPatientDataInteraction/RegisterRaPatientDataInteraction_1.0_RIVTABP21.wsdl</wsdl>
+                  <extraargs>
+                    <extraarg>-p</extraarg>
+                    <extraarg>http://www.w3.org/2005/08/addressing=org.w3c.addressing.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:sll:clinicalprocess:healthcond:description:RegisterRaPatientDataResponder:1=se.sll.clinicalprocess.healthcond.description.registerrapatientdataresponder.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:sll:clinicalprocess:healthcond:description:RegisterRaPatientDataInitiator:1=se.sll.clinicalprocess.healthcond.description.registerrapatientdatainitiator.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:sll:clinicalprocess:healthcond:description:RegisterRaPatientData:1:rivtabp21=se.sll.clinicalprocess.healthcond.description.registerrapatientdata.v1.rivtabp21</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:riv:itintegration:registry:1=se.riv.itintegration.registry.v1</extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>urn:sll:clinicalprocess:healthcond:description:1=se.sll.clinicalprocess.healthcond.description.v1</extraarg>
+                  </extraargs>
+                </wsdloption>
               </wsdlOptions>
             </configuration>
             <goals>
