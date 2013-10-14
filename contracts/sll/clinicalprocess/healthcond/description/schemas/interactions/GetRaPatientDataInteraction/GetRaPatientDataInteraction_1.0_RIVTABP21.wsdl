@@ -40,7 +40,7 @@
   </wsdl:types>
   <wsdl:message name='GetRaPatientDataRequest'>
     <wsdl:part name='LogicalAddress' element='itr:LogicalAddress'>
-      <wsdl:documentation>The organisation number of the receiving insurance institution</wsdl:documentation>
+      <wsdl:documentation></wsdl:documentation>
     </wsdl:part>
     <wsdl:part name='parameters' element='tjsr:GetRaPatientData' />
   </wsdl:message>

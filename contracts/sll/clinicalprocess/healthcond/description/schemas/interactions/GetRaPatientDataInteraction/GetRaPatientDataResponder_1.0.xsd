@@ -59,7 +59,7 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -135,7 +135,8 @@
           <xs:documentation xml:lang="sv">Disease Activity Score of 28 joints
             DAS28</xs:documentation>
         </xs:annotation>
-      </xs:element>            
+      </xs:element> 
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence> 
   </xs:complexType>
   
@@ -151,6 +152,7 @@
           <xs:documentation xml:lang="sv">c-reactive protein CRP</xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence> 
   </xs:complexType>
   
