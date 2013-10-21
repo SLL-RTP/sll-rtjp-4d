@@ -29,6 +29,9 @@ public class LabRepliesGetRequestTransformer extends AbstractMessageTransformer 
 	private static final Logger log = LoggerFactory.getLogger(LabRepliesGetRequestTransformer.class);
 
     private static final JaxbUtil jaxbUtil_incoming = new JaxbUtil(GetClinicalChemistryLabOrderOutcomeType.class);
+	
+	String externalUser = null
+	String invokingSystem = null
 
     /**
      * Message aware transformer that ...
@@ -56,7 +59,7 @@ public class LabRepliesGetRequestTransformer extends AbstractMessageTransformer 
                 def builder = new StreamingMarkupBuilder(useDoubleQuotes: true)
                 builder.encoding = 'UTF-8'
                 def xml = builder.bind {
-                    X2Message(InvokingSystem:"${INVOKING_SYSTEM}", MsgType:"${REQUEST}", Time:"${yyyyMMddHHmmss(new Date())}") {
+                    X2Message(InvokingSystem:"${invokingSystem}", MsgType:"${REQUEST}", Time:"${yyyyMMddHHmmss(new Date())}") {
                         PatientId("${incomingRequest.getPatientId()}")
                         if (incomingRequest.getStartDate() != null) {
                             StartDate("${incomingRequest.getStartDate()}")
@@ -74,7 +77,7 @@ public class LabRepliesGetRequestTransformer extends AbstractMessageTransformer 
                     LabRepliesGet {
                       tcusername        ''
                       tcpassword        ''
-                      externaluser      "${EXTERNAL_USER}"
+                      externaluser      "${externalUser}"
                       careunitidtype    "${HSAID}"
                       careunitid        "${incomingRequest.getHealthcareFacilityId()}"
                       delegate.xml {

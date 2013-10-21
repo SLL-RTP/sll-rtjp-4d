@@ -52,7 +52,12 @@
             namespace="urn:sll:clinicalprocess:healthcond:actoutcome:GetClinicalChemistryLabOrderOutcome:1:rivtabp21">
         </cxf:proxy-service>
 
-        <custom-transformer doc:name="transform-request" class="se.skltp.adapterservices.takecare.takecareadapterlabservice.labrepliesget.LabRepliesGetRequestTransformer"/>
+        <custom-transformer doc:name="transform-request" class="se.skltp.adapterservices.takecare.takecareadapterlabservice.labrepliesget.LabRepliesGetRequestTransformer">
+          <spring:property name="externalUser" value="${LABREPLIESGET_EXTERNAL_USER}" />
+          <spring:property name="invokingSystem" value="${LABREPLIESGET_INVOKING_SYSTEM}" />
+        
+        </custom-transformer>
+        
         <response>
             <custom-transformer doc:name="transform-response" class="se.skltp.adapterservices.takecare.takecareadapterlabservice.labrepliesget.LabRepliesGetResponseTransformer"/>
         </response>

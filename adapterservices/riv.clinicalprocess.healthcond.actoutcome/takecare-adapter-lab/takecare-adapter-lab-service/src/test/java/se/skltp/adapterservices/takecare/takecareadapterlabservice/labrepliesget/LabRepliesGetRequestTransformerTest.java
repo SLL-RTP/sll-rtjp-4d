@@ -24,14 +24,19 @@ public class LabRepliesGetRequestTransformerTest {
         String input = MiscUtil
                 .readFileAsString("src/test/resources/testfiles/LabRepliesGet/request-input.xml");
 
+        String externalUser = "MyExtUser";
+        String invokingSystem = "MyInvokingSystem";
         LabRepliesGetRequestTransformer transformer = new LabRepliesGetRequestTransformer();
+        transformer.setExternalUser(externalUser);
+        transformer.setInvokingSystem(invokingSystem);
         String result = (String) transformer.pojoTransform(input, "UTF-8");
 
         LabRepliesGet outgoing = (LabRepliesGet) jaxbUtil_outgoing.unmarshal(result);
 
         assertEquals(TakeCareUtil.HSAID, outgoing.getCareunitidtype());
         assertEquals("SE2321000016-1HZ3", outgoing.getCareunitid());
-        assertEquals(TakeCareUtil.EXTERNAL_USER, outgoing.getExternaluser());
+        assertEquals(externalUser, outgoing.getExternaluser());
+               
         assertEquals("", outgoing.getTcusername());
         assertEquals("", outgoing.getTcpassword());
 
@@ -45,7 +50,7 @@ public class LabRepliesGetRequestTransformerTest {
         XMLGregorianCalendar endDate = DatatypeFactory.newInstance()
                 .newXMLGregorianCalendar("2013-05-30");
         assertEquals(endDate, message.getEndDate());
-        assertEquals(TakeCareUtil.INVOKING_SYSTEM, message.getInvokingSystem());
+        assertEquals(invokingSystem, message.getInvokingSystem());
         assertEquals(TakeCareUtil.REQUEST, message.getMsgType());
     }
 }
