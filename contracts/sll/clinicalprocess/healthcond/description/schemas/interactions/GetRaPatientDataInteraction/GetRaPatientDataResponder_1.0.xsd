@@ -17,38 +17,64 @@
  specific language governing permissions and limitations
  under the License.
  -->		
-<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:tns='urn:sll:clinicalprocess:healthcond:description:GetRaPatientDataResponder:1' xmlns:core='urn:sll:clinicalprocess:healthcond:description:1' targetNamespace='urn:sll:clinicalprocess:healthcond:description:GetRaPatientDataResponder:1' elementFormDefault='qualified' attributeFormDefault='unqualified' version='1.0'>
-  <xs:import schemaLocation='../../core_components/clinicalprocess_healthcond_description_1.0.xsd' namespace='urn:sll:clinicalprocess:healthcond:description:1' />
-  <xs:element name='GetRaPatientData' type='tns:GetRaPatientDataType' />
-  <xs:element name='GetRaPatientDataResponse' type='tns:GetRaPatientDataResponseType' />
-  <xs:complexType name='GetRaPatientDataType'>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:tns="urn:sll:clinicalprocess:healthcond:description:GetRaPatientDataResponder:1"
+  xmlns:core="urn:sll:clinicalprocess:healthcond:description:1"
+  targetNamespace="urn:sll:clinicalprocess:healthcond:description:GetRaPatientDataResponder:1"
+  elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+  <xs:import schemaLocation="../../core_components/clinicalprocess_healthcond_description_1.0.xsd"
+    namespace="urn:sll:clinicalprocess:healthcond:description:1"/>
+  <xs:element name="GetRaPatientData" type="tns:GetRaPatientDataType"/>
+  <xs:element name="GetRaPatientDataResponse" type="tns:GetRaPatientDataResponseType"/>
+  <xs:complexType name="GetRaPatientDataType">
     <xs:sequence>
-      <xs:element name='careUnitHSAid' type='core:HSAIdType' minOccurs='0' maxOccurs='unbounded' />
-<!-- HSAidType  -->      
-      <xs:element name='patientId' type='core:PatientIdType' minOccurs='1' maxOccurs='1' />
-<!-- personidtype -->
-      <xs:element name='timePeriod' type='core:DatePeriodType' minOccurs='0' maxOccurs='1' />
-      <xs:element name='sourceSystemHSAid' type='core:HSAIdType' minOccurs='0' maxOccurs='1' />
-      <xs:element name='careContactId' type='xs:string' minOccurs='0' maxOccurs='unbounded' />
-      <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+      <xs:element name="careUnitHSAid" type="core:HSAIdType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="se">Filtrering på PDL-enhet som skapade informationen.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <!-- HSAidType  -->
+      <xs:element name="patientId" type="core:PatientIdType" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Id för patienten.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <!-- personidtype -->
+      <xs:element name="timePeriod" type="core:DatePeriodType" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation xml:lang="se">Begränsning av sökningen i tid.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="sourceSystemHSAid" type="core:HSAIdType" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation xml:lang="se">Begränsar sökningen till dokument som är skapade i angivet system.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="careContactId" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="se">Begränsar sökningen till den vård- och omsorgskontakt där den vårdbegäran som låg till grund för laboratoriesvaret skapades.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-   
-  <xs:complexType name='GetRaPatientDataResponseType'>
+
+  <xs:complexType name="GetRaPatientDataResponseType">
     <xs:sequence>
       <xs:element name="patientData" type="tns:PatientDataType" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name='ResultCode' type='tns:ResultCodeEnum' />
-      <xs:element name='comment' type='xs:string' minOccurs='0' />
-      <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+      <xs:element name="ResultCode" type="tns:ResultCodeEnum"/>
+      <xs:element name="comment" type="xs:string" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="PatientDataType">
     <xs:sequence>
       <xs:element name="date" type="core:DateType" minOccurs="1">
         <xs:annotation>
-        <xs:documentation>Datum då patientens möte med vården uppstod.</xs:documentation>
-      </xs:annotation></xs:element>
+          <xs:documentation>Datum då patientens möte med vården uppstod.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="patientVariables" type="tns:PatientVariables" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Information som patienten själv angivit.</xs:documentation>
@@ -80,49 +106,49 @@
   </xs:complexType>
 
   <xs:complexType name="PatientVariables">
-  <xs:sequence>
-    
-    <xs:element name="workability" type="xs:integer" minOccurs="0">
-      <xs:annotation>
-        <xs:documentation xml:lang="sv">Arbetsförmåga</xs:documentation>
-      </xs:annotation>
-    </xs:element>
-    
-    <xs:element name="globalHealth" type="xs:integer" minOccurs="0">
-      <xs:annotation>
-        <xs:documentation xml:lang="sv">Patientens allmänna hälsa</xs:documentation>
-      </xs:annotation>
-    </xs:element>
-    
-    <xs:element name="pain" type="xs:integer" minOccurs="0">
-      <xs:annotation>
-        <xs:documentation xml:lang="sv">Patientenssmärta</xs:documentation>
-      </xs:annotation>
-    </xs:element>
-    
-    <xs:element name="eq5d" type="xs:double" minOccurs="0">
-      <xs:annotation>
-        <xs:documentation xml:lang="sv">eq5d</xs:documentation>
-      </xs:annotation>
-    </xs:element>
-    <xs:element name="haq" type="xs:double" minOccurs="0">
-      <xs:annotation>
-        <xs:documentation xml:lang="sv">Din vardagliga funktion (Health Assessment Questionnaire)</xs:documentation>
-      </xs:annotation>
-    </xs:element>   
-    <xs:element name="tenderJoints28" minOccurs="0" type="xs:integer">
-      <xs:annotation>
-        <xs:documentation xml:lang="sv">Ömma leder (28)</xs:documentation>
-      </xs:annotation>
-    </xs:element>
-    <xs:element name="swollenJoints28" minOccurs="0" type="xs:integer">
-      <xs:annotation>
-        <xs:documentation xml:lang="sv">Svullna leder (28)</xs:documentation>
-      </xs:annotation>
-    </xs:element>
-  </xs:sequence>
+    <xs:sequence>
+
+      <xs:element name="workability" type="xs:integer" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="sv">Arbetsförmåga</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="globalHealth" type="xs:integer" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="sv">Patientens allmänna hälsa</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="pain" type="xs:integer" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="sv">Patientenssmärta</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="eq5d" type="xs:double" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="sv">eq5d</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="haq" type="xs:double" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="sv">Din vardagliga funktion (Health Assessment Questionnaire)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="tenderJoints28" minOccurs="0" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation xml:lang="sv">Ömma leder (28)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="swollenJoints28" minOccurs="0" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation xml:lang="sv">Svullna leder (28)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="DoctorVariables">
     <xs:sequence>
       <xs:element name="doctorGlobal" minOccurs="0" type="tns:DoctorGlobalEnum">
@@ -145,17 +171,17 @@
           <xs:documentation xml:lang="sv">Disease Activity Score of 28 joints
             DAS28</xs:documentation>
         </xs:annotation>
-      </xs:element>      
+      </xs:element>
       <xs:element name="DAS28CRP" type="xs:float" minOccurs="0">
         <xs:annotation>
           <xs:documentation xml:lang="sv">Disease Activity Score of 28 joints
             DAS28</xs:documentation>
         </xs:annotation>
-      </xs:element> 
+      </xs:element>
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence> 
+    </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="LabVariables">
     <xs:sequence>
       <xs:element name="SR" type="xs:float" minOccurs="0">
@@ -169,9 +195,9 @@
         </xs:annotation>
       </xs:element>
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence> 
+    </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="DrugType">
     <xs:sequence>
       <xs:element name="name" type="xs:string" minOccurs="0">
@@ -212,23 +238,23 @@
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-  
 
-  <xs:simpleType name='DoctorGlobalEnum'>
-    <xs:restriction base='xs:string'>
-      <xs:enumeration value='none' />
-      <xs:enumeration value='low' />
-      <xs:enumeration value='moderate' />
-      <xs:enumeration value='high' />
-      <xs:enumeration value='maximal' />
+
+  <xs:simpleType name="DoctorGlobalEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="none"/>
+      <xs:enumeration value="low"/>
+      <xs:enumeration value="moderate"/>
+      <xs:enumeration value="high"/>
+      <xs:enumeration value="maximal"/>
     </xs:restriction>
   </xs:simpleType>
 
-  <xs:simpleType name='ResultCodeEnum'>
-    <xs:restriction base='xs:string'>
-      <xs:enumeration value='OK' />
-      <xs:enumeration value='ERROR' />
-      <xs:enumeration value='INFO' />
+  <xs:simpleType name="ResultCodeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK"/>
+      <xs:enumeration value="ERROR"/>
+      <xs:enumeration value="INFO"/>
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>
