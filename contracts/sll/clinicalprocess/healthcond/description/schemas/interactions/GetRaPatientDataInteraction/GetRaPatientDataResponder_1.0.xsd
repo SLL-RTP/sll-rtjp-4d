@@ -85,7 +85,7 @@
           <xs:documentation>Information som läkaren angivit.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="labVariables" type="tns:LabVariables">
+      <xs:element name="labVariables" type="tns:LabVariables" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Information från labsvar.</xs:documentation>
         </xs:annotation>
