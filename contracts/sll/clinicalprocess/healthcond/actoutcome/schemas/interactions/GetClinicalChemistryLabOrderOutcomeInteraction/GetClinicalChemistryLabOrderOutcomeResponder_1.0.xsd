@@ -38,13 +38,13 @@
     <xs:sequence>
       <xs:element name='resultCode' type='tns:ResultCodeEnum' />
       <xs:element name='comment' type='xs:string' minOccurs='0' />
-      <xs:element name='labResults' type='tns:LabResultType' minOccurs='0' maxOccurs="unbounded"/>
+      <xs:element name='labResults' type='tns:LabResultsType' minOccurs='0' maxOccurs="unbounded"/>
       <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
     </xs:sequence>
   </xs:complexType>
   
 
-  <xs:complexType name="LabResultType">
+  <xs:complexType name="LabResultsType">
     <xs:sequence>
       <xs:element name="analysis" maxOccurs="unbounded">
         <xs:complexType>
@@ -58,6 +58,7 @@
             <xs:element name="unitOfMeasure" type="xs:string" minOccurs="0"/>
             <xs:element name="pathological" type="xs:boolean"/>
             <xs:element name="reference" type="xs:string" minOccurs="0"/>
+            <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
