@@ -33,13 +33,11 @@
           <xs:documentation xml:lang="se">Filtrering på PDL-enhet som skapade informationen.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <!-- HSAidType  -->
-      <xs:element name="patientId" type="core:PatientIdType" minOccurs="1" maxOccurs="1">
+      <xs:element name="patientId" type="core:PersonIdType" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>Id för patienten.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <!-- personidtype -->
       <xs:element name="timePeriod" type="core:DatePeriodType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation xml:lang="se">Begränsning av sökningen i tid.</xs:documentation>
@@ -61,9 +59,9 @@
 
   <xs:complexType name="GetRaPatientDataResponseType">
     <xs:sequence>
-      <xs:element name="patientData" type="tns:PatientDataType" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="ResultCode" type="tns:ResultCodeEnum"/>
       <xs:element name="comment" type="xs:string" minOccurs="0"/>
+      <xs:element name="patientData" type="tns:PatientDataType" minOccurs="0" maxOccurs="unbounded"/>
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>

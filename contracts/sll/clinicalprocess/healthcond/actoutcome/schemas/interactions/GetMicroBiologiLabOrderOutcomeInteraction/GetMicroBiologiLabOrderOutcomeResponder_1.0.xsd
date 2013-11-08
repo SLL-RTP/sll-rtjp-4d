@@ -30,7 +30,7 @@
 
   <xs:complexType name="GetMicroBiologiLabOrderOutcomeType">
     <xs:sequence>
-      <xs:element name="patientId" type="core:PatientIdType"/>
+      <xs:element name="patientId" type="core:PersonIdType"/>
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
@@ -46,7 +46,7 @@
 
   <xs:complexType name="ACPAResultType">
     <xs:sequence>
-      <xs:element name="dateOfSample" type="xs:date"/>
+      <xs:element name="dateOfSample" type="core:DateType"/>
       <xs:element name="ACPA" type="xs:boolean"/>
       <xs:element name="ccp" type="xs:float"/>
       <xs:element name="cit_c1_igg" type="xs:float"/>

@@ -25,10 +25,13 @@
   
   <xs:complexType name='GetClinicalChemistryLabOrderOutcomeType'>
     <xs:sequence>
-      <xs:element name='healthcareFacilityId' type='core:HealthcareFacilityIdType' />
-      <xs:element name='patientId' type='core:PatientIdType' />
-      <xs:element name="startDate" type="xs:date" minOccurs="0"/>
-      <xs:element name="endDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="careUnitHSAid" type="core:HSAIdType" />
+      <xs:element name='patientId' type='core:PersonIdType' />
+      <xs:element name="timePeriod" type="core:DatePeriodType" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation xml:lang="se">Begränsning av sökningen i tid.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
     </xs:sequence>
   </xs:complexType>
@@ -51,11 +54,10 @@
           <xs:sequence>
             <xs:element name="instanceId" type="xs:string"/>
             <xs:element name="code" type="tns:CodeType"/>
-            <xs:element name="takenDateTime" type="xs:dateTime"/>
+            <xs:element name="takenDateTime" type="core:TimeStampType"/>
             <xs:element name="comment" type="xs:string" minOccurs="0"/>
             <xs:element name="sampleType" type="xs:string" minOccurs="0"/>
-            <xs:element name="resultSummary" type="xs:string"/>
-            <xs:element name="unitOfMeasure" type="xs:string" minOccurs="0"/>
+            <xs:element name="outcomeValue" type="core:PQType"/>
             <xs:element name="pathological" type="xs:boolean"/>
             <xs:element name="reference" type="xs:string" minOccurs="0"/>
             <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
@@ -63,7 +65,7 @@
         </xs:complexType>
       </xs:element>
       <xs:element name="instanceId" type="xs:string"/>
-      <xs:element name="registeredDateTime" type="xs:dateTime"/>
+      <xs:element name="registeredDateTime" type="core:TimeStampType"/>
       <xs:element name="comment" type="xs:string" minOccurs="0"/>
       <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
     </xs:sequence>
@@ -76,6 +78,7 @@
       <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
     </xs:sequence>
   </xs:complexType>
+  
   
   <xs:simpleType name='ResultCodeEnum'>
     <xs:restriction base='xs:string'>

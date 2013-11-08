@@ -29,16 +29,16 @@
   <xs:element name="GetRaDSDataResponse" type="tns:GetRaDSDataResponseType"/>
   <xs:complexType name="GetRaDSDataType">
     <xs:sequence>
-      <xs:element name="patientId" type="core:PatientIdType"/>
-      <xs:element name="date" type="xs:date" minOccurs="0"/>
+      <xs:element name="patientId" type="core:PersonIdType"/>
+      <xs:element name="date" type="core:DateType" minOccurs="0"/>
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="GetRaDSDataResponseType">
     <xs:sequence>
       <xs:element name="ResultCode" type="tns:ResultCodeEnum"/>
-      <xs:element name="registryData" type="tns:RegistryDataType" minOccurs="0"/>
       <xs:element name="comment" type="xs:string" minOccurs="0"/>
+      <xs:element name="registryData" type="tns:RegistryDataType" minOccurs="0"/>
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
@@ -67,7 +67,7 @@
           <xs:documentation xml:lang="sv">Platsdata för läkarbesök</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="diagnosis" minOccurs="0">
+      <xs:element name="diagnoses" minOccurs="0">
         <xs:annotation>
           <xs:documentation xml:lang="sv">Patientens diagnos(er)</xs:documentation>
         </xs:annotation>
@@ -115,7 +115,7 @@
           </xs:sequence>
         </xs:complexType>       
       </xs:element>
-      <xs:element name="visitDate" type="xs:date" minOccurs="0">
+      <xs:element name="visitDate" type="core:DateType" minOccurs="0">
         <xs:annotation>
           <xs:documentation xml:lang="sv">Besöksdatum </xs:documentation>
         </xs:annotation>
@@ -193,7 +193,7 @@
             antibodies)</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="xrayDate" minOccurs="0" type="xs:date">
+      <xs:element name="xrayDate" minOccurs="0" type="core:DateType">
         <xs:annotation>
           <xs:documentation xml:lang="sv">Datum för röntgen</xs:documentation>
         </xs:annotation>
@@ -249,6 +249,7 @@
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
+  
   <xs:complexType name="PersonType">
     <xs:sequence>
       <xs:element name="ID" type="core:PersonalIdentityNumberType" minOccurs="0">
@@ -266,7 +267,7 @@
           <xs:documentation xml:lang="sv">Efternamn</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="HSAID" type="core:HSAIdType" minOccurs="0">
+      <xs:element name="HSAId" type="core:HSAIdType" minOccurs="0">
         <xs:annotation>
           <xs:documentation xml:lang="sv">HSAid</xs:documentation>
         </xs:annotation>
@@ -291,7 +292,7 @@
           <xs:documentation xml:lang="sv">Vårdenhet</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="HSAID" type="core:HSAIdType" minOccurs="0">
+      <xs:element name="HSAId" type="core:HSAIdType" minOccurs="0">
         <xs:annotation>
           <xs:documentation xml:lang="sv">HSAid för vårdenhet</xs:documentation>
         </xs:annotation>
@@ -303,7 +304,7 @@
     <xs:sequence>
       <xs:element name="name" type="xs:string" minOccurs="0"/>
       <xs:element name="ICD10" type="xs:string" minOccurs="0"/>
-      <xs:element name="onsetDate" type="xs:date" minOccurs="0">
+      <xs:element name="onsetDate" type="core:DateType" minOccurs="0">
         <xs:annotation>
           <xs:documentation xml:lang="sv">Dag då symptomen först uppstod</xs:documentation>
         </xs:annotation>
@@ -323,12 +324,12 @@
           <xs:documentation xml:lang="sv">Dos i mg</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="startDate" type="xs:date" minOccurs="0">
+      <xs:element name="startDate" type="core:DateType" minOccurs="0">
         <xs:annotation>
           <xs:documentation xml:lang="sv">Insatt datum</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="endDate" type="xs:date" minOccurs="0">
+      <xs:element name="endDate" type="core:DateType" minOccurs="0">
         <xs:annotation>
           <xs:documentation xml:lang="sv">Utsatt datum</xs:documentation>
         </xs:annotation>
