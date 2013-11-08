@@ -27,7 +27,6 @@
  
   <!-- @TODO Should we have maxlength 64? -->
   <xs:simpleType name="HSAIdType">
-    <xs:restriction base="xs:string"/>
     <xs:annotation>
       <xs:documentation>
         HSA Id is the identification of persons, entities and functions in health care.
@@ -36,6 +35,7 @@
         SE{organisationsnumber issuing organisation}{serial for object}
       </xs:documentation>
     </xs:annotation>
+    <xs:restriction base="xs:string"/>
   </xs:simpleType>
  
   <xs:complexType name="PatientType">
