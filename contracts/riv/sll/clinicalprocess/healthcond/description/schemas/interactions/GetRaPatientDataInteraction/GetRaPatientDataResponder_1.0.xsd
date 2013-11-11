@@ -208,12 +208,12 @@
           <xs:documentation xml:lang="sv">Dos i mg</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="startDate" type="xs:date" minOccurs="0">
+      <xs:element name="startDate" type="core:DateType" minOccurs="0">
         <xs:annotation>
           <xs:documentation xml:lang="sv">Insatt datum</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="endDate" type="xs:date" minOccurs="0">
+      <xs:element name="endDate" type="core:DateType" minOccurs="0">
         <xs:annotation>
           <xs:documentation xml:lang="sv">Utsatt datum</xs:documentation>
         </xs:annotation>
