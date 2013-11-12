@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+DON'T CHANGE THE CONTENT OF THIS COMMENT UNLESS YOU REALLY KNOW WHAT YOU ARE DOING!
+[soi-toolkit.gen.version=0.6.0]
+[soi-toolkit.gen.type=schemas]
+[soi-toolkit.gen.createDate=2013-05-16T09:52:39.046+02:00]
+[soi-toolkit.gen.artifactId=takecare-adapter-lab]
+-->
+<project 
+	xmlns="http://maven.apache.org/POM/4.0.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+  
+	<parent>
+		<groupId>se.skltp.adapterservices.takecare</groupId>
+		<artifactId>takecare-adapter-lab</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	
+	<artifactId>${parent.artifactId}-schemas</artifactId>
+    <packaging>jar</packaging>
+    <name>${project.artifactId}</name>
+
+
+	<properties>
+        <!-- Properties for generating code from WSDL and XML Schemas (JAX-WS + JAXB) -->
+        <schema.path>${basedir}/src/main/resources/schemas</schema.path>
+        <schema.gen.src.dir>${project.build.directory}/generated-sources/cxf</schema.gen.src.dir>
+	</properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.soitoolkit.commons.poms</groupId>
+      <artifactId>soitoolkit-schemas-jax-ws-dependencies</artifactId>
+      <version>${soitoolkit.version}</version>
+      <type>pom</type>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+ 
+ 	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-codegen-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>ws.generate</id>
+						<phase>generate-sources</phase>
+                        <configuration>
+                            <sourceRoot>${schema.gen.src.dir}</sourceRoot>
+                            <wsdlOptions>
+                                <wsdlOption>
+                                    <wsdl>${schema.path}/takecare/lab/lab-v2.wsdl</wsdl>
+                                    <extraargs>
+                                        <extraarg>-validate</extraarg>
+                                        <extraarg>-p</extraarg>
+                                        <extraarg>http://tempuri.org/=se.skltp.adapterservices.takecare.lab</extraarg>
+                                    </extraargs>
+                                </wsdlOption>
+
+                                <wsdlOption>
+                                    <wsdl>${schema.path}/takecare/lab/jaxb-gen-only.wsdl</wsdl>
+                                    <extraargs>
+                                        <extraarg>-validate</extraarg>
+                                        <extraarg>-p</extraarg>
+                                        <extraarg>urn:X2Message:LabRepliesGet:Request=se.skltp.adapterservices.takecare.lab.labrepliesget.request</extraarg>
+                                        <extraarg>-p</extraarg>
+                                        <extraarg>urn:X2Message:LabRepliesGet:Response=se.skltp.adapterservices.takecare.lab.labrepliesget.response</extraarg>
+                                        <extraarg>-p</extraarg>
+                                        <extraarg>urn:X2Message:Lab:Error=se.skltp.adapterservices.takecare.lab.error</extraarg>
+                                    </extraargs>
+                                </wsdlOption>
+                            </wsdlOptions>
+                        </configuration>
+
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<!-- Create a zip-file only containing wsdl & xsd files, i.e. no JAX-WS/JAXB-generated artifacts, for example for a Microsoft .Net C# app -->
+				<artifactId>maven-assembly-plugin</artifactId>
+				<dependencies>
+					<dependency>
+						<!-- Plugin-dependency to a shared assembly-descriptor that creates the zip-file -->
+						<groupId>org.soitoolkit.commons.poms</groupId>
+						<artifactId>soitoolkit-assembly-descriptors</artifactId>
+						<version>${soitoolkit.version}</version>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<descriptors>
+								<descriptor>schema-assembly-descriptor.xml</descriptor>
+							</descriptors>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+  
+</project>

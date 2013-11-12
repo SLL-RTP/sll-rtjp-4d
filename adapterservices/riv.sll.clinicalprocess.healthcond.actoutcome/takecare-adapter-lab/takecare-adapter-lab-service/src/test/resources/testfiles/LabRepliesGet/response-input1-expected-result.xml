@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:GetClinicalChemistryLabOrderOutcomeResponse
+	xmlns:core="urn:riv:sll:clinicalprocess:healthcond:actoutcome:1"
+	xmlns:tns="urn:riv:sll:clinicalprocess:healthcond:actoutcome:GetClinicalChemistryLabOrderOutcomeResponder:1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<tns:resultCode>OK</tns:resultCode>
+	<tns:labResults>
+		<tns:analysis>
+			<tns:instanceId>SE123456789.193812217044.3</tns:instanceId>
+			<tns:code>
+				<tns:code>MKV234</tns:code>
+				<tns:displayName>B-ASAT</tns:displayName>
+			</tns:code>
+			<tns:takenDateTime>20120101101428</tns:takenDateTime>
+			<tns:comment>Här är en analyskommentar</tns:comment>
+            <tns:outcomeValue>
+              <core:value>152</core:value>
+              <core:unit>ug/ml</core:unit>
+            </tns:outcomeValue>
+			<tns:pathological>false</tns:pathological>
+			<tns:reference>124-165</tns:reference>
+		</tns:analysis>
+		<tns:analysis>
+			<tns:instanceId>SE123456789.193812217044.4</tns:instanceId>
+			<tns:code>
+				<tns:code>AF34TR</tns:code>
+				<tns:displayName>B-HB</tns:displayName>
+			</tns:code>
+			<tns:takenDateTime>20120202101328</tns:takenDateTime>
+			<tns:comment />
+			<tns:outcomeValue>
+              <core:value>234</core:value>
+              <core:unit>mmol/l</core:unit>
+            </tns:outcomeValue>
+			<tns:pathological>true</tns:pathological>
+			<tns:reference>124-165</tns:reference>
+		</tns:analysis>
+		<tns:instanceId>SE123456789.193812217044.2</tns:instanceId>
+		<tns:registeredDateTime>20120101161616</tns:registeredDateTime>
+		<tns:comment>Detta är en svarskommentar...</tns:comment>
+	</tns:labResults>
+	<tns:labResults>
+		<tns:analysis>
+			<tns:instanceId>SE123456789.193812217044.10</tns:instanceId>
+			<tns:code>
+				<tns:code>ML345</tns:code>
+			</tns:code>
+			<tns:takenDateTime>20120203101428</tns:takenDateTime>
+            <tns:outcomeValue>
+              <core:value>152</core:value>
+              <core:unit></core:unit>
+            </tns:outcomeValue>
+			<tns:pathological>false</tns:pathological>
+		</tns:analysis>
+		<tns:instanceId>SE123456789.193812217044.2</tns:instanceId>
+		<tns:registeredDateTime>20120101161616</tns:registeredDateTime>
+	</tns:labResults>
+</tns:GetClinicalChemistryLabOrderOutcomeResponse>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:GetClinicalChemistryLabOrderOutcome 
+ xmlns:core="urn:riv:sll:clinicalprocess:healthcond:actoutcome:1"
+ xmlns:tns="urn:riv:sll:clinicalprocess:healthcond:actoutcome:GetClinicalChemistryLabOrderOutcomeResponder:1"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <tns:careUnitHSAid>SE2321000016-1HZ3</tns:careUnitHSAid>
+    <tns:patientId>
+      <core:id>191212121212</core:id>
+      <core:type>1.2.752.129.2.1.3.1</core:type>
+    </tns:patientId>
+    <tns:timePeriod>
+      <core:start>20130112</core:start>
+      <core:end>20130530</core:end>
+    </tns:timePeriod>
+</tns:GetClinicalChemistryLabOrderOutcome>
