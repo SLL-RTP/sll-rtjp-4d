@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>se.sll.rivta.tools</groupId>
+  <groupId>se.rivta.tools</groupId>
   <artifactId>sll-clinicalprocess-healthcond-actoutcome-schemas</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
@@ -54,15 +54,15 @@
                     <extraarg>-p</extraarg>
                     <extraarg>http://www.w3.org/2005/08/addressing=org.w3c.addressing.v1</extraarg>
                     <extraarg>-p</extraarg>
-                    <extraarg>urn:riv:sll:clinicalprocess:healthcond:actoutcome:GetClinicalChemistryLabOrderOutcomeResponder:1=se.sll.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylaborderoutcomeresponder.v1</extraarg>
+                    <extraarg>urn:riv:sll:clinicalprocess:healthcond:actoutcome:GetClinicalChemistryLabOrderOutcomeResponder:1=se.riv.sll.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylaborderoutcomeresponder.v1</extraarg>
                     <extraarg>-p</extraarg>
-                    <extraarg>urn:riv:sll:clinicalprocess:healthcond:actoutcome:GetClinicalChemistryLabOrderOutcomeInitiator:1=se.sll.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylaborderoutcomeresponder.v1</extraarg>
+                    <extraarg>urn:riv:sll:clinicalprocess:healthcond:actoutcome:GetClinicalChemistryLabOrderOutcomeInitiator:1=se.riv.sll.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylaborderoutcomeresponder.v1</extraarg>
                     <extraarg>-p</extraarg>
-                    <extraarg>urn:riv:sll:clinicalprocess:healthcond:actoutcome:GetClinicalChemistryLabOrderOutcome:1:rivtabp21=se.sll.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylaborderoutcomeresponder.v1.rivtabp21</extraarg>
+                    <extraarg>urn:riv:sll:clinicalprocess:healthcond:actoutcome:GetClinicalChemistryLabOrderOutcome:1:rivtabp21=se.riv.sll.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylaborderoutcomeresponder.v1.rivtabp21</extraarg>
                     <extraarg>-p</extraarg>
                     <extraarg>urn:riv:itintegration:registry:1=se.riv.itintegration.registry.v1</extraarg>
                     <extraarg>-p</extraarg>
-                    <extraarg>urn:riv:sll:clinicalprocess:healthcond:actoutcome:1=se.sll.clinicalprocess.healthcond.actoutcome.v1</extraarg>
+                    <extraarg>urn:riv:sll:clinicalprocess:healthcond:actoutcome:1=se.riv.sll.clinicalprocess.healthcond.actoutcome.v1</extraarg>
                   </extraargs>
                 </wsdloption>
                 <wsdloption>
@@ -71,15 +71,15 @@
                     <extraarg>-p</extraarg>
                     <extraarg>http://www.w3.org/2005/08/addressing=org.w3c.addressing.v1</extraarg>
                     <extraarg>-p</extraarg>
-                    <extraarg>urn:riv:sll:clinicalprocess:healthcond:actoutcome:GetMicroBiologiLabOrderOutcomeResponder:1=se.sll.clinicalprocess.healthcond.actoutcome.getmicrobiologilaborderoutcomeresponder.v1</extraarg>
+                    <extraarg>urn:riv:sll:clinicalprocess:healthcond:actoutcome:GetMicroBiologiLabOrderOutcomeResponder:1=se.riv.sll.clinicalprocess.healthcond.actoutcome.getmicrobiologilaborderoutcomeresponder.v1</extraarg>
                     <extraarg>-p</extraarg>
-                    <extraarg>urn:riv:sll:clinicalprocess:healthcond:actoutcome:GetMicroBiologiLabOrderOutcomeInitiator:1=se.sll.clinicalprocess.healthcond.actoutcome.getmicrobiologilaborderoutcomeinitiator.v1</extraarg>
+                    <extraarg>urn:riv:sll:clinicalprocess:healthcond:actoutcome:GetMicroBiologiLabOrderOutcomeInitiator:1=se.riv.sll.clinicalprocess.healthcond.actoutcome.getmicrobiologilaborderoutcomeinitiator.v1</extraarg>
                     <extraarg>-p</extraarg>
-                    <extraarg>urn:riv:sll:clinicalprocess:healthcond:actoutcome:GetMicroBiologiLabOrderOutcome:1:rivtabp21=se.sll.clinicalprocess.healthcond.actoutcome.getmicrobiologilaborderoutcome.v1.rivtabp21</extraarg>
+                    <extraarg>urn:riv:sll:clinicalprocess:healthcond:actoutcome:GetMicroBiologiLabOrderOutcome:1:rivtabp21=se.riv.sll.clinicalprocess.healthcond.actoutcome.getmicrobiologilaborderoutcome.v1.rivtabp21</extraarg>
                     <extraarg>-p</extraarg>
                     <extraarg>urn:riv:itintegration:registry:1=se.riv.itintegration.registry.v1</extraarg>
                     <extraarg>-p</extraarg>
-                    <extraarg>urn:riv:sll:clinicalprocess:healthcond:actoutcome:1=se.sll.clinicalprocess.healthcond.actoutcome.v1</extraarg>
+                    <extraarg>urn:riv:sll:clinicalprocess:healthcond:actoutcome:1=se.riv.sll.clinicalprocess.healthcond.actoutcome.v1</extraarg>
                   </extraargs>
                 </wsdloption>
 
