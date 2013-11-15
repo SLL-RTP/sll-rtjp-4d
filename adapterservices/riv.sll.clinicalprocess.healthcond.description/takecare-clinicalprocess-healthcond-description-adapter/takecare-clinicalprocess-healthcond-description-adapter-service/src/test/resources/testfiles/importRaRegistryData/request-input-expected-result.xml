@@ -34,24 +34,28 @@
           <tns:unit>unit0</tns:unit>
           <tns:HSAID>HSAID1</tns:HSAID>
         </tns:hospital>
-        <tns:diagnosis>
-          <tns:diagnose>
+        <tns:diagnoses>
+          <tns:diagnosis>
             <tns:name>name0</tns:name>
             <tns:onsetDate>20060504</tns:onsetDate>
-          </tns:diagnose>
-          <tns:diagnose>
+          </tns:diagnosis>
+          <tns:diagnosis>
             <tns:name>name1</tns:name>
             <tns:onsetDate>20060504</tns:onsetDate>
-          </tns:diagnose>
-        </tns:diagnosis>
+          </tns:diagnosis>
+        </tns:diagnoses>
         <tns:dominantHand>dominantHand0</tns:dominantHand>
         <tns:weight>0</tns:weight>
         <tns:height>0</tns:height>
         <tns:menopaus>false</tns:menopaus>
         <tns:menopausAge>0</tns:menopausAge>
         <tns:studyProjects>
-          <tns:studyProject>Ny koppling</tns:studyProject>
-          <tns:studyProject>Ny studie</tns:studyProject>
+          <tns:studyProject>
+            <tns:name>Ny koppling</tns:name>
+          </tns:studyProject>
+          <tns:studyProject>
+            <tns:name>Ny studie</tns:name>
+          </tns:studyProject>
         </tns:studyProjects>
         <tns:visitDate>20110114</tns:visitDate>
         <tns:visitDoctor>

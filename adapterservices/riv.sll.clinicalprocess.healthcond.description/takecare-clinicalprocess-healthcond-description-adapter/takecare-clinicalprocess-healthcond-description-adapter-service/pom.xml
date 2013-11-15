@@ -19,7 +19,7 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>se.sll.rivta.tools</groupId>
+			<groupId>se.rivta.tools</groupId>
 			<artifactId>sll-clinicalprocess-healthcond-description-schemas</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>

@@ -24,12 +24,12 @@ import java.util.List;
 
 import javax.jws.WebService;
 
+import se.riv.sll.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylaborderoutcomeresponder.v1.AnalysisType;
 import se.riv.sll.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylaborderoutcomeresponder.v1.CodeType;
 import se.riv.sll.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylaborderoutcomeresponder.v1.GetClinicalChemistryLabOrderOutcomeResponseType;
 import se.riv.sll.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylaborderoutcomeresponder.v1.GetClinicalChemistryLabOrderOutcomeType;
 import se.riv.sll.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylaborderoutcomeresponder.v1.LabResultsType;
-import se.riv.sll.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylaborderoutcomeresponder.v1.LabResultsType.Analysis;
-import se.riv.sll.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylaborderoutcomeresponder.v1.ResultCodeEnum;
+import se.riv.sll.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylaborderoutcomeresponder.v1.LabResultsType.Analyses;
 import se.riv.sll.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylaborderoutcomeresponder.v1.rivtabp21.GetClinicalChemistryLabOrderOutcomeResponderInterface;
 import se.riv.sll.clinicalprocess.healthcond.actoutcome.v1.PQType;
 
@@ -56,42 +56,43 @@ public class GetClinicalChemistryLabOrderOutcomeImpl implements
             labResult.setInstanceId("id 1");
             labResult.setRegisteredDateTime("20121213213945");
             labResult.setComment("Comment for labresult #1");
-            List<Analysis> analysis = labResult.getAnalysis();
+            Analyses analyses = new Analyses();
+            labResult.setAnalyses(analyses);
             {
-                // analys #1
-                Analysis analys = new Analysis();
-                analys.setInstanceId("id 1");
+                // analysis #1
+                AnalysisType analysis = new AnalysisType();
+                analysis.setInstanceId("id 1");
                 CodeType code = new CodeType();
                 code.setCode("code A");
                 code.setDisplayName("DisplayName code 1A");
-                analys.setCode(code);
-                analys.setTakenDateTime("20121213213945");
-                analys.setComment("analysis #1 comment");
-                analys.setSampleType("sample type A");
+                analysis.setCode(code);
+                analysis.setTakenDateTime("20121213213945");
+                analysis.setComment("analysis #1 comment");
+                analysis.setSampleType("sample type A");
                 PQType value = new PQType();
                 value.setValue(33.4);
                 value.setUnit("mg");
-                analys.setOutcomeValue(value);
-                analys.setPathological(true);
-                analysis.add(analys);
+                analysis.setOutcomeValue(value);
+                analysis.setPathological(true);
+                analyses.getAnalysis().add(analysis);
             }
             {
-                // analys #2
-                Analysis analys = new Analysis();
-                analys.setInstanceId("id 2");
+                // analysis #2
+                AnalysisType analysis = new AnalysisType();
+                analysis.setInstanceId("id 2");
                 CodeType code = new CodeType();
                 code.setCode("code B");
                 code.setDisplayName("DisplayName code 1B");
-                analys.setCode(code);
-                analys.setTakenDateTime("20121214213945");
-                analys.setComment("analysis #2 comment");
-                analys.setSampleType("sample type AB");
+                analysis.setCode(code);
+                analysis.setTakenDateTime("20121214213945");
+                analysis.setComment("analysis #2 comment");
+                analysis.setSampleType("sample type AB");
                 PQType value = new PQType();
                 value.setValue(12.7);
                 value.setUnit("ml");
-                analys.setPathological(false);
-                analys.setReference("reference 7");
-                analysis.add(analys);
+                analysis.setPathological(false);
+                analysis.setReference("reference 7");
+                analyses.getAnalysis().add(analysis);
             }
         }
         labResults.add(labResult);
@@ -102,47 +103,46 @@ public class GetClinicalChemistryLabOrderOutcomeImpl implements
             labResult.setInstanceId("id 2");
             labResult.setRegisteredDateTime("20121213213945");
             labResult.setComment("Comment for labresult #2");
-            List<Analysis> analysis = labResult.getAnalysis();
+            Analyses analyses = new Analyses();
+            labResult.setAnalyses(analyses);
             {
-                // analys #1
-                Analysis analys = new Analysis();
-                analys.setInstanceId("id 1");
+                // analysis #1
+                AnalysisType analysis = new AnalysisType();
+                analysis.setInstanceId("id 1");
                 CodeType code = new CodeType();
                 code.setCode("code A");
                 code.setDisplayName("DisplayName code 2A");
-                analys.setCode(code);
-                analys.setTakenDateTime("20121213213945");
-                analys.setComment("analysis #1 comment");
-                analys.setSampleType("sample type A");
+                analysis.setCode(code);
+                analysis.setTakenDateTime("20121213213945");
+                analysis.setComment("analysis #1 comment");
+                analysis.setSampleType("sample type A");
                 PQType value = new PQType();
                 value.setValue(19.2);
                 value.setUnit("cm");
-                analys.setPathological(true);
-                analysis.add(analys);
+                analysis.setPathological(true);
+                analyses.getAnalysis().add(analysis);
             }
             {
-                // analys #2
-                Analysis analys = new Analysis();
-                analys.setInstanceId("id 2");
+                // analysis #2
+                AnalysisType analysis = new AnalysisType();
+                analysis.setInstanceId("id 2");
                 CodeType code = new CodeType();
                 code.setCode("code B");
                 code.setDisplayName("DisplayName code 2B");
-                analys.setCode(code);
-                analys.setTakenDateTime("20121214213945");
-                analys.setComment("analysis #2 comment");
-                analys.setSampleType("sample type AB");
+                analysis.setCode(code);
+                analysis.setTakenDateTime("20121214213945");
+                analysis.setComment("analysis #2 comment");
+                analysis.setSampleType("sample type AB");
                 PQType value = new PQType();
                 value.setValue(5.4);
                 value.setUnit("mg");
-                analys.setPathological(false);
-                analys.setReference("reference 7");
-                analysis.add(analys);
+                analysis.setPathological(false);
+                analysis.setReference("reference 7");
+                analyses.getAnalysis().add(analysis);
             }
         }
         labResults.add(labResult);
 
-        response.setComment(comment.toString());
-        response.setResultCode(ResultCodeEnum.OK);
         return response;
     }
 

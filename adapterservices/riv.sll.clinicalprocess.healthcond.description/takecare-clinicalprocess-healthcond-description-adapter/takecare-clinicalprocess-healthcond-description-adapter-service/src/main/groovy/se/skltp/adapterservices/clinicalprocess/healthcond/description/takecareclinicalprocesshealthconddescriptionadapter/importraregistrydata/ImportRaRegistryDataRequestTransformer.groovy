@@ -153,10 +153,10 @@ public class ImportRaRegistryDataRequestTransformer extends AbstractMessageTrans
                         'tns:HSAID'                 h.HSAID.text()
                     }
                   if (0 < data.Diagnosis.size())
-                    'tns:diagnosis' {
+                    'tns:diagnoses' {
                       data.Diagnosis.each{
                         def d = it
-                        'tns:diagnose' {
+                        'tns:diagnosis' {
                           if (1 == d.Name.size())
                             'tns:name'              d.Name.text()
                           if (1 == d.OnsetDate.size())
@@ -178,7 +178,9 @@ public class ImportRaRegistryDataRequestTransformer extends AbstractMessageTrans
                     'tns:studyProjects' {
                       data.StudyProject.each {
                         def project = it
-                        'tns:studyProject'            project.text()
+                        'tns:studyProject' {
+                           'tns:name'             project.text()
+                        }
                       }
                     }
                   }

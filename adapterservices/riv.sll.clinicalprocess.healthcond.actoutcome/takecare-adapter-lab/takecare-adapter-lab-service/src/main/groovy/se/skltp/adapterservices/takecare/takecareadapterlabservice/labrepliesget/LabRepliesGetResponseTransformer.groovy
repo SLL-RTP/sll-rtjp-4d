@@ -50,6 +50,7 @@ public class LabRepliesGetResponseTransformer extends AbstractMessageTransformer
             def builder = new StreamingMarkupBuilder()
             builder.encoding = 'UTF-8'
             def response = builder.bind {
+              
                 //mkp.xmlDeclaration()
                 mkp.declareNamespace(core:'urn:riv:sll:clinicalprocess:healthcond:actoutcome:1')
                 mkp.declareNamespace(tns:'urn:riv:sll:clinicalprocess:healthcond:actoutcome:GetClinicalChemistryLabOrderOutcomeResponder:1')
@@ -61,32 +62,34 @@ public class LabRepliesGetResponseTransformer extends AbstractMessageTransformer
                             it.Labs2.Answer.each{
                                 def answer = it
                                 'tns:labResults' {
-                                    answer.Analysis.each {
-                                        def ana = it
-                                        'tns:analysis' {
-                                            'tns:instanceId' ana.InstanceId.text()
-                                            'tns:code' {
-                                                if (ana.Code.Code.size() != 0) {
-                                                    'tns:code' ana.Code.Code.text()
+                                    'tns:analyses' {
+                                        answer.Analysis.each {
+                                            def ana = it
+                                            'tns:analysis' {
+                                                'tns:instanceId' ana.InstanceId.text()
+                                                'tns:code' {
+                                                    if (ana.Code.Code.size() != 0) {
+                                                        'tns:code' ana.Code.Code.text()
+                                                    }
+                                                    if (ana.Code.DisplayName.size() != 0) {
+                                                        'tns:displayName' ana.Code.DisplayName.text()
+                                                    }
                                                 }
-                                                if (ana.Code.DisplayName.size() != 0) {
-                                                    'tns:displayName' ana.Code.DisplayName.text()
+                                                'tns:takenDateTime' parseDateTime(ana.TakenDateTime.text()).format('yyyyMMddHHmmss')
+                                                if (ana.Comment.size() != 0) {
+                                                    'tns:comment'       ana.Comment.text()
                                                 }
-                                            }
-                                            'tns:takenDateTime' parseDateTime(ana.TakenDateTime.text()).format('yyyyMMddHHmmss')
-                                            if (ana.Comment.size() != 0) {
-                                                'tns:comment'       ana.Comment.text()
-                                            }
-                                            if (ana.SampleType.size() != 0) {
-                                                'tns:sampleType'    ana.SampleType.text()
-                                            }
-                                            'tns:outcomeValue' {
-                                                'core:value'        ana.ResultSummary.text()
-                                                'core:unit'         ana.UnitOfMeasure.text()
-                                            } 
-                                            'tns:pathological'  ana.Pathological.text()
-                                            if (ana.Reference.size() != 0) {
-                                                'tns:reference'     ana.Reference.text()
+                                                if (ana.SampleType.size() != 0) {
+                                                    'tns:sampleType'    ana.SampleType.text()
+                                                }
+                                                'tns:outcomeValue' {
+                                                    'core:value'        ana.ResultSummary.text()
+                                                    'core:unit'         ana.UnitOfMeasure.text()
+                                                } 
+                                                'tns:pathological'  ana.Pathological.text()
+                                                if (ana.Reference.size() != 0) {
+                                                    'tns:reference'     ana.Reference.text()
+                                                }
                                             }
                                         }
                                     }

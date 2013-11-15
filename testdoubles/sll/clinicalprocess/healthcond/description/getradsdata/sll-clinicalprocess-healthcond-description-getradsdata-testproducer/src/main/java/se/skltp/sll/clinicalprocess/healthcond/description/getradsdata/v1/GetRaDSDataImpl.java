@@ -30,7 +30,7 @@ import java.util.Random;
 import javax.jws.WebService;
 
 import se.sll.clinicalprocess.healthcond.description.getradsdata.v1.rivtabp21.GetRaDSDataResponderInterface;
-import se.sll.clinicalprocess.healthcond.description.getradsdataresponder.v1.DiagnoseType;
+import se.sll.clinicalprocess.healthcond.description.getradsdataresponder.v1.DiagnosisType;
 import se.sll.clinicalprocess.healthcond.description.getradsdataresponder.v1.DrugType;
 import se.sll.clinicalprocess.healthcond.description.getradsdataresponder.v1.GetRaDSDataResponseType;
 import se.sll.clinicalprocess.healthcond.description.getradsdataresponder.v1.GetRaDSDataType;
@@ -38,15 +38,15 @@ import se.sll.clinicalprocess.healthcond.description.getradsdataresponder.v1.Inc
 import se.sll.clinicalprocess.healthcond.description.getradsdataresponder.v1.LocationType;
 import se.sll.clinicalprocess.healthcond.description.getradsdataresponder.v1.PersonType;
 import se.sll.clinicalprocess.healthcond.description.getradsdataresponder.v1.RegistryDataType;
-import se.sll.clinicalprocess.healthcond.description.getradsdataresponder.v1.ResultCodeEnum;
 import se.sll.clinicalprocess.healthcond.description.getradsdataresponder.v1.RegistryDataType.Diagnoses;
 import se.sll.clinicalprocess.healthcond.description.getradsdataresponder.v1.RegistryDataType.Drugs;
 import se.sll.clinicalprocess.healthcond.description.getradsdataresponder.v1.RegistryDataType.StudyProjects;
+import se.sll.clinicalprocess.healthcond.description.getradsdataresponder.v1.StudyProjectType;
 
 //@WebService(serviceName = "GetRaDSDataResponderService", endpointInterface = "se.riv.clinicalprocess.healthcond.description.getradsdataresponder.v1.rivtabp21.GetRaDSDataResponderInterface", portName = "GetRaDSDataResponderPort", targetNamespace = "urn:sll:clinicalprocess:healthcond:description:GetRaDSData:1:rivtabp21", wsdlLocation = "interactions/GetRaDSDataInteraction/GetRaDSDataInteraction_1.0_RIVTABP21.wsdl")
 @WebService
 public class GetRaDSDataImpl implements GetRaDSDataResponderInterface {
-    
+
     SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 
     @Override
@@ -92,7 +92,8 @@ public class GetRaDSDataImpl implements GetRaDSDataResponderInterface {
         data.setRF("RF value");
         data.setSmoking(r.nextBoolean());
         data.setSR((float) randInt(7, 190) / 10);
-        data.setStudyProjects(produceRandomStudyProjects());
+        StudyProjects studyProjects = new StudyProjects();
+        studyProjects.getStudyProject().addAll(produceRandomStudyProjects());
         data.setSwollenJoints(randBigInt(1, 28));
         data.setSwollenJoints66(randBigInt(1, 28));
         data.setTenderJoints(randBigInt(1, 28));
@@ -103,20 +104,18 @@ public class GetRaDSDataImpl implements GetRaDSDataResponderInterface {
         data.setWeight((float) randInt(550, 900) / 10);
         data.setWorkability(randBigInt(1, 100));
         data.setXrayDate(sdf.format(new Date()));
-
         result.setRegistryData(data);
-        result.setComment(comment.toString());
-        result.setResultCode(ResultCodeEnum.OK);
 
         return result;
     }
 
     private Diagnoses produceDiagnosis() {
         Diagnoses result = new Diagnoses();
-        List<DiagnoseType> list = result.getDiagnose();
+
+        List<DiagnosisType> list = result.getDiagnosis();
         int iter = randInt(1, 5);
         for (int i = 0; i < iter; i++) {
-            DiagnoseType d = new DiagnoseType();
+            DiagnosisType d = new DiagnosisType();
             d.setName("Diagnose-" + randInt(1, 500));
             d.setICD10("ICD10-" + randInt(1, 50));
             d.setOnsetDate(sdf.format(new Date()));
@@ -125,13 +124,14 @@ public class GetRaDSDataImpl implements GetRaDSDataResponderInterface {
         return result;
     }
 
-    private StudyProjects produceRandomStudyProjects() {
-        StudyProjects result = new StudyProjects();
-        List<String> projects = result.getStudyProject();
+    private List<StudyProjectType> produceRandomStudyProjects() {
+        List<StudyProjectType> result = new ArrayList<StudyProjectType>();
 
+        StudyProjectType project = null;
         int iter = randInt(1, 5);
         for (int i = 0; i < iter; i++) {
-            projects.add("Project-" + i);
+            project = new StudyProjectType();
+            project.setName("Project-" + i);
         }
         return result;
     }
@@ -196,6 +196,5 @@ public class GetRaDSDataImpl implements GetRaDSDataResponderInterface {
     private BigInteger randBigInt(int min, int max) {
         return BigInteger.valueOf(randInt(min, max));
     }
-
 
 }

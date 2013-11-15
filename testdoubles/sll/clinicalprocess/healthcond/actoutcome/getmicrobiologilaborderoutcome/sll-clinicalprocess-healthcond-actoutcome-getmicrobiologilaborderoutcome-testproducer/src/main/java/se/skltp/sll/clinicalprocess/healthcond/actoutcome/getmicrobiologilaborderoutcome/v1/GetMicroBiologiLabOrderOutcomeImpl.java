@@ -32,7 +32,6 @@ import se.riv.sll.clinicalprocess.healthcond.actoutcome.getmicrobiologilabordero
 import se.riv.sll.clinicalprocess.healthcond.actoutcome.getmicrobiologilaborderoutcomeresponder.v1.ACPAResultType;
 import se.riv.sll.clinicalprocess.healthcond.actoutcome.getmicrobiologilaborderoutcomeresponder.v1.GetMicroBiologiLabOrderOutcomeResponseType;
 import se.riv.sll.clinicalprocess.healthcond.actoutcome.getmicrobiologilaborderoutcomeresponder.v1.GetMicroBiologiLabOrderOutcomeType;
-import se.riv.sll.clinicalprocess.healthcond.actoutcome.getmicrobiologilaborderoutcomeresponder.v1.ResultCodeEnum;
 
 @WebService
 public class GetMicroBiologiLabOrderOutcomeImpl implements
@@ -46,10 +45,7 @@ public class GetMicroBiologiLabOrderOutcomeImpl implements
 
         GetMicroBiologiLabOrderOutcomeResponseType result = new GetMicroBiologiLabOrderOutcomeResponseType();
 
-        StringBuffer comment = new StringBuffer("Test result for ");
-
         if (arg1 != null) {
-            comment.append("[" + arg1.getPatientId() + "]");
 
             ACPAResultType acpa = new ACPAResultType();
 
@@ -67,8 +63,6 @@ public class GetMicroBiologiLabOrderOutcomeImpl implements
             result.setACPAResult(acpa);
         }
 
-        result.setComment(comment.toString());
-        result.setResultCode(ResultCodeEnum.OK);
         return result;
     }
 

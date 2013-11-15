@@ -38,7 +38,6 @@ import se.sll.clinicalprocess.healthcond.description.getrapatientdataresponder.v
 import se.sll.clinicalprocess.healthcond.description.getrapatientdataresponder.v1.PatientDataType;
 import se.sll.clinicalprocess.healthcond.description.getrapatientdataresponder.v1.PatientDataType.Drugs;
 import se.sll.clinicalprocess.healthcond.description.getrapatientdataresponder.v1.PatientVariables;
-import se.sll.clinicalprocess.healthcond.description.getrapatientdataresponder.v1.ResultCodeEnum;
 
 //@WebService(serviceName = "GetRaPatientDataResponderService", endpointInterface = "se.riv.clinicalprocess.healthcond.description.getrapatientdataresponder.v1.rivtabp21.GetRaPatientDataResponderInterface", portName = "GetRaPatientDataResponderPort", targetNamespace = "urn:sll:clinicalprocess:healthcond:description:GetRaPatientData:1:rivtabp21", wsdlLocation = "interactions/GetRaPatientDataInteraction/GetRaPatientDataInteraction_1.0_RIVTABP21.wsdl")
 @WebService
@@ -62,8 +61,6 @@ public class GetRaPatientDataImpl implements GetRaPatientDataResponderInterface 
             }
 
         }
-        response.setComment(comment.toString());
-        response.setResultCode(ResultCodeEnum.OK);
 
         return response;
     }
