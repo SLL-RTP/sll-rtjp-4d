@@ -94,7 +94,7 @@
           <xs:documentation xml:lang="sv">Menopaus ålder</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="studyProject" minOccurs="0">
+      <xs:element name="studyProjects" minOccurs="0">
         <xs:annotation>
           <xs:documentation xml:lang="sv">Studier eller projekt som patienten ingår i</xs:documentation>
         </xs:annotation>
