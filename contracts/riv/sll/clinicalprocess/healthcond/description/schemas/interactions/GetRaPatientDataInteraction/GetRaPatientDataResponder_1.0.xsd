@@ -59,8 +59,6 @@
 
   <xs:complexType name="GetRaPatientDataResponseType">
     <xs:sequence>
-      <xs:element name="ResultCode" type="tns:ResultCodeEnum"/>
-      <xs:element name="comment" type="xs:string" minOccurs="0"/>
       <xs:element name="patientData" type="tns:PatientDataType" minOccurs="0" maxOccurs="unbounded"/>
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
@@ -248,11 +246,4 @@
     </xs:restriction>
   </xs:simpleType>
 
-  <xs:simpleType name="ResultCodeEnum">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="OK"/>
-      <xs:enumeration value="ERROR"/>
-      <xs:enumeration value="INFO"/>
-    </xs:restriction>
-  </xs:simpleType>
 </xs:schema>

@@ -36,19 +36,10 @@
   </xs:complexType>
   <xs:complexType name="GetRaDSDataResponseType">
     <xs:sequence>
-      <xs:element name="ResultCode" type="tns:ResultCodeEnum"/>
-      <xs:element name="comment" type="xs:string" minOccurs="0"/>
       <xs:element name="registryData" type="tns:RegistryDataType" minOccurs="0"/>
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:simpleType name="ResultCodeEnum">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="OK"/>
-      <xs:enumeration value="ERROR"/>
-      <xs:enumeration value="INFO"/>
-    </xs:restriction>
-  </xs:simpleType>
 
     <xs:complexType name="RegistryDataType">
     <xs:sequence>
@@ -73,11 +64,10 @@
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="diagnose" type="tns:DiagnoseType" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="diagnosis" type="tns:DiagnosisType" minOccurs="0" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
-      </xs:element>
+      </xs:element>      
       <xs:element name="dominantHand" type="xs:string" minOccurs="0">
         <xs:annotation>
           <xs:documentation xml:lang="sv">@TODO "som enum i data xml" Dominant
@@ -104,16 +94,15 @@
           <xs:documentation xml:lang="sv">Menopaus ålder</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="studyProjects" minOccurs="0">
+      <xs:element name="studyProject" minOccurs="0">
         <xs:annotation>
           <xs:documentation xml:lang="sv">Studier eller projekt som patienten ingår i</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="studyProject" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
-          </xs:sequence>
-        </xs:complexType>       
+            <xs:element name="studyProject" type="tns:StudyProjectType" minOccurs="0" maxOccurs="unbounded"/>            
+          </xs:sequence>           
+        </xs:complexType>
       </xs:element>
       <xs:element name="visitDate" type="core:DateType" minOccurs="0">
         <xs:annotation>
@@ -300,7 +289,15 @@
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="DiagnoseType">
+  
+  <xs:complexType name="StudyProjectType">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="DiagnosisType">
     <xs:sequence>
       <xs:element name="name" type="xs:string" minOccurs="0"/>
       <xs:element name="ICD10" type="xs:string" minOccurs="0"/>
@@ -312,6 +309,7 @@
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
+  
   <xs:complexType name="DrugType">
     <xs:sequence>
       <xs:element name="name" type="xs:string" minOccurs="0">

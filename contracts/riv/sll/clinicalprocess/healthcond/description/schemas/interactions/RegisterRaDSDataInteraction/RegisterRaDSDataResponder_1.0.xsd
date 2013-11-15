@@ -66,13 +66,13 @@
           <xs:documentation xml:lang="sv">Platsdata för läkarbesök</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="diagnosis" minOccurs="0">
+      <xs:element name="diagnoses" minOccurs="0">
         <xs:annotation>
           <xs:documentation xml:lang="sv">Patientens diagnos(er)</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="diagnose" type="tns:DiagnoseType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="diagnosis" type="tns:DiagnosisType" minOccurs="0" maxOccurs="unbounded"/>
             <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
@@ -109,7 +109,7 @@
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="studyProject" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="studyProject" type="tns:StudyProjectType" minOccurs="0" maxOccurs="unbounded"/>
             <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>       
@@ -298,7 +298,13 @@
       <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="DiagnoseType">
+  <xs:complexType name="StudyProjectType">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DiagnosisType">
     <xs:sequence>
       <xs:element name="name" type="xs:string" minOccurs="0"/>
       <xs:element name="ICD10" type="xs:string" minOccurs="0"/>

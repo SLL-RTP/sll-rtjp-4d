@@ -39,8 +39,6 @@
   
   <xs:complexType name='GetClinicalChemistryLabOrderOutcomeResponseType'>
     <xs:sequence>
-      <xs:element name='resultCode' type='tns:ResultCodeEnum' />
-      <xs:element name='comment' type='xs:string' minOccurs='0' />
       <xs:element name='labResults' type='tns:LabResultsType' minOccurs='0' maxOccurs="unbounded"/>
       <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
     </xs:sequence>
@@ -49,18 +47,10 @@
 
   <xs:complexType name="LabResultsType">
     <xs:sequence>
-      <xs:element name="analysis" maxOccurs="unbounded">
+      <xs:element name="analyses" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="instanceId" type="xs:string"/>
-            <xs:element name="code" type="tns:CodeType"/>
-            <xs:element name="takenDateTime" type="core:TimeStampType"/>
-            <xs:element name="comment" type="xs:string" minOccurs="0"/>
-            <xs:element name="sampleType" type="xs:string" minOccurs="0"/>
-            <xs:element name="outcomeValue" type="core:PQType"/>
-            <xs:element name="pathological" type="xs:boolean"/>
-            <xs:element name="reference" type="xs:string" minOccurs="0"/>
-            <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+            <xs:element name="analysis"  type="tns:AnalysisType" minOccurs="0" maxOccurs="unbounded" />            
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -70,7 +60,22 @@
       <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
     </xs:sequence>
   </xs:complexType>
+
+  <xs:complexType name="AnalysisType">
+    <xs:sequence>
+      <xs:element name="instanceId" type="xs:string"/>
+      <xs:element name="code" type="tns:CodeType"/>
+      <xs:element name="takenDateTime" type="core:TimeStampType"/>
+      <xs:element name="comment" type="xs:string" minOccurs="0"/>
+      <xs:element name="sampleType" type="xs:string" minOccurs="0"/>
+      <xs:element name="outcomeValue" type="core:PQType"/>
+      <xs:element name="pathological" type="xs:boolean"/>
+      <xs:element name="reference" type="xs:string" minOccurs="0"/>
+      <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />
+    </xs:sequence>
+  </xs:complexType>
   
+
   <xs:complexType name="CodeType">
     <xs:sequence>
       <xs:element name="code" type="xs:string" minOccurs="0"/>
@@ -79,11 +84,4 @@
     </xs:sequence>
   </xs:complexType>
   
-  
-  <xs:simpleType name='ResultCodeEnum'>
-    <xs:restriction base='xs:string'>
-      <xs:enumeration value='OK' />
-      <xs:enumeration value='ERROR' />
-    </xs:restriction>
-  </xs:simpleType>
 </xs:schema>
