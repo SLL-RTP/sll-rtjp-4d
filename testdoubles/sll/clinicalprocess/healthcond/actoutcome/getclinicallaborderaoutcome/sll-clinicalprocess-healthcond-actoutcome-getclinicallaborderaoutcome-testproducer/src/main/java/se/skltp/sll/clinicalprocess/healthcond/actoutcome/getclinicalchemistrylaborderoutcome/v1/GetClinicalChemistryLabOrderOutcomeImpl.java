@@ -69,10 +69,10 @@ public class GetClinicalChemistryLabOrderOutcomeImpl implements
                 analysis.setTakenDateTime("20121213213945");
                 analysis.setComment("analysis #1 comment");
                 analysis.setSampleType("sample type A");
-                QuantityType  quantity = new QuantityType(); 
+                QuantityType  quantity = new QuantityType();
+                analysis.setOutcomeValue(quantity);
                 quantity.setValue("33,4");
                 quantity.setUnit("mg");
-                analysis.setOutcomeValue(quantity);
                 analysis.setPathological(true);
                 analyses.getAnalysis().add(analysis);
             }
@@ -87,9 +87,10 @@ public class GetClinicalChemistryLabOrderOutcomeImpl implements
                 analysis.setTakenDateTime("20121214213945");
                 analysis.setComment("analysis #2 comment");
                 analysis.setSampleType("sample type AB");
-                QuantityType value = new QuantityType();
-                value.setValue("12,7");
-                value.setUnit("ml");
+                QuantityType quantity = new QuantityType();
+                analysis.setOutcomeValue(quantity);
+                quantity.setValue("12,7");
+                quantity.setUnit("ml");
                 analysis.setPathological(false);
                 analysis.setReference("reference 7");
                 analyses.getAnalysis().add(analysis);
@@ -117,6 +118,7 @@ public class GetClinicalChemistryLabOrderOutcomeImpl implements
                 analysis.setComment("analysis #1 comment");
                 analysis.setSampleType("sample type A");
                 QuantityType quantity = new QuantityType();
+                analysis.setOutcomeValue(quantity);
                 quantity.setValue("19,2");
                 quantity.setUnit("cm");
                 analysis.setPathological(true);
@@ -134,6 +136,7 @@ public class GetClinicalChemistryLabOrderOutcomeImpl implements
                 analysis.setComment("analysis #2 comment");
                 analysis.setSampleType("sample type AB");
                 QuantityType quantity = new QuantityType();
+                analysis.setOutcomeValue(quantity);
                 quantity.setValue("5,4");
                 quantity.setUnit("mg");
                 analysis.setPathological(false);
