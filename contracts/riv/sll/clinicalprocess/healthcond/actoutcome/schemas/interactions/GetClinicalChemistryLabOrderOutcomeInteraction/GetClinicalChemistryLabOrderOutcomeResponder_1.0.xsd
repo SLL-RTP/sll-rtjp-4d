@@ -68,7 +68,7 @@
       <xs:element name="takenDateTime" type="core:TimeStampType"/>
       <xs:element name="comment" type="xs:string" minOccurs="0"/>
       <xs:element name="sampleType" type="xs:string" minOccurs="0"/>
-      <xs:element name="outcomeValue" type="core:PQType"/>
+      <xs:element name="outcomeValue" type="core:QuantityType"/>
       <xs:element name="pathological" type="xs:boolean"/>
       <xs:element name="reference" type="xs:string" minOccurs="0"/>
       <xs:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded' />

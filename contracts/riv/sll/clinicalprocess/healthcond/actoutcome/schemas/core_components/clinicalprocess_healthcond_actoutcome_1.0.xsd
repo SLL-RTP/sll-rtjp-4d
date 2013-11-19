@@ -90,15 +90,16 @@
     </xs:sequence>
   </xs:complexType>
   
-  <xs:complexType name="PQType">
+  <xs:complexType name="QuantityType">
     <xs:annotation>
       <xs:documentation>
-        Units of measurement (Physical Quantity) - 
-        A type based on HL7 PQ data type. Allowed values for ”unit” is determined by http://unitsofmeasure.org/ucum.html.
+        This is a relaxed complexType for units of measurement (Physical Quantity). The value is a xs:string to be able to carry 
+        text that describes the value eg > 12
+        
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="value" type="xs:double"/>
+      <xs:element name="value" type="xs:string"/>
       <xs:element name="unit" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
