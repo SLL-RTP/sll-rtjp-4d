@@ -31,7 +31,7 @@ import se.riv.sll.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylabo
 import se.riv.sll.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylaborderoutcomeresponder.v1.LabResultsType;
 import se.riv.sll.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylaborderoutcomeresponder.v1.LabResultsType.Analyses;
 import se.riv.sll.clinicalprocess.healthcond.actoutcome.getclinicalchemistrylaborderoutcomeresponder.v1.rivtabp21.GetClinicalChemistryLabOrderOutcomeResponderInterface;
-import se.riv.sll.clinicalprocess.healthcond.actoutcome.v1.PQType;
+import se.riv.sll.clinicalprocess.healthcond.actoutcome.v1.QuantityType;
 
 @WebService
 public class GetClinicalChemistryLabOrderOutcomeImpl implements
@@ -69,10 +69,10 @@ public class GetClinicalChemistryLabOrderOutcomeImpl implements
                 analysis.setTakenDateTime("20121213213945");
                 analysis.setComment("analysis #1 comment");
                 analysis.setSampleType("sample type A");
-                PQType value = new PQType();
-                value.setValue(33.4);
-                value.setUnit("mg");
-                analysis.setOutcomeValue(value);
+                QuantityType  quantity = new QuantityType(); 
+                quantity.setValue("33,4");
+                quantity.setUnit("mg");
+                analysis.setOutcomeValue(quantity);
                 analysis.setPathological(true);
                 analyses.getAnalysis().add(analysis);
             }
@@ -87,8 +87,8 @@ public class GetClinicalChemistryLabOrderOutcomeImpl implements
                 analysis.setTakenDateTime("20121214213945");
                 analysis.setComment("analysis #2 comment");
                 analysis.setSampleType("sample type AB");
-                PQType value = new PQType();
-                value.setValue(12.7);
+                QuantityType value = new QuantityType();
+                value.setValue("12,7");
                 value.setUnit("ml");
                 analysis.setPathological(false);
                 analysis.setReference("reference 7");
@@ -116,9 +116,9 @@ public class GetClinicalChemistryLabOrderOutcomeImpl implements
                 analysis.setTakenDateTime("20121213213945");
                 analysis.setComment("analysis #1 comment");
                 analysis.setSampleType("sample type A");
-                PQType value = new PQType();
-                value.setValue(19.2);
-                value.setUnit("cm");
+                QuantityType quantity = new QuantityType();
+                quantity.setValue("19,2");
+                quantity.setUnit("cm");
                 analysis.setPathological(true);
                 analyses.getAnalysis().add(analysis);
             }
@@ -133,9 +133,9 @@ public class GetClinicalChemistryLabOrderOutcomeImpl implements
                 analysis.setTakenDateTime("20121214213945");
                 analysis.setComment("analysis #2 comment");
                 analysis.setSampleType("sample type AB");
-                PQType value = new PQType();
-                value.setValue(5.4);
-                value.setUnit("mg");
+                QuantityType quantity = new QuantityType();
+                quantity.setValue("5,4");
+                quantity.setUnit("mg");
                 analysis.setPathological(false);
                 analysis.setReference("reference 7");
                 analyses.getAnalysis().add(analysis);

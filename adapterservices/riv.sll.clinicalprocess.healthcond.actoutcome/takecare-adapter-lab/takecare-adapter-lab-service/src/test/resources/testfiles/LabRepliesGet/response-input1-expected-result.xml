@@ -15,7 +15,7 @@
 				<tns:takenDateTime>20120101101428</tns:takenDateTime>
 				<tns:comment>Här är en analyskommentar</tns:comment>
 	            <tns:outcomeValue>
-	              <core:value>152</core:value>
+	              <core:value>152,4</core:value>
 	              <core:unit>ug/ml</core:unit>
 	            </tns:outcomeValue>
 				<tns:pathological>false</tns:pathological>
@@ -30,7 +30,7 @@
 				<tns:takenDateTime>20120202101328</tns:takenDateTime>
 				<tns:comment />
 				<tns:outcomeValue>
-	              <core:value>234</core:value>
+	              <core:value>234,8</core:value>
 	              <core:unit>mmol/l</core:unit>
 	            </tns:outcomeValue>
 				<tns:pathological>true</tns:pathological>
@@ -50,7 +50,7 @@
 				</tns:code>
 				<tns:takenDateTime>20120203101428</tns:takenDateTime>
 	            <tns:outcomeValue>
-	              <core:value>152</core:value>
+	              <core:value>152,1</core:value>
 	              <core:unit></core:unit>
 	            </tns:outcomeValue>
 				<tns:pathological>false</tns:pathological>

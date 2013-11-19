@@ -18,7 +18,7 @@
 				                    </Code>
 				                    <TakenDateTime>2012-01-01T10:14:28</TakenDateTime>
 				                    <Comment>Här är en analyskommentar</Comment>
-				                    <ResultSummary>152</ResultSummary>
+				                    <ResultSummary>152,4</ResultSummary>
 				                    <UnitOfMeasure>ug/ml</UnitOfMeasure>
 				                    <Pathological>false</Pathological>
 				                    <Reference>124-165</Reference>
@@ -31,7 +31,7 @@
 				                    </Code>
 				                    <TakenDateTime>2012-02-02T10:13:28</TakenDateTime>
 				                    <Comment/>
-				                    <ResultSummary>234</ResultSummary>
+				                    <ResultSummary>234,8</ResultSummary>
 				                    <UnitOfMeasure>mmol/l</UnitOfMeasure>
 				                    <Pathological>true</Pathological>
 				                    <Reference>124-165</Reference>
@@ -52,7 +52,7 @@
 				                        <Code>ML345</Code>
 				                    </Code>
 				                    <TakenDateTime>2012-02-03T10:14:28</TakenDateTime>
-				                    <ResultSummary>152</ResultSummary>
+				                    <ResultSummary>152,1</ResultSummary>
 				                    <Pathological>false</Pathological>
 				                </Analysis>
 				                <InstanceId>SE123456789.193812217044.2</InstanceId>
