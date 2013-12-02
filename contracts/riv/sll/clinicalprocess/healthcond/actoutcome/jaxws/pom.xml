@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>se.sll.maven.riv</groupId>
+    <artifactId>super-pom</artifactId>
+    <version>1.0</version>
+  </parent>
+
   <groupId>se.rivta.tools</groupId>
   <artifactId>sll-clinicalprocess-healthcond-actoutcome-schemas</artifactId>
   <packaging>jar</packaging>
@@ -14,11 +21,6 @@
   </properties>
   <dependencies/>
   <repositories>
-    <repository>
-      <id>java.net</id>
-      <url>http://download.java.net/maven/1/</url>
-      <layout>legacy</layout>
-    </repository>
     <repository>
       <id>m2.java.net</id>
       <name>Java.net Repository for Maven2</name>
