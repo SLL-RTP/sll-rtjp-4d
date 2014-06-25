@@ -13,7 +13,7 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>${parent.artifactId}-service</artifactId>
+	<artifactId>${project.parent.artifactId}-service</artifactId>
 	<packaging>mule</packaging>
 	<name>${project.artifactId}</name>
 
