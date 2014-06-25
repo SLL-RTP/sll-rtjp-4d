@@ -19,7 +19,7 @@ DON'T CHANGE THE CONTENT OF THIS COMMENT UNLESS YOU REALLY KNOW WHAT YOU ARE DOI
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	
-	<artifactId>${parent.artifactId}-schemas</artifactId>
+	<artifactId>${project.parent.artifactId}-schemas</artifactId>
     <packaging>jar</packaging>
     <name>${project.artifactId}</name>
 
