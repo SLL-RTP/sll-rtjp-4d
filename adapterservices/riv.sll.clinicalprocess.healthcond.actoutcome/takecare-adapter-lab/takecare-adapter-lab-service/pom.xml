@@ -10,7 +10,7 @@
 	<parent>
 		<groupId>se.skltp.adapterservices.takecare</groupId>
 		<artifactId>takecare-adapter-lab</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<version>1.0.0-RC1</version>
 	</parent>
 
 	<artifactId>${project.parent.artifactId}-service</artifactId>
